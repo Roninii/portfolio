@@ -1,4 +1,59 @@
+/* global stylings */
 .icon {
   width: 75px;
   height: auto;
 }
+main {
+  text-align: center;
+}
+/* nav bar */
+.nav {
+  /* border-bottom: solid rgb(51, 226, 197); */
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: white;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 100%;
+  box-shadow: 0px 5px 10px purple;
+}
+.nav-icon {
+  width: 60px;
+  height: auto;
+  padding: 0px 15px;
+}
+.nav > li {
+  float: right;
+}
+.nav > li > a {
+  display: block;
+  width: 75px;
+  text-align: center;
+  padding: 23px 25px;
+  text-decoration: none;
+  color: black;
+}
+.nav > li > a:hover {
+  background-color: purple;
+  color: white;
+}
+.active {
+  background-color: purple;
+  color: white;
+}
+
+/* about section */
+.headshot {
+  float: left;
+  width: 325px;
+  height: auto;
+}
+.about {
+  margin-top: 120px;
+  height: 100vh;
+
+}
+
