@@ -2,23 +2,27 @@
 .icon {
   width: 75px;
   height: auto;
+  box-shadow: 0px 5px 10px black;
+  border-radius: 100%
 }
 main {
   text-align: center;
 }
+
+
 /* nav bar */
 .nav {
   /* border-bottom: solid rgb(51, 226, 197); */
   position: fixed;
   top: 0;
   left: 0;
-  background: white;
+  background: #6200EE;
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
   width: 100%;
-  box-shadow: 0px 5px 10px purple;
+  box-shadow: 0px 5px 10px black;
 }
 .nav-icon {
   width: 60px;
@@ -34,15 +38,16 @@ main {
   text-align: center;
   padding: 23px 25px;
   text-decoration: none;
-  color: black;
+  color: white;
+  box-shadow: -2px 0px 2px black;
 }
 .nav > li > a:hover {
-  background-color: purple;
+  background-color: #03DAC5;
   color: white;
+  transition: 750ms;
 }
 .active {
-  background-color: purple;
-  color: white;
+  background-color: #03DAC5;
 }
 
 /* about section */
@@ -50,10 +55,49 @@ main {
   float: left;
   width: 325px;
   height: auto;
+  margin: 25px;
+  box-shadow: 0px 5px 10px black;
 }
 .about {
   margin-top: 120px;
   height: 100vh;
-
+  padding-top: 100px;
 }
 
+
+/* projects sections */
+.projects {
+  height: 100vh;
+  margin-top: -60px;
+  padding-top: 100px;
+}
+
+/* contact section */
+.contact {
+  height: 100vh;
+  margin-top: -60px;
+  padding-top: 100px;
+}
+
+/* tedious icon background settings */
+.github {
+  background-color: #9cdaf0;
+}
+.html {
+  background-color: #f0652a;
+}
+.css {
+  background-color: #33a9dc;
+}
+.javascript {
+    background-color: #f0db4f;
+}
+.react {
+  background-color: #292929;
+}
+.node {
+  background-color: #46483e;
+}
+.linux {
+  background-color: #f3bf00;
+}
