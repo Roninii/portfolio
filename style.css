@@ -89,11 +89,15 @@ main {
   width: 325px;
   height: auto;
   margin-top: 20vh;
+  margin-right: 30px;
   box-shadow: 0px 5px 10px black;
 }
 .about {
   background-size: 20px 20px;
   height: 100vh;
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
 }
 .about h1{
  margin-top: 5vh;
@@ -164,10 +168,16 @@ main {
   }
   .headshot {
     margin-top: 35vh;
+    margin-right: 0;
     float: none;
+  }
+  .about {
+    width: 100%;
   }
   .about h1 {
     margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
     padding-top: 0;
   }
   .projects {
