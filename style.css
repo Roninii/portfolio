@@ -1,4 +1,16 @@
 /* global stylings */
+html {
+  background:
+  linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+  linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+  linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+  linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+  linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+  linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+  background-color: #131313;
+  background-size: 20px 20px;
+  color: white;
+}
 .icon {
   width: 75px;
   height: auto;
@@ -12,17 +24,17 @@ main {
 
 /* nav bar */
 .nav {
-  /* border-bottom: solid rgb(51, 226, 197); */
+  /*! border-bottom: solid rgb(51, 226, 197); */
   position: fixed;
   top: 0;
   left: 0;
-  background: #6200EE;
+  background: #131313;
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
   width: 100%;
-  box-shadow: 0px 5px 10px black;
+  box-shadow: 0px 2px 10px #0da4ba;
 }
 .nav-icon {
   width: 60px;
@@ -37,17 +49,17 @@ main {
   width: 75px;
   text-align: center;
   padding: 23px 25px;
+  font-size: 1.5rem;
   text-decoration: none;
-  color: white;
-  box-shadow: -2px 0px 2px black;
+  color: #0da4ba;
+  
 }
 .nav > li > a:hover {
-  background-color: #03DAC5;
-  color: white;
-  transition: 750ms;
+  text-decoration: underline;
+  text-decoration-color: #0da4ba;
 }
 .active {
-  background-color: #03DAC5;
+/*   background-color: #03DAC5; */
 }
 
 /* about section */
@@ -59,6 +71,7 @@ main {
   box-shadow: 0px 5px 10px black;
 }
 .about {
+  background-size: 20px 20px;
   margin-top: 120px;
   height: 100vh;
   padding-top: 100px;
@@ -70,6 +83,7 @@ main {
   height: 100vh;
   margin-top: -60px;
   padding-top: 100px;
+  
 }
 
 /* contact section */
