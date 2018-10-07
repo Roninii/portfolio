@@ -10,12 +10,12 @@
 </head>
 <body>
   <header>
-    <nav>
+    <nav id="navbar" class="nav">
       <ul class="nav">
         <img class="nav-icon nav-link" src="icons/development.png" />
         <li class="nav-link active"><a href="#welcome-section">About</a></li>
-        <li class="nav-link"><a href="#projects">projects</a></li>
-        <li class="nav-link"><a href="#contact">contact</a></li>
+        <li class="nav-link"><a href="#projects">Projects</a></li>
+        <li class="nav-link"><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -31,43 +31,45 @@
     branch into. Take a look below at some of the things I’ve built, or ways to contact me if you want to build something
     together!</p>
     <h4>Technologies I'm Familiar with: </h4>
-    <img class="icon html"src="icons/html.svg" />
-    <img class="icon css"src="icons/css.svg" />
-    <img class="icon javascript" src="icons/javascript.svg" />
-    <img class="icon react" src="icons/react.svg" />
-    <img class="icon node" src="icons/node.svg" />
-    <img class="icon linux" src="icons/linux.svg" />
-    <img class="icon github"src="icons/github.svg" />
+      <div class="icon-wrapper">
+        <img class="icon html"src="icons/html.svg" />
+        <img class="icon css"src="icons/css.svg" />
+        <img class="icon javascript" src="icons/javascript.svg" />
+        <img class="icon react" src="icons/react.svg" />
+        <img class="icon node" src="icons/node.svg" />
+        <img class="icon linux" src="icons/linux.svg" />
+        <img class="icon github"src="icons/github.svg" />
+      </div>
     </div>
 
     <div id='projects' class='projects'>
       <h2>The Journey So Far..</h2>
       <div class="project-list">
-        <div class="project">
+        <div class="project-tile">
           <h3>Smart-Brain</h3>
           <a href="https://face-recognition-brain-.herokuapp.com/"><img class="thumbnail" src="./icons/thumbnails/face-brain.png" /></a>
         </div>
-        <div class="project">
+        <div class="project-tile">
           <h3>Robofriends</h3>
           <a href="http://roninii.github.io/robofriends/"><img class="thumbnail" src="./icons/thumbnails/robofriends.png" /></a>      
         </div>
-        <div class="project">
+        <div class="project-tile">
           <h3>Product Landing Page</h3>
           <a href="https://roninii.github.io/productLandingPage/"><img class="thumbnail" src="./icons/thumbnails/product.png" /></a>
         </div>
-        <div class="project">
+        <div class="project-tile">
           <h3>Background Generator</h3>
           <a href="https://roninii.github.io/background-generator/"><img class="thumbnail" src="./icons/thumbnails/background.png" /></a>
         </div>
-        <div class="project">
+        <div class="project-tile">
           <h3>Startup Page</h3>
           <a href="https://roninii.github.io/startup-page/"><img class="thumbnail" src="./icons/thumbnails/startup.jpg" /></a>
         </div>
-        <div class="project">
+        <div class="project-tile">
           <h3>Blackjack</h3>
           <a href="https://roninii.github.io/Blackjack/"><img class="thumbnail" src="./icons/thumbnails/blackjack.png" /></a>
         </div>
-        <div class="project">
+        <div class="project-tile">
           <h3>Practice Tool</h3>
           <a href="https://roninii.github.io/practice-tool/"><img class="thumbnail" src="./icons/thumbnails/practice.png" /></a>
         </div>
@@ -76,16 +78,21 @@
 
     <div id='contact' class='contact'>
       <h2>Let's Build Something Together!</h2>
-      <img class="icon" src="icons/twitter.svg" />
-      <img class="icon" src="icons/linkedin.svg" />
-      <img class="icon github" src="icons/github.svg" />
-      <img class="icon" src="icons/inbox.png" />
+        <div class="icon-wrapper">
+          <a href="https://twitter.com/_Ronini" target="_blank"><img class="icon" src="icons/twitter.svg" /></a>
+          <a href="https://www.linkedin.com/in/ronnievillarini/" target="_blank"><img class="icon" src="icons/linkedin.svg" /></a>
+          <a href="https://github.com/Roninii" target="_blank" id="profile-link"><img class="icon github" src="icons/github.svg" /></a>
+          <a href="mailto:villarini91@gmail.com"><img class="icon inbox" src="icons/inbox.png" /></a>
+        </div>
     </div>
   </main>
   
-  <footer>
-    
+  <footer class="footer">
+    <p>&copy;Ronnie Villarini</p>
   </footer>
 
+
+  <!-- free code camp test suite -->
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 </body>
 </html>

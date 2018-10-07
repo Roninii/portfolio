@@ -10,12 +10,16 @@ html {
   background-color: #131313;
   background-size: 20px 20px;
   color: white;
+  margin: 0;
+  padding: 0;
 }
 .icon {
   width: 75px;
-  height: auto;
+  height: 75px;
   box-shadow: 0px 5px 10px black;
-  border-radius: 100%
+  border-radius: 100%;
+  display: block;
+  margin: 5px;
 }
 .thumbnail {
   width: auto;
@@ -33,11 +37,17 @@ main {
   align-content: center;
   justify-content: center;
 }
+.icon-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
 
 
 /* nav bar */
 .nav {
-  /*! border-bottom: solid rgb(51, 226, 197); */
   position: fixed;
   top: 0;
   left: 0;
@@ -71,34 +81,33 @@ main {
   text-decoration: underline;
   text-decoration-color: #0da4ba;
 }
-.active {
-  text-decoration: underline;
-  text-decoration-color: #0da4ba;
-}
+
 
 /* about section */
 .headshot {
   float: left;
   width: 325px;
   height: auto;
-  margin: 25px;
+  margin-top: 20vh;
   box-shadow: 0px 5px 10px black;
 }
 .about {
   background-size: 20px 20px;
-  margin-top: 120px;
   height: 100vh;
-  padding-top: 100px;
+}
+.about h1{
+ margin-top: 5vh;
+ padding-top: 20vh;
 }
 
 /* projects sections */
 .projects {
-  height: 100vh;
-  margin-top: -60px;
-  padding-top: 100px;
-  
+ margin-top: 30vh;
+ padding-top: 20vh;
+ height: 100vh;
+ overflow: auto;
 }
-.project {
+.project-tile {
   margin: 5px;
 }
 .project-list {
@@ -110,10 +119,10 @@ main {
 }
 /* contact section */
 .contact {
+  padding-top: 10vh;
   height: 100vh;
-  margin-top: -60px;
-  padding-top: 100px;
 }
+
 
 /* tedious icon background settings */
 .github {
@@ -136,4 +145,45 @@ main {
 }
 .linux {
   background-color: #f3bf00;
+}
+.inbox {
+  background-color: #1b97f3;
+}
+
+/* media queries  */
+@media only screen and (max-width: 500px) {
+  .nav li {
+    float: none;
+    border-bottom: 2px solid  #0da4ba;
+  }
+  .nav-icon {
+    display: none;
+  }
+  .contact {
+    margin-top: 35vh;
+  }
+  .headshot {
+    margin-top: 35vh;
+    float: none;
+  }
+  .about h1 {
+    margin-top: 0;
+    padding-top: 0;
+  }
+  .projects {
+    margin-top: 45vh;
+    padding-top: 35vh;
+  }
+  .contact {
+    padding-top: 30vh;
+  }
+}
+@media only screen and (max-height: 430px) {
+  .projects {
+    margin-top: 50vh;
+  }
+  .contact {
+    margin-top: 30vh;
+    padding-top: 30vh;
+  }
 }
