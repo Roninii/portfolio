@@ -41,13 +41,19 @@ h2 {
 .highlight--primary {
   color: var(--primary);
 }
+
 .highlight--secondary {
   color: var(--secondary);
 }
+
 .highlight--dark {
   color: var(--primary-dark);
 }
 
+::selection {
+  background-color: var(--primary);
+  color: var(--white);
+}
 /* container */
 .container {
   display: grid;
@@ -67,6 +73,7 @@ h2 {
 /* header */
 .header {
   grid-area: header;
+  text-align: center;
 }
 
 .header__name {
@@ -78,9 +85,11 @@ h2 {
 /* about */
 .about {
   grid-area: about;
-  max-width: 75%;
+  max-width: 60%;
   margin-top: -8rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
+  line-height: 2rem;
+  text-align: justify;
 }
 
 /* contact */
@@ -166,20 +175,23 @@ h2 {
 }
 
 .projects__github {
+  display: inline-block;
   background-clip: text;
   -webkit-background-clip: text;
   color: var(--black);
-  background-image: linear-gradient(120deg, transparent 0%, transparent 50%, var(--primary) 50%);
   background-size: 225%;
   backface-visibility: hidden;
+  margin-top: 1.5rem;
+  border-bottom: 1px solid var(--grey);
+  padding: 1rem 1.2rem;
+  font-size: 1.2rem;
 
   transition: all 0.3s;
 }
 
 .projects__github:hover {
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-  background-position: 100%;
-  transform: scale(1.2);
+  background: var(--primary);
+  color: var(--white);
+  transform: translateY(-0.5rem) scale(1.1);
+  box-shadow: 0 1rem 3rem var(--grey);
 }
