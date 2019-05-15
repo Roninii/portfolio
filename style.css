@@ -203,6 +203,9 @@ h2 {
   .container {
     margin-top: 6.25rem;
   }
+  .project__link {
+    width: 100%;
+  }
   .project__icon {
     display: none;
   }
