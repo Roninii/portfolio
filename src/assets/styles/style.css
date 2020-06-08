@@ -1,3 +1,8 @@
+/* tailwindCSS utilities */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* variables */
 :root {
     --primary: #6200ee;

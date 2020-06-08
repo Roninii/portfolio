@@ -2,8 +2,12 @@
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 
 import DefaultLayout from '~/layouts/Default.vue'
+import '~/assets/styles/style.css'
 
 export default function (Vue, { router, head, isClient }) {
+  head.script.push({
+    src: "https://kit.fontawesome.com/963f59e308.js"
+  })
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
 }
