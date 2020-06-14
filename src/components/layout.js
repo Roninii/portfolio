@@ -8,9 +8,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import Header from "./header"
+import Header from "./header.jsx"
 import "./layout.css"
 
 const Layout = ({ children }) => {
@@ -25,7 +24,7 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
+    <div className='bg-gray-200'>
       <Header siteTitle={data.site.siteMetadata.title} />
       <div>
         <main>{children}</main>
@@ -35,7 +34,7 @@ const Layout = ({ children }) => {
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
       </div>
-    </>
+    </div>
   )
 }
 
