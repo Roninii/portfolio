@@ -3,6 +3,7 @@
 
 import DefaultLayout from '~/layouts/Default.vue'
 
+import './assets/prism.css'
 import '~/assets/style.css'
 
 export default function (Vue, { router, head, isClient }) {
