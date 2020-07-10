@@ -152,6 +152,7 @@ h2 {
   background-size: 225%;
   backface-visibility: hidden;
   box-shadow: 0 0.1rem 0.3rem var(--grey);
+  border-radius: 3px;
 
   transition: all 0.3s;
 }
