@@ -1,3 +1,8 @@
+---
+title: 'Getting Set Up With Gridsome'
+author: Ronnie Villarini
+---
+
 ⚠️This article is a little heavier than some of the others. I found it best to try and explain the basic structure in a fair amount of detail, but feel free to skim to sections that catch your attention!⚠️
 
 ## Getting started
@@ -32,9 +37,9 @@ As you'll see with most of the files and folders in your newly bootstrapped proj
 
 A few things to note here:
 
-- We're importing and registering a component called `DefaultLayout` globally. This is something called.. well.. a **layout** and we will talk about them very shortly.
-- As the comments suggest, if we wanted to register components/filters/directives with the Vue instance, this is where we would do it. This is also where we would import a global css file, which we will also do in another article.
-- You can see scripts mentioned as a potential import here. This is where you would inject things into the head of your document such as font awesome, google analytics, etc. (You might also be able to find a plugin for that - another topic we will discuss in a later article.)
+-   We're importing and registering a component called `DefaultLayout` globally. This is something called.. well.. a **layout** and we will talk about them very shortly.
+-   As the comments suggest, if we wanted to register components/filters/directives with the Vue instance, this is where we would do it. This is also where we would import a global css file, which we will also do in another article.
+-   You can see scripts mentioned as a potential import here. This is where you would inject things into the head of your document such as font awesome, google analytics, etc. (You might also be able to find a plugin for that - another topic we will discuss in a later article.)
 
 ### /layouts
 
@@ -46,39 +51,39 @@ If you open up `/layouts/Default.vue`, and take a look at the code inside the `<
 
 So we have a few cool things happening here:
 
-- You can see a component here, `g-link`, that is Gridsome's wrapper around Vue-Router's `router-link`. It really acts the same way, but with the added benefit of prefetching data from those links using intersection observers. What this means, is if the link is in view, Gridsome will make the request in the background and grab all that data for the user. This way, when the user clicks the link, the transition is almost instantaneous. This is how sites like Gridsome and Gatsby make the user experience feel so fast when they're navigating around the site.
-- You'll probably also notice the `$static.metadata.siteName`, which is a topic for another time but the basics of it is this; Gridsome uses GraphQL under the hood to organize data. This allows you to write GraphQL queries in your components to fetch relevant data and present it like so. Here, we have fetched the name of our site from the `metadata` object. Pretty cool stuff! If you want to learn more about it, you can check the docs [here](https://gridsome.org/docs/data-layer/).
-- Lastly, we have a `slot` component. If you're unfamiliar with Vue slots, they are a way to create components that can be passed children. For example:
+-   You can see a component here, `g-link`, that is Gridsome's wrapper around Vue-Router's `router-link`. It really acts the same way, but with the added benefit of prefetching data from those links using intersection observers. What this means, is if the link is in view, Gridsome will make the request in the background and grab all that data for the user. This way, when the user clicks the link, the transition is almost instantaneous. This is how sites like Gridsome and Gatsby make the user experience feel so fast when they're navigating around the site.
+-   You'll probably also notice the `$static.metadata.siteName`, which is a topic for another time but the basics of it is this; Gridsome uses GraphQL under the hood to organize data. This allows you to write GraphQL queries in your components to fetch relevant data and present it like so. Here, we have fetched the name of our site from the `metadata` object. Pretty cool stuff! If you want to learn more about it, you can check the docs [here](https://gridsome.org/docs/data-layer/).
+-   Lastly, we have a `slot` component. If you're unfamiliar with Vue slots, they are a way to create components that can be passed children. For example:
 
-  ```jsx
-  // CoolTitleComponent.js
-  <template>
-  	<header class='awesomeHeader'>
-  		<h1 class='awesomeHeader--text'>
-  			<slot></slot>
-  		</h1>
-  	</header>
-  </template>
+    ```jsx
+    // CoolTitleComponent.js
+    <template>
+    	<header class='awesomeHeader'>
+    		<h1 class='awesomeHeader--text'>
+    			<slot></slot>
+    		</h1>
+    	</header>
+    </template>
 
-  // Somewhere else in our app
-  <CoolTitleComponent>
-    Wassssuppppp
-  </CoolTitleComponent>
-  ```
+    // Somewhere else in our app
+    <CoolTitleComponent>
+      Wassssuppppp
+    </CoolTitleComponent>
+    ```
 
-  In this example, we have a component called `CoolTitleComponent` , which contains a component provided to us by Vue, called `slot`. In this component we can do whatever we want, but for example sake let's just say our component applies some cool color to the text (purple, because it's the best) placed in our `h1` tag. Then somewhere else in our app we use our component and place the text "Wassssupppppp" in between the opening and closing tags, because why not.
+    In this example, we have a component called `CoolTitleComponent` , which contains a component provided to us by Vue, called `slot`. In this component we can do whatever we want, but for example sake let's just say our component applies some cool color to the text (purple, because it's the best) placed in our `h1` tag. Then somewhere else in our app we use our component and place the text "Wassssupppppp" in between the opening and closing tags, because why not.
 
-  When Vue renders this component, the `slot` component will be replaced with the text that we passed in, and our component will be rendered as :
+    When Vue renders this component, the `slot` component will be replaced with the text that we passed in, and our component will be rendered as :
 
-  ```jsx
-  <header class="awesomeHeader">
-    <h1 class="awesomeHeader--text">Wassssuppppp</h1>
-  </header>
-  ```
+    ```jsx
+    <header class='awesomeHeader'>
+        <h1 class='awesomeHeader--text'>Wassssuppppp</h1>
+    </header>
+    ```
 
-  Slots are super powerful, and I would definitely recommend reading more about them [here](https://vuejs.org/v2/guide/components-slots.html).
+    Slots are super powerful, and I would definitely recommend reading more about them [here](https://vuejs.org/v2/guide/components-slots.html).
 
-  So for our `Default` component, this means that we can structure anything that is passed in the way we see fit! With the code provided to you by the CLI, you can wrap any component you make inside of the `Default` component, and it will always render with a nav bar as seen in the code, as well as some global styles! We will be editing this file in our next article, so stay tuned 📺.
+    So for our `Default` component, this means that we can structure anything that is passed in the way we see fit! With the code provided to you by the CLI, you can wrap any component you make inside of the `Default` component, and it will always render with a nav bar as seen in the code, as well as some global styles! We will be editing this file in our next article, so stay tuned 📺.
 
 ### Index.html and App.vue (optional)
 

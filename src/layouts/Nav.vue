@@ -2,7 +2,7 @@
     <header class="page-header">
         <nav class="nav">
             <g-link class="nav--link" active-class="underline" exact to="/">Home</g-link>
-            <g-link class="nav--link" active-class="underline" to="/blog/posts">Blog</g-link>
+            <g-link class="nav--link" active-class="underline" to="/blog/">Blog</g-link>
         </nav>
     </header>
 </template>
