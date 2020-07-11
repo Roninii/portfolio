@@ -2,7 +2,7 @@
 title: 'Composition API - what is it, and why?'
 author: Ronnie Villarini
 date: '2020-07-11'
-image: /img/composition-api-banner.png
+image: /img/composition-api-banner.webp
 ---
 
 ## Before we even start...
