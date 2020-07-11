@@ -72,6 +72,7 @@ p > code {
 .token.doctype,
 .token.cdata {
     color: #5c6370;
+    font-style: italic;
 }
 
 .token.punctuation {
@@ -91,6 +92,7 @@ p > code {
 .token.attr-name,
 .token.deleted {
     color: #d19a66;
+    font-style: italic;
 }
 
 .token.string,
@@ -112,6 +114,7 @@ p > code {
 .token.atrule,
 .token.keyword {
     color: #c678dd;
+    font-style: italic;
 }
 
 .token.function {
