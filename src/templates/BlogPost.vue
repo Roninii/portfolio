@@ -119,6 +119,18 @@ article >>> h3 {
 article >>> p {
     margin-top: 1rem;
 }
+article >>> a {
+    position: relative;
+}
+article >>> p > a:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, var(--secondary), var(--primary));
+}
 
 article >>> ul {
     list-style-type: none;
