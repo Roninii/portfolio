@@ -7,7 +7,7 @@ code[class*='language-'],
 pre[class*='language-'] {
     color: #abb2bf;
     background: none;
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-family: 'Victor Mono', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     text-align: left;
     white-space: pre;
     word-spacing: normal;
@@ -58,10 +58,13 @@ pre[class*='language-'] {
 }
 
 /* Inline code */
-:not(pre) > code[class*='language-'] {
-    padding: 0.1em;
+:not(pre) > code[class*='language-'],
+p > code {
+    padding: 0.2em;
     border-radius: 0.3em;
     white-space: normal;
+    background-color: #eee;
+    color: var(--primary);
 }
 
 .token.comment,
