@@ -1,6 +1,7 @@
 ---
 title: 'Getting Set Up With Gridsome'
 author: Ronnie Villarini
+date: '2020-07-09'
 image: /img/gridsome-logo.png
 ---
 
@@ -181,7 +182,7 @@ If you are connecting your site to an external data source, say something like C
 
 Still doesn't make sense? That's okay! Think of it like this:
 
-Let's pretend you have a blog. The content of that blog is written using Netlify CMS and displayed on your Gridsome site. If the data of each of your posts (the headings, text, pictures, etc.) were all different flavors of Ben & Jerry's Ice Cream (Try Netflix and Chill'd, tweet @ me when you do 😋), then the container would be the template! The content might all change from from post to post, but they'll all have the same structure.
+Let's pretend you have a blog. The content of that blog is written using Netlify CMS and displayed on your Gridsome site. If the data of each of your posts (the headings, text, pictures, etc.) were all different flavors of Ben & Jerry's Ice Cream (Try Netflix and Chill'd, tweet @ me when you do 😋), then the container would be the template! The content might all change from post to post, but they'll all have the same structure.
 
 ![Ben & Jerry's Ice Cream](https://dev-to-uploads.s3.amazonaws.com/i/d64nacrlghfel2e7n2la.png)
 

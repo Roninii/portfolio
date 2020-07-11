@@ -1,6 +1,7 @@
 ---
 title: 'Rebuilding My Personal Site With Gridsome'
 author: Ronnie Villarini
+date: '2020-06-18'
 ---
 
 I've decided to Rebuild my personal site with Gridsome for a few reasons:

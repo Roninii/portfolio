@@ -1,7 +1,11 @@
 <template>
     <div class="blog">
         <header class="blog--header">
-            <g-image class="blog--header__banner" :src="$page.blogPost.image"></g-image>
+            <g-image
+                class="blog--header__banner"
+                v-if="$page.blogPost.image"
+                :src="$page.blogPost.image"
+            ></g-image>
             <h1 class="blog--header__title" v-html="$page.blogPost.title" />
         </header>
         <article v-html="$page.blogPost.content" />
@@ -123,10 +127,10 @@ article >>> ul {
 
 article >>> li {
     position: relative;
+    margin-top: 0.5rem;
 }
 
 article >>> li:not(:first-child) {
-    margin-top: 1rem;
 }
 
 article >>> ul > li::before {
@@ -136,6 +140,7 @@ article >>> ul > li::before {
     left: -20px;
     color: var(--primary);
     font-weight: 700;
+
     width: 5rem;
 }
 
