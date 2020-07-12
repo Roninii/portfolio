@@ -128,7 +128,7 @@
 <script>
 export default {
     metaInfo: {
-        title: 'Hello, world!',
+        title: 'Ronini.dev',
     },
 };
 </script>

@@ -6,6 +6,7 @@
 
 module.exports = {
     siteName: 'Ronini.dev',
+    titleTemplate: '%s',
     plugins: [
         {
             use: '@gridsome/source-filesystem',
