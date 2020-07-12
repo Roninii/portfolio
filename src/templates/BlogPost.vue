@@ -1,14 +1,19 @@
 <template>
-    <div class="blog">
-        <header class="blog--header">
-            <g-image
-                class="blog--header__banner"
-                v-if="$page.blogPost.image"
-                :src="$page.blogPost.image"
-            ></g-image>
-            <h1 class="blog--header__title" v-html="$page.blogPost.title" />
-        </header>
-        <article v-html="$page.blogPost.content" />
+    <div>
+        <nav class="blog-nav">
+            <g-link class="nav--link" to="/blog">Back to all posts</g-link>
+        </nav>
+        <div class="blog">
+            <header class="blog--header">
+                <g-image
+                    class="blog--header__banner"
+                    v-if="$page.blogPost.image"
+                    :src="$page.blogPost.image"
+                ></g-image>
+                <h1 class="blog--header__title" v-html="$page.blogPost.title" />
+            </header>
+            <article v-html="$page.blogPost.content" />
+        </div>
     </div>
 </template>
 
@@ -40,6 +45,10 @@ export default {
 </script>
 
 <style scoped>
+.blog-nav {
+    padding: 1rem 2rem;
+}
+
 .blog {
     display: grid;
     min-height: 100vh;
