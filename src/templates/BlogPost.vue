@@ -1,8 +1,5 @@
 <template>
     <div>
-        <nav class="blog-nav">
-            <g-link class="nav--link" to="/blog">Back to all posts</g-link>
-        </nav>
         <div class="blog">
             <header class="blog--header">
                 <g-image
@@ -45,10 +42,6 @@ export default {
 </script>
 
 <style scoped>
-.blog-nav {
-    padding: 1rem 2rem;
-}
-
 .blog {
     display: grid;
     min-height: 100vh;

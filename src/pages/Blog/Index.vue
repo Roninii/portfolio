@@ -1,14 +1,14 @@
 <template>
     <div>
-        <Nav />
         <section class="posts">
             <div class="posts--post" v-for="edge in $page.posts.edges" :key="edge.node.id">
                 <g-link class="post--link" :to="edge.node.path">
                     <h2 class="post--title">{{ edge.node.title }}</h2>
                 </g-link>
-                <p
-                    class="post--time"
-                >{{ edge.node.timeToRead }} minute read | Published {{ formatDate(edge.node.date) }}</p>
+                <p class="post--time">
+                    {{ edge.node.timeToRead }} minute read | Published
+                    {{ formatDate(edge.node.date) }}
+                </p>
             </div>
         </section>
     </div>
