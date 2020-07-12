@@ -1,6 +1,7 @@
 /* variables */
 :root {
     --primary: #6200ee;
+    --primary-light: hsl(265, 70%, 95%);
     --primary-dark: #5d3991;
     --secondary: #04dac6;
     --white: #fafafa;

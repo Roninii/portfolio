@@ -159,11 +159,12 @@ article >>> ul > li::before {
 }
 
 article >>> blockquote {
-    background: #edf2f7;
+    background: var(--primary-light);
     color: var(--dark-grey);
     padding: 1rem 1rem;
     margin: 1.5rem 0;
     position: relative;
+    border-radius: 3px;
 }
 
 article >>> blockquote::before {
