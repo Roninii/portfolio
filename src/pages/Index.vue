@@ -1,5 +1,5 @@
 <template>
-    <div id="main" class="container">
+    <div class="container">
         <header class="header">
             <h1 class="header__name">
                 <span class="highlight--primary">Ron</span>nie Villar<span

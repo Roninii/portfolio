@@ -6,6 +6,7 @@
                     class="blog--header__banner"
                     v-if="$page.blogPost.image"
                     :src="$page.blogPost.image"
+                    :alt="$page.blogPost.imageAlt"
                 ></g-image>
                 <h1 class="blog--header__title" v-html="$page.blogPost.title" />
             </header>
@@ -19,7 +20,7 @@ query ($id: ID!) {
     blogPost(id: $id) {
         title
         content
-        image
+        image(quality: 90)
   }
 }
 </page-query>

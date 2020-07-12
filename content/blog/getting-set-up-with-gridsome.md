@@ -3,6 +3,7 @@ title: 'Getting Set Up With Gridsome'
 author: Ronnie Villarini
 date: '2020-07-09'
 image: /img/gridsome-logo.png
+imageAlt: 'Grisome logo'
 ---
 
 ## Getting started

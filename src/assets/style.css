@@ -64,7 +64,12 @@ h2 {
 .nav {
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
     padding: 1rem 2rem;
+}
+
+.nav--logo {
+    display: block;
 }
 
 .nav--link {
