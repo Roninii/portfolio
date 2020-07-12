@@ -17,6 +17,7 @@
 query {
   metadata {
     siteName
+    siteUrl
   }
 }
 </static-query>
@@ -24,9 +25,14 @@ query {
 <script>
 export default {
     name: 'Nav',
+    data() {
+        return {
+            urlRegex: /\/blog\/.+\/$/gi,
+        };
+    },
     computed: {
         viewingBlog() {
-            return this.$route.path.includes('/blog/');
+            return this.urlRegex.test(this.$route.path);
         },
     },
 };
