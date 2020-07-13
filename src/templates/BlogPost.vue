@@ -20,7 +20,7 @@ query ($id: ID!) {
     blogPost(id: $id) {
         title
         content
-        image(quality: 90)
+        image
   }
 }
 </page-query>
@@ -181,5 +181,9 @@ article >>> blockquote::before {
 
 article >>> blockquote > * {
     margin: 0;
+}
+
+article >>> pre {
+    border-radius: 3px;
 }
 </style>
