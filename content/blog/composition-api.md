@@ -34,7 +34,7 @@ Along with the API change the Vue codebase has been rewritten with TypeScript in
 
 > If you're unfamiliar with `this` in JavaScript or you still struggle with it, I highly recommend [this article at ui.dev](https://ui.dev/this-keyword-call-apply-bind-javascript/)
 
-In Vue, there is a lot of magic happening behind the scenes in Vue, and one of those spells that they are casting is the way that `this` is automagically bound to the component instance for you. Those of you who used React in the early days may remember how painful keeping track of the scope of `this` could be. Vue made this easy by taking care of the scope for you. Ensuring that referencing `this` in your methods, computed properties, or even lifecycle hooks, was always bound to the component instance. This was great, as it greatly reduced cognitive overhead when working inside a component and it really lowered the barrier to entry for more inexperienced devs.
+In Vue, there is a lot of magic happening behind the scenes, and one of those spells that they are casting is the way that `this` is automagically bound to the component instance for you. Those of you who used React in the early days may remember how painful keeping track of the scope of `this` could be. Vue made this easy by taking care of the scope for you. Ensuring that referencing `this` in your methods, computed properties, or even lifecycle hooks, was always bound to the component instance. This was great, as it greatly reduced cognitive overhead when working inside a component and it really lowered the barrier to entry for more inexperienced devs.
 
 ```js
 export default {
@@ -47,7 +47,7 @@ export default {
     methods: {
         increment() {
             this.count++; // WHAT?! In normal JS "this" would not be what you think it is
-                         // but Vue takes care of that for you
+            // but Vue takes care of that for you
         },
     },
 };
