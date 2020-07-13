@@ -3,8 +3,13 @@
         <nav class="nav">
             <div>
                 <g-link v-if="viewingBlog" class="nav--link" to="/blog">Back to all posts</g-link>
-                <g-link v-else to="/">
-                    <img src="../assets/logo.png" width="150" class="nav--logo" />
+                <g-link v-else to="/" aria-label="Home">
+                    <img
+                        src="../assets/logo.png"
+                        width="150"
+                        class="nav--logo"
+                        alt="Ronini.dev logo"
+                    />
                 </g-link>
             </div>
 
