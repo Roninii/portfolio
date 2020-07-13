@@ -47,7 +47,7 @@ export default {
     methods: {
         increment() {
             this.count++; // WHAT?! In normal JS "this" would not be what you think it is
-            // but Vue takes care of that for you
+                         // but Vue takes care of that for you
         },
     },
 };
@@ -62,8 +62,8 @@ export default {
     const count = ref(0)
 
     function increment() {
-         count.value++ // note, you have to use ".value" to access it now
-                            // but you no longer have to worry about what "this" actually is!
+         count.value++  // note, you have to use ".value" to access it now
+                        // but you no longer have to worry about what "this" actually is!
     }
 }
 ```

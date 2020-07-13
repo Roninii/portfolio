@@ -21,6 +21,7 @@ query ($id: ID!) {
         title
         content
         image
+        imageAlt
   }
 }
 </page-query>
