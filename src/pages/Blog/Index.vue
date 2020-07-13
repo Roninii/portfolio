@@ -68,6 +68,6 @@ export default {
 
 .post--time {
     font-size: 0.75rem;
-    color: #718096;
+    color: #63738a;
 }
 </style>
