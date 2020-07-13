@@ -125,6 +125,7 @@ article >>> p {
 }
 article >>> a {
     position: relative;
+    color: var(--primary);
 }
 article >>> p > a:after {
     content: '';
