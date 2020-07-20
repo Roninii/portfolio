@@ -1,24 +1,30 @@
 <template>
-    <header class="page-header">
-        <nav class="nav">
-            <div>
-                <g-link v-if="viewingBlog" class="nav--link" to="/blog">Back to all posts</g-link>
-                <g-link v-else to="/" aria-label="Home">
-                    <img
-                        src="../assets/logo.png"
-                        width="150"
-                        class="nav--logo"
-                        alt="Ronini.dev logo"
-                    />
-                </g-link>
-            </div>
+  <header class="page-header">
+    <nav class="nav">
+      <div>
+        <g-link v-if="viewingBlog" class="nav--link" to="/blog"
+          >Back to all posts</g-link
+        >
+        <g-link v-else to="/" aria-label="Home">
+          <img
+            src="../assets/Logo.svg"
+            width="50"
+            class="nav--logo"
+            alt="Ronini.dev logo"
+          />
+        </g-link>
+      </div>
 
-            <div>
-                <g-link class="nav--link" active-class="underline" exact to="/">Home</g-link>
-                <g-link class="nav--link" active-class="underline" to="/blog/">Blog</g-link>
-            </div>
-        </nav>
-    </header>
+      <div>
+        <g-link class="nav--link" active-class="underline" exact to="/"
+          >Home</g-link
+        >
+        <g-link class="nav--link" active-class="underline" to="/blog/"
+          >Blog</g-link
+        >
+      </div>
+    </nav>
+  </header>
 </template>
 
 <static-query>
@@ -32,16 +38,16 @@ query {
 
 <script>
 export default {
-    name: 'Nav',
-    data() {
-        return {
-            urlRegex: /\/blog\/.+\/$/gi,
-        };
+  name: "Nav",
+  data() {
+    return {
+      urlRegex: /\/blog\/.+\/$/gi,
+    };
+  },
+  computed: {
+    viewingBlog() {
+      return this.urlRegex.test(this.$route.path);
     },
-    computed: {
-        viewingBlog() {
-            return this.urlRegex.test(this.$route.path);
-        },
-    },
+  },
 };
 </script>
