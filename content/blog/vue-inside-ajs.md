@@ -1,5 +1,6 @@
 ---
 title: 'Vue Inside AJS?!'
+description: 'How we migrated an AJS app to Vue at Winning Streak.'
 author: Ronnie Villarini
 date: '2020-08-03'
 image: /img/inception.jpg

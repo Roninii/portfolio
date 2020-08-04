@@ -15,6 +15,27 @@ module.exports = {
                 path: './content/blog/**/*.md',
             },
         },
+        {
+            use: 'gridsome-plugin-rss',
+            options: {
+                contentTypeName: 'BlogPost',
+                feedOptions: {
+                    title: 'Oh, for fox sake.',
+                    feed_url: 'https://ronini.dev/rss.xml',
+                    site_url: 'https://ronini.dev/blog',
+                },
+                feedItemOptions: node => ({
+                    title: node.title,
+                    description: node.description,
+                    url: `https://ronini.dev${node.path}`,
+                    author: node.author,
+                }),
+                output: {
+                    dir: './static',
+                    name: 'rss.xml',
+                },
+            },
+        },
     ],
     transformers: {
         remark: {
