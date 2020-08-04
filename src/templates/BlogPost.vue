@@ -36,7 +36,7 @@ export default {
     },
     mounted() {
         const links = document.querySelectorAll('.icon.icon-link');
-        links.forEach(link => {
+        links.forEach((link) => {
             link.innerHTML = `<i class="fab fa-slack-hash"></i>`;
         });
     },
@@ -55,6 +55,7 @@ export default {
     padding: 1rem;
     margin-top: 2rem;
     margin: 0 auto;
+    width: 100%;
     max-width: 1024px;
 }
 
@@ -62,10 +63,13 @@ export default {
     object-fit: cover;
     -o-object-fit: cover;
     width: 100%;
+    max-height: 30rem;
+    border-radius: 3px;
 }
 
 .blog--header__title {
     font-weight: 400;
+    margin-top: 3rem;
 }
 
 .blog--header__title::after {
