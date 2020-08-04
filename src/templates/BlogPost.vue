@@ -96,6 +96,7 @@ article {
     margin: 0 auto 1rem auto;
     padding: 0 2rem;
     line-height: 1.5rem;
+    display: grid;
 }
 
 article >>> .icon-link {
@@ -111,6 +112,7 @@ article >>> .icon-link:hover {
 
 article >>> img {
     display: block;
+    width: 100%;
     max-width: 1000px;
     margin: 0 auto;
 }
@@ -191,5 +193,6 @@ article >>> blockquote > * {
 
 article >>> pre {
     border-radius: 3px;
+    width: 100%;
 }
 </style>

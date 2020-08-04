@@ -72,6 +72,7 @@ export default {
 .blog {
   max-width: 1024px;
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .blog--header {
