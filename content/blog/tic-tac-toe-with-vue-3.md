@@ -478,7 +478,7 @@ setup() {
 		const lines = [
 			[0, 1, 2],
 			[3, 4, 5],
-	    [6, 7, 8],
+	        [6, 7, 8],
 			[0, 3, 6],
 			[1, 4, 7],
 			[2, 5, 8],
@@ -515,7 +515,7 @@ setup() {
 
 That's it! Open up your browser and try it out. (or if you haven't been following along, you can check out the live demo [here](https://tic-tac-vue.netlify.app).
 
-> If you want you can check out the repo, where you'll find a couple extras like TS, and refactoring into composition functions! I would've liked to include that here, but that was just out of the scope for this post. If there is enough
+> If you want you can [check out the repo](https://github.com/roninii/vue3-tic-tac-toe), where you'll find a couple extras like TS, and refactoring into composition functions! I would've liked to include that here, but that was just out of the scope for this post. If there is enough interest, I'd be happy to make a follow up post!
 
 Hope you had fun, and hopefully you learned a thing or two about using the composition api in project setting instead of just theory and small examples!
 
