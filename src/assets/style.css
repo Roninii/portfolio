@@ -66,6 +66,7 @@ h2 {
     justify-content: space-between;
     align-items: flex-end;
     padding: 0 2rem;
+    height: 65px;
 }
 
 .nav--logo {
