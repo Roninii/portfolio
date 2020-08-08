@@ -200,9 +200,6 @@ article >>> li {
     margin-top: 0.5rem;
 }
 
-article >>> li:not(:first-child) {
-}
-
 article >>> ul > li::before {
     content: '›';
     position: absolute;

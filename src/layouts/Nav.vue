@@ -2,9 +2,9 @@
   <header class="page-header">
     <nav class="nav">
       <div>
-        <g-link v-if="viewingBlog" class="nav--link" to="/blog"
-          >Back to all posts</g-link
-        >
+        <g-link v-if="viewingBlog" class="nav--link" to="/blog">
+          <span>&lsaquo;</span> Back
+        </g-link>
         <g-link v-else to="/" aria-label="Home">
           <img
             src="../assets/Logo.svg"
@@ -38,16 +38,25 @@ query {
 
 <script>
 export default {
-  name: "Nav",
-  data() {
-    return {
-      urlRegex: /\/blog\/.+\/$/gi,
-    };
-  },
-  computed: {
-    viewingBlog() {
-      return this.urlRegex.test(this.$route.path);
+    name: 'Nav',
+    data() {
+        return {
+            urlRegex: /\/blog\/.+\/$/gi,
+        };
     },
-  },
+    computed: {
+        viewingBlog() {
+            return this.urlRegex.test(this.$route.path);
+        },
+    },
 };
 </script>
+
+<style scoped>
+span {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25rem;
+}
+</style>
