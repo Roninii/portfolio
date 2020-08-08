@@ -28,6 +28,16 @@
             </h2>
             <div class="contact__links">
                 <a
+                    href="https://dev.to/_ronini"
+                    target="_blank"
+                    rel="noreferrer"
+                    class="contact__link"
+                    title="dev.to"
+                >
+                    <i class="fab fa-dev" title="_ronini's DEV Profile"></i>
+                </a>
+
+                <a
                     href="https://github.com/roninii/"
                     target="_blank"
                     rel="noreferrer"
@@ -44,6 +54,7 @@
                     rel="noreferrer"
                     ><i class="fab fa-linkedin-in contact__icon"></i
                 ></a>
+
                 <a
                     href="https://twitter.com/_ronini"
                     target="_blank"

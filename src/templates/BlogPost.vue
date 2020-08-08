@@ -18,7 +18,7 @@
                     target="_blank"
                     rel="noreferrer"
                     class="contact__link"
-                    title="github"
+                    title="dev.to"
                 >
                     <i class="fab fa-dev" title="_ronini's DEV Profile"></i>
                 </a>
