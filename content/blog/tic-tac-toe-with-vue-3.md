@@ -59,9 +59,9 @@ The board and related styles:
 // Board.vue
 <template>
 <div class='board'>
-	<span class='vertical-line-1'></span>
-	<span class='vertical-line-2'></span>
-  <Square />
+    <span class='vertical-line-1'></span>
+    <span class='vertical-line-2'></span>
+    <Square />
 </div>
 </template>
 
@@ -146,7 +146,11 @@ First let's take care of the template and the styles. We'll add a button with a 
 // Square.vue
 
 <template>
-    <button class='square' :name="label" :disabled='winner || value'>
+    <button
+        class='square'
+        :name="label"
+        :disabled='winner || value'
+    >
         {{ value }}
     </button>
 </template>
@@ -516,5 +520,3 @@ That's it! Open up your browser and try it out. (or if you haven't been followin
 Hope you had fun, and hopefully you learned a thing or two about using the composition api in project setting instead of just theory and small examples!
 
 Be sure to follow me on all the socials for more content like this! Until next time 🖖🏻
-
-[Twitter](https://twitter.com/_ronini) | [GitHub](https://github.com/roninii) | [DEV](https://dev.to/_ronini)

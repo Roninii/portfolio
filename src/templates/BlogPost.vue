@@ -11,6 +11,45 @@
                 <h1 class="blog--header__title" v-html="$page.blogPost.title" />
             </header>
             <article v-html="$page.blogPost.content" />
+
+            <footer class="blog--footer">
+                <a
+                    href="https://dev.to/_ronini"
+                    target="_blank"
+                    rel="noreferrer"
+                    class="contact__link"
+                    title="github"
+                >
+                    <i class="fab fa-dev" title="_ronini's DEV Profile"></i>
+                </a>
+                <a
+                    href="https://github.com/roninii/"
+                    target="_blank"
+                    rel="noreferrer"
+                    class="contact__link"
+                    title="github"
+                >
+                    <i class="fab fa-github contact__icon" title="ronini's github profile"></i>
+                </a>
+                <a
+                    href="https://twitter.com/_ronini"
+                    target="_blank"
+                    class="contact__link"
+                    title="twitter"
+                    rel="noreferrer"
+                >
+                    <i class="fab fa-twitter contact__icon"></i>
+                </a>
+                <a
+                    href="https://linkedin.com/in/ronnievillarini"
+                    target="_blank"
+                    class="contact__link"
+                    title="linkedin"
+                    rel="noreferrer"
+                >
+                    <i class="fab fa-linkedin-in contact__icon"></i>
+                </a>
+            </footer>
         </div>
     </div>
 </template>
@@ -148,6 +187,14 @@ article >>> ul {
     margin-left: 2rem;
 }
 
+article >>> ol {
+    margin-left: 2rem;
+}
+
+article >>> ol > li::marker {
+    color: var(--primary);
+}
+
 article >>> li {
     position: relative;
     margin-top: 0.5rem;
@@ -194,5 +241,28 @@ article >>> blockquote > * {
 article >>> pre {
     border-radius: 3px;
     width: 100%;
+}
+
+.blog--footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.blog--footer::before {
+    content: '';
+    position: absolute;
+    top: 1.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8rem;
+    height: 0.1rem;
+    border-radius: 0.2rem;
+    background: linear-gradient(to right, var(--secondary), var(--primary));
+}
+
+.blog--footer a {
+    margin: 0 0.5rem;
 }
 </style>
