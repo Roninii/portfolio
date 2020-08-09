@@ -5,44 +5,44 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-    siteName: 'Ronini.dev',
-    titleTemplate: '%s',
-    plugins: [
-        {
-            use: '@gridsome/source-filesystem',
-            options: {
-                typeName: 'BlogPost',
-                path: './content/blog/**/*.md',
-            },
-        },
-        {
-            use: 'gridsome-plugin-rss',
-            options: {
-                contentTypeName: 'BlogPost',
-                feedOptions: {
-                    title: 'Oh, for fox sake.',
-                    feed_url: 'https://ronini.dev/rss.xml',
-                    site_url: 'https://ronini.dev/blog',
-                },
-                feedItemOptions: node => ({
-                    title: node.title,
-                    description: node.description,
-                    url: `https://ronini.dev${node.path}`,
-                    author: node.author,
-                }),
-                output: {
-                    dir: './static',
-                    name: 'rss.xml',
-                },
-            },
-        },
-    ],
-    transformers: {
-        remark: {
-            plugins: ['@gridsome/remark-prismjs'],
-        },
+  siteName: "Ronini.dev",
+  titleTemplate: "%s",
+  plugins: [
+    {
+      use: "@gridsome/source-filesystem",
+      options: {
+        typeName: "BlogPost",
+        path: "./content/blog/**/*.md",
+      },
     },
-    templates: {
-        BlogPost: '/blog/:title',
+    {
+      use: "gridsome-plugin-rss",
+      options: {
+        contentTypeName: "BlogPost",
+        feedOptions: {
+          title: "Oh, for fox sake.",
+          feed_url: "https://ronini.dev/rss.xml",
+          site_url: "https://ronini.dev/blog",
+        },
+        feedItemOptions: (node) => ({
+          title: node.title,
+          description: node.description,
+          url: `https://ronini.dev${node.path}`,
+          author: node.author,
+        }),
+        output: {
+          dir: "./static",
+          name: "rss.xml",
+        },
+      },
     },
+  ],
+  transformers: {
+    remark: {
+      plugins: ["@gridsome/remark-prismjs"],
+    },
+  },
+  templates: {
+    BlogPost: "/blog/:title",
+  },
 };
