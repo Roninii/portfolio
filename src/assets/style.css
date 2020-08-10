@@ -327,6 +327,10 @@ h2 {
   background: linear-gradient(to right, var(--secondary), var(--primary));
 }
 
+.gridsome-highlight {
+  border-radius: 3px;
+}
+
 .gridsome-code-title {
   position: relative;
   z-index: 100;
