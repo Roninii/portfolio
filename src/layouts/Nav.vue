@@ -22,7 +22,9 @@
         <g-link class="nav--link" active-class="underline" to="/blog/"
           >Blog</g-link
         >
+        <button @click='toggleTheme'>🌓</button@>
       </div>
+
     </nav>
   </header>
 </template>
@@ -42,6 +44,7 @@ export default {
     data() {
         return {
             urlRegex: /\/blog\/.+\/$/gi,
+            currentTheme: 'light'
         };
     },
     computed: {
@@ -49,6 +52,25 @@ export default {
             return this.urlRegex.test(this.$route.path);
         },
     },
+    methods: {
+      toggleTheme() {
+        if(this.currentTheme === 'dark') {
+          this.currentTheme = 'light'
+
+          document.documentElement.style.setProperty('--background', 'var(--bg--light)')
+          document.documentElement.style.setProperty('--text', 'var(--text--light')
+          document.documentElement.style.setProperty('--link-text', 'var(--link-text--light')
+          document.documentElement.style.setProperty('--active-link-text', 'var(--active-link-text--light')
+        } else {
+          this.currentTheme = 'dark'
+
+          document.documentElement.style.setProperty('--background', 'var(--bg--dark)')
+          document.documentElement.style.setProperty('--text', 'var(--text--dark')
+          document.documentElement.style.setProperty('--link-text', 'var(--link-text--dark')
+          document.documentElement.style.setProperty('--active-link-text', 'var(--active-link-text--dark')
+        }
+      }
+    }
 };
 </script>
 
