@@ -153,6 +153,7 @@ h2 {
     color: var(--primary);
     font-size: 2rem;
     backface-visibility: hidden;
+    transform: translate3d();
 
     transition: all 0.3s;
 }

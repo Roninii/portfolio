@@ -201,7 +201,7 @@ First let's take care of the template and the styles. We'll add a button with a 
 </style>
 ```
 
-Now let's add the JS! Since our component isn't in charge of maintaining any state, it'll be pretty lean. All we need is to declare our props, `label`, `value`, and `winner`.
+Now let's add the JS! Since our component isn't in charge of maintaining any state, it'll be pretty lean. All we need is to declare our props: `label`, `value`, and `winner`.
 
 ```html
 <script>
@@ -222,12 +222,12 @@ Cool! However, if you've been following along, you'll likely notice our app does
 
 ## Game Logic
 
-Since we're using the [composition API](https://composition-api.vuejs.org/), we can o organize our code in related blocks, and then initiate all of that in the `setup` function. That might sound complicated, so lets take a look at the code and see what that means.
+Since we're using the [composition API](https://composition-api.vuejs.org/), we can organize our code in related blocks, and then initiate all of that in the `setup` function. That might sound complicated, so lets take a look at the code and see what that means.
 
 Let's plan everything out before we start writing code. (I'm just doing this to look good. I almost always code before thinking, which you're not supposed to do 🤫)
 
 1. We're going to keep track of the board, which we'll represent with an array. Each entry in the array will be one of the boxes on the board.
-2. The board will also need to keep track of who's turn it is, and what value (`x` or `o`) that player represents.
+2. The board will also need to keep track of who's turn it is, and what value (`X` or `O`) that player represents.
 3. When a square on the board is clicked, we should alter it's value in our array and notify the square of the change.
 
 Cool! Now that we know how everything _should_ work, lets get to coding.
@@ -274,7 +274,7 @@ return {
 
 Anything returned from the setup function becomes available in the template.
 
-> It's Important to note that passing a `ref` to the return object gets automagically unpacked by Vue. So you'll be able to reference it in the template at `board` instead of `board.value`!
+> It's Important to note that passing a `ref` to the return object gets automagically unpacked by Vue. So you'll be able to reference it in the template as `board` instead of `board.value`!
 
 ## Updating our board template
 
@@ -416,16 +416,16 @@ First let's add the reset button, as well as a the accompanying logic.
 
 ```diff
 + const reset = () => {
-		board.value = Array(9).fill(null)
-		playerValue.value = 'X'
-	}
++   board.value = Array(9).fill(null)
++   playerValue.value = 'X'
++ }
 
-	return {
-		board,
-		markSquare,
-		playerValue,
-+		reset
-  };
+return {
+    board,
+    markSquare,
+    playerValue,
++   reset
+};
 ```
 
 Yayyy 🎉 Now our users can play again if they want to.
@@ -465,7 +465,7 @@ The `confetti` function takes a DOM element as it's parameter, so we'll add an e
  </div>
 ```
 
-Now in the `setup` function, we'll declare a `ref` that points at this DOM node, and then in the `calculateWinner` computed property, we'll call `confett` if there is a winner.
+Now in the `setup` function, we'll declare a `ref` that points at this DOM node, and then in the `calculateWinner` computed property, we'll call `confetti` if there is a winner, passing in our `boardRef` as the origin of the confetti.
 
 ```diff
 setup() {
