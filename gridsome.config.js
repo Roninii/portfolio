@@ -39,7 +39,7 @@ module.exports = {
   ],
   transformers: {
     remark: {
-      plugins: ["@gridsome/remark-prismjs"],
+      plugins: ["gridsome-plugin-remark-prismjs-all"],
     },
   },
   templates: {

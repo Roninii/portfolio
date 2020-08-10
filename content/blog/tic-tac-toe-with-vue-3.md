@@ -1,9 +1,9 @@
 ---
 title: "Let's Build A Game With Vue 3"
 author: Ronnie Villarini
-date: '2020-08-08'
+date: "2020-08-08"
 image: /img/vue-3-game-banner.webp
-imageAlt: 'Glasses in front of multiple monitors displaying code and other developer tools.'
+imageAlt: "Glasses in front of multiple monitors displaying code and other developer tools."
 ---
 
 Today we're going to be building a tic-tac-toe clone like the one seen in the [React docs](https://reactjs.org/tutorial/tutorial.html#before-we-start-the-tutorial). Except we're going to be using the Vue 3 Composition API.
@@ -41,93 +41,91 @@ Take a moment to look around the code if you want, otherwise lets get started!
 
 First lets start creating the board. We will start by renaming the `HelloWorld.vue` component to `Board.vue`(Don't forget to change the imports!), then we will alter the template in `App.vue` along with replacing the boiler plate in the now named `Board.vue`.
 
-```js
-// App.vue
-import Board from './components/Board.vue';
+```js{codeTitle: App.vue}
+import Board from "./components/Board.vue";
 
 export default {
-    name: 'App',
-    components: {
-        Board,
-    },
+  name: "App",
+  components: {
+    Board,
+  },
 };
 ```
 
 The board and related styles:
 
-```html
-// Board.vue
+```html{codeTitle: Board.vue}
 <template>
-    <div class="board">
-        <span class="vertical-line-1"></span>
-        <span class="vertical-line-2"></span>
-        <Square />
-    </div>
+  <div class="board">
+    <span class="vertical-line-1"></span>
+    <span class="vertical-line-2"></span>
+    <Square />
+  </div>
 </template>
 
 <script>
-    import Square from './Square.vue';
+  import Square from "./Square.vue";
 
-    export default {
-        name: 'Board',
-        components: {
-            Square,
-        },
-    };
+  export default {
+    name: "Board",
+    components: {
+      Square,
+    },
+  };
 </script>
 
 <style scoped>
-    .board {
-        position: relative;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(3, 1fr);
-    }
+  .board {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
 
-    .board::before,
-    .board::after {
-        background: linear-gradient(to right, #41b883, #35495e);
-    }
+  .board::before,
+  .board::after {
+    background: linear-gradient(to right, #41b883, #35495e);
+  }
 
-    .vertical-line-1,
-    .vertical-line-2 {
-        background: linear-gradient(to right, #41b883, #35495e);
-    }
+  .vertical-line-1,
+  .vertical-line-2 {
+    background: linear-gradient(to right, #41b883, #35495e);
+  }
 
-    .board::before,
-    .board::after {
-        content: '';
-        width: 100%;
-        height: 5px;
-        position: absolute;
-        border-radius: 1rem;
-    }
+  .board::before,
+  .board::after {
+    content: "";
+    width: 100%;
+    height: 5px;
+    position: absolute;
+    border-radius: 1rem;
+  }
 
-    .board::before {
-        top: 33%;
-    }
+  .board::before {
+    top: 33%;
+  }
 
-    .board::after {
-        top: 66%;
-    }
+  .board::after {
+    top: 66%;
+  }
 
-    .vertical-line-1,
-    .vertical-line-2 {
-        position: absolute;
-        width: 100%;
-        height: 5px;
-        top: 50%;
-        border-radius: 1rem;
-        transform: translate(-50%, -50%) rotate(90deg);
-    }
+  .vertical-line-1,
+  .vertical-line-2 {
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    top: 50%;
+    border-radius: 1rem;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
 
-    .vertical-line-1 {
-        left: 33%;
-    }
+  .vertical-line-1 {
+    left: 33%;
+  }
 
-    .vertical-line-2 {
-        left: 66%;
-    }
+  .vertical-line-2 {
+    left: 66%;
+  }
 </style>
 ```
 
@@ -146,58 +144,56 @@ That's ... really it! So let's build it out:
 
 First let's take care of the template and the styles. We'll add a button with a disabled attribute which we will bind to `winner || value`, so that we can dynamically mark this button as disabled based on whether it has been clicked, or if the game is over. For accessibility reasons, we'll add a `name` attribute that we'll bind to a prop called `label`.
 
-```html
-// Square.vue
-
+```html{codeTitle: Square.vue}
 <template>
-    <button class="square" :name="label" :disabled="winner || value">
-        {{ value }}
-    </button>
+  <button class="square" :name="label" :disabled="winner || value">
+    {{ value }}
+  </button>
 </template>
 
 <style scoped>
-    .square {
-        border: none;
-        width: 10rem;
-        height: 10rem;
-        background: none;
-        color: inherit;
-        font-size: 3rem;
-        font-weight: 700;
-    }
+  .square {
+    border: none;
+    width: 10rem;
+    height: 10rem;
+    background: none;
+    color: inherit;
+    font-size: 3rem;
+    font-weight: 700;
+  }
 
-    .square:hover {
-        cursor: pointer;
-    }
+  .square:hover {
+    cursor: pointer;
+  }
 
-    .square:focus {
-        outline: none;
-        background: #41b88330;
-    }
+  .square:focus {
+    outline: none;
+    background: #41b88330;
+  }
 
-    .square:first-child,
-    .square:nth-child(2),
-    .square:nth-child(3) {
-        border-top: none;
-    }
+  .square:first-child,
+  .square:nth-child(2),
+  .square:nth-child(3) {
+    border-top: none;
+  }
 
-    .square:nth-child(3),
-    .square:nth-child(6),
-    .square:last-child {
-        border-right: none;
-    }
+  .square:nth-child(3),
+  .square:nth-child(6),
+  .square:last-child {
+    border-right: none;
+  }
 
-    .square:nth-child(7),
-    .square:nth-child(8),
-    .square:last-child {
-        border-bottom: none;
-    }
+  .square:nth-child(7),
+  .square:nth-child(8),
+  .square:last-child {
+    border-bottom: none;
+  }
 
-    .square:first-child,
-    .square:nth-child(4),
-    .square:nth-child(7) {
-        border-left: none;
-    }
+  .square:first-child,
+  .square:nth-child(4),
+  .square:nth-child(7) {
+    border-left: none;
+  }
 </style>
 ```
 
@@ -205,16 +201,16 @@ Now let's add the JS! Since our component isn't in charge of maintaining any sta
 
 ```html
 <script>
-    export default {
-        props: {
-            label: String,
-            value: {
-                type: String,
-                default: ' ',
-            },
-            winner: null,
-        },
-    };
+  export default {
+    props: {
+      label: String,
+      value: {
+        type: String,
+        default: " ",
+      },
+      winner: null,
+    },
+  };
 </script>
 ```
 
@@ -232,7 +228,7 @@ Let's plan everything out before we start writing code. (I'm just doing this to 
 
 Cool! Now that we know how everything _should_ work, lets get to coding.
 
-```js
+```js{codeTitle: Square.vue}
 import { ref } from 'vue'
 
 setup() {
@@ -266,9 +262,9 @@ Last step here is the explicit return object from our `setup` function.
 
 ```js
 return {
-    board,
-    playerValue,
-    markSquare,
+  board,
+  playerValue,
+  markSquare,
 };
 ```
 
@@ -280,29 +276,29 @@ Anything returned from the setup function becomes available in the template.
 
 Now that we have our game logic in place, let's add the updates to the board so that we can start applying this logic and interacting with the game!
 
-```diff
-+ <h1 v-else>Next Up: {{ playerValue }}</h1>
- <div class='board'>
- <span class='vertical-line-1'></span>
- <span class='vertical-line-2'></span>
+```html{1, 6-10}{codeTitle: Board.vue}
+<h1 v-else>Next Up: {{ playerValue }}</h1>
+<div class="board">
+  <span class="vertical-line-1"></span>
+  <span class="vertical-line-2"></span>
   <Square
-+    v-for='(square, i) in board'
-+    :key='`square-${i}`'
-+    :label="`square-${i}`"
-+    :value='square'
-+    @click='markSquare(i)'
+    v-for="(square, i) in board"
+    :key="`square-${i}`"
+    :label="`square-${i}`"
+    :value="square"
+    @click="markSquare(i)"
   />
- </div>
+</div>
 ```
 
 Alright! So we've added:
 
--   An `h1` to show us who's turn it is.
--   A loop via `v-for` to create a `Square` component for _each_ value in our `Board` array.
--   A `:key` attribute so that Vue can keep track of each instance of `Square`. This helps Vue keep track of what should and should not be updated.
--   We're now passing in the current index to the label prop. So our button label should read something like `square-1` .
--   The `:value` of this square. We're getting this from our loop. Every square should have a value of `null` on initial render, and as the user clicks it will be updated with the current player's value.
--   An `on click` handler that calls our `markSquare` function, passing in the `index` of **_this_** square so that we update the correct value in our board array.
+- An `h1` to show us who's turn it is.
+- A loop via `v-for` to create a `Square` component for _each_ value in our `Board` array.
+- A `:key` attribute so that Vue can keep track of each instance of `Square`. This helps Vue keep track of what should and should not be updated.
+- We're now passing in the current index to the label prop. So our button label should read something like `square-1` .
+- The `:value` of this square. We're getting this from our loop. Every square should have a value of `null` on initial render, and as the user clicks it will be updated with the current player's value.
+- An `on click` handler that calls our `markSquare` function, passing in the `index` of **_this_** square so that we update the correct value in our board array.
 
 Now if you load up the game, you should be able to click through each tile, marking each with an `x` or an `o`! We're still missing a couple features though:
 
@@ -315,31 +311,31 @@ First, we'll jump back down to our `setup` function to add the logic for calcula
 
 ```js
 const calculateWinner = computed(() => {
-    const lines = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        [0, 4, 8],
-        [2, 4, 6],
-    ];
+  const lines = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ];
 
-    for (let i = 0; i < lines.length; i++) {
-        const [a, b, c] = lines[i];
-        if (
-            board.value[a] &&
-            board.value[a] === board.value[b] &&
-            board.value[a] === board.value[c]
-        ) {
-            return `${board.value[a]} Wins`;
-        }
+  for (let i = 0; i < lines.length; i++) {
+    const [a, b, c] = lines[i];
+    if (
+      board.value[a] &&
+      board.value[a] === board.value[b] &&
+      board.value[a] === board.value[c]
+    ) {
+      return `${board.value[a]} Wins`;
     }
+  }
 
-    if (board.value.every(val => val)) return 'Tie!';
+  if (board.value.every((val) => val)) return "Tie!";
 
-    return null;
+  return null;
 });
 ```
 
@@ -352,37 +348,37 @@ So a few things are happening here:
 
 Let's remember to declare this in our `return` object so we can use this computed function in the output.
 
-```diff
+```js{5}
 return {
-	board,
-	playerValue,
-	markSquare,
-+ calculateWinner
-}
+  board,
+  playerValue,
+  markSquare,
+  calculateWinner,
+};
 ```
 
 Now we can reference this in our template to both disable all remaining squares on the board, and show a message to the user if a winner has been declared or if there is a tie.
 
-```diff
-+ <header v-if='calculateWinner' class='header'>
-+    <h1>
-+        {{ calculateWinner }}
-+    </h1>
-+ </header>
- <h1 v-else>Next Up: {{ playerValue }}</h1>
- <span ref='boardRef' class='confetti-origin'></span>
- <div class='board'>
- <span class='vertical-line-1'></span>
- <span class='vertical-line-2'></span>
+```html{1-5, 17}
+<header v-if="calculateWinner" class="header">
+  <h1>
+    {{ calculateWinner }}
+  </h1>
+</header>
+<h1 v-else>Next Up: {{ playerValue }}</h1>
+<span ref="boardRef" class="confetti-origin"></span>
+<div class="board">
+  <span class="vertical-line-1"></span>
+  <span class="vertical-line-2"></span>
   <Square
-    v-for='(square, i) in board'
-    :key='`square-${i}`'
+    v-for="(square, i) in board"
+    :key="`square-${i}`"
     :label="`square-${i}`"
-    :value='square'
-    @click='markSquare(i)'
-+    :winner='calculateWinner'
+    :value="square"
+    @click="markSquare(i)"
+    :winner="calculateWinner"
   />
- </div>
+</div>
 ```
 
 That's it! The game is complete! We can add a little polish though. How about a reset button so the user can play again, and we can add some confetti to celebrate the winner!
@@ -391,40 +387,40 @@ That's it! The game is complete! We can add a little polish though. How about a 
 
 First let's add the reset button, as well as a the accompanying logic.
 
-```diff
- <header v-if='calculateWinner' class='header'>
-     <h1>
-         {{ calculateWinner }}
-     </h1>
-+    <button class='reset' @click='reset'>Play Again</button>
- </header>
- <h1 v-else>Next Up: {{ playerValue }}</h1>
- <span ref='boardRef' class='confetti-origin'></span>
- <div class='board'>
- <span class='vertical-line-1'></span>
- <span class='vertical-line-2'></span>
-   <Square
-     v-for='(square, i) in board'
-     :key='`square-${i}`'
-     :label="`square-${i}`"
-     :value='square'
-     @click='markSquare(i)'
-     :winner='calculateWinner'
-   />
- </div>
+```html{5}
+<header v-if="calculateWinner" class="header">
+  <h1>
+    {{ calculateWinner }}
+  </h1>
+  <button class="reset" @click="reset">Play Again</button>
+</header>
+<h1 v-else>Next Up: {{ playerValue }}</h1>
+<span ref="boardRef" class="confetti-origin"></span>
+<div class="board">
+  <span class="vertical-line-1"></span>
+  <span class="vertical-line-2"></span>
+  <Square
+    v-for="(square, i) in board"
+    :key="`square-${i}`"
+    :label="`square-${i}`"
+    :value="square"
+    @click="markSquare(i)"
+    :winner="calculateWinner"
+  />
+</div>
 ```
 
-```diff
-+ const reset = () => {
-+   board.value = Array(9).fill(null)
-+   playerValue.value = 'X'
-+ }
+```js{1-4, 10}
+const reset = () => {
+  board.value = Array(9).fill(null);
+  playerValue.value = "X";
+};
 
 return {
-    board,
-    markSquare,
-    playerValue,
-+   reset
+  board,
+  markSquare,
+  playerValue,
+  reset,
 };
 ```
 
@@ -435,80 +431,80 @@ As for the confetti, we'll use a small library from npm, [dom-confetti](https://
 Install it via `npm i dom-confetti`, and then in `Board.vue` we can import it like so
 
 ```js
-import { confetti } from '../../node_modules/dom-confetti/src/main.js';
+import { confetti } from "../../node_modules/dom-confetti/src/main.js";
 ```
 
 > Note: If you're not using Vite, you could just use `'dom-confetti'` as the path. I'm using Vite, which requires you to point directly to the file in this case.
 
 The `confetti` function takes a DOM element as it's parameter, so we'll add an element to our template just for this
 
-```diff
- <header v-if='calculateWinner' class='header'>
-     <h1>
-         {{ calculateWinner }}
-     </h1>
-    <button class='reset' @click='reset'>Play Again</button>
- </header>
- <h1 v-else>Next Up: {{ playerValue }}</h1>
-+ <span ref='boardRef' class='confetti-origin'></span>
- <div class='board'>
- <span class='vertical-line-1'></span>
- <span class='vertical-line-2'></span>
-   <Square
-     v-for='(square, i) in board'
-     :key='`square-${i}`'
-     :label="`square-${i}`"
-     :value='square'
-     @click='markSquare(i)'
-     :winner='calculateWinner'
-   />
- </div>
+```html{8}
+<header v-if="calculateWinner" class="header">
+  <h1>
+    {{ calculateWinner }}
+  </h1>
+  <button class="reset" @click="reset">Play Again</button>
+</header>
+<h1 v-else>Next Up: {{ playerValue }}</h1>
+<span ref="boardRef" class="confetti-origin"></span>
+<div class="board">
+  <span class="vertical-line-1"></span>
+  <span class="vertical-line-2"></span>
+  <Square
+    v-for="(square, i) in board"
+    :key="`square-${i}`"
+    :label="`square-${i}`"
+    :value="square"
+    @click="markSquare(i)"
+    :winner="calculateWinner"
+  />
+</div>
 ```
 
 Now in the `setup` function, we'll declare a `ref` that points at this DOM node, and then in the `calculateWinner` computed property, we'll call `confetti` if there is a winner, passing in our `boardRef` as the origin of the confetti.
 
-```diff
+```js{1,25,37}
 setup() {
-+	const boardRef = ref(null)
+    const boardRef = ref(null)
 
-	// ...
+    // ...
 
-	const calculateWinner = computed(() => {
-		const lines = [
-			[0, 1, 2],
-			[3, 4, 5],
-	        [6, 7, 8],
-			[0, 3, 6],
-			[1, 4, 7],
-			[2, 5, 8],
-			[0, 4, 8],
-			[2, 4, 6],
-		]
+    const calculateWinner = computed(() => {
+        const lines = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6],
+        ]
 
-		for (let i = 0; i < lines.length; i++) {
-			const [a, b, c] = lines[i]
-			if (
-				board.value[a] &&
-				board.value[a] === board.value[b] &&
-				board.value[a] === board.value[c]
-			) {
-+				confetti(boardRef)
-				return `${board.value[a]} Wins`
-			}
-		}
+        for (let i = 0; i < lines.length; i++) {
+            const [a, b, c] = lines[i]
+            if (
+                board.value[a] &&
+                board.value[a] === board.value[b] &&
+                board.value[a] === board.value[c]
+            ) {
+                confetti(boardRef)
+                return `${board.value[a]} Wins`
+            }
+        }
 
-		if(board.value.every(val => val)) return 'Tie!'
+        if(board.value.every(val => val)) return 'Tie!'
 
-		return null
-	})
+        return null
+    })
 
-	return {
-		board,
-+		boardRef,
-		markSquare,
-		playerValue,
-		reset
-	}
+    return {
+        board,
+        boardRef,
+        markSquare,
+        playerValue,
+        reset
+    }
 }
 ```
 

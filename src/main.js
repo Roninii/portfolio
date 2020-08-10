@@ -1,13 +1,15 @@
 // This is the main.js file. Import global CSS and scripts here.
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
-import 'victormono'
+import "victormono";
 
-import './assets/prism.css'
-import '~/assets/style.css'
+import "prismjs/plugins/line-numbers/prism-line-numbers.css";
+// import "./assets/prism.css";
+import "gridsome-plugin-remark-prismjs-all/themes/night-owl.css";
+import "~/assets/style.css";
 
-export default function (Vue, { router, head, isClient }) {
-    head.script.push({
-    src: 'https://kit.fontawesome.com/963f59e308.js',
-    body: false
-    })
+export default function(Vue, { router, head, isClient }) {
+  head.script.push({
+    src: "https://kit.fontawesome.com/963f59e308.js",
+    body: false,
+  });
 }
