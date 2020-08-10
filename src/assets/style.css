@@ -361,7 +361,7 @@ h2 {
     position: relative;
     z-index: 100;
     margin-bottom: -0.8em;
-    background: var(--primary);
+    background: var(--purple);
     color: var(--white);
     font-style: italic;
     font-weight: 100;
