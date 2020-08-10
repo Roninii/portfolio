@@ -47,7 +47,7 @@ export default {
     methods: {
         increment() {
             this.count++; // WHAT?! In normal JS "this" would not be what you think it is
-            // but Vue takes care of that for you
+                          // but Vue takes care of that for you
         },
     },
 };
@@ -82,8 +82,7 @@ The more you have to navigate up and down a file, the more cognitive load you're
 
 Since the composition API doesn't rely on organization by component options, you're free to organize your code by logic. For example:
 
-```js
-// options API
+```js{codeTitle: Options API}
 export default {
     name: 'MyComponent',
     data() {
@@ -104,8 +103,7 @@ export default {
 };
 ```
 
-```js
-// Composition API
+```js{codeTitle: Composition API}
 import { ref, computed } from 'vue'
 
 export default {

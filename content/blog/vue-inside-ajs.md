@@ -45,15 +45,13 @@ First up, refactor the components to more closely model Vue's [SFC approach](htt
 
 From this:
 
-```jsx
-// example.html
+```html{codeTitle: example.html}
 <div>
     <h1>This is my component template!</h1>
 </div>
 ```
 
-```jsx
-// example.js
+```js{codeTitle: example.js}
 angular.module('app').component('example', {
     controller: function($scope) {
         // ... component logic ...
@@ -63,8 +61,7 @@ angular.module('app').component('example', {
 
 To this:
 
-```jsx
-// example.js
+```js{codeTitle: example.js}
 angular
   .module('app')
   .component('example', {
@@ -105,7 +102,7 @@ Since there is no complicated setup or configuration required for Parcel, there 
 
 This was the simplest part of the refactor, at was the last step. In ES6, we have support for import/export syntax like so:
 
-```jsx
+```js
 import MyComponent from '../components/MyComponent';
 
 // MyComponent.js
@@ -118,7 +115,7 @@ Now if we refactor all our angular components to this syntax, we can simplify ho
 
 now in our `index.js` file, we can register our components like so:
 
-```jsx
+```jsx{codeTitle: index.js}
 // first mass import all the components
 import * as components from './components/*.js';
 
@@ -146,8 +143,7 @@ Thankfully, I discovered the codepen mentioned earlier in the article that showc
 
 Calm down, I'm getting there.
 
-```jsx
-// login.js
+```jsx{codeTitle: login.js}
 import Login from './Login.vue'
 
 export default {

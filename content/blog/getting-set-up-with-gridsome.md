@@ -50,7 +50,7 @@ Now, I won't go over _everything_ because there is a lot going on here and Grids
 
 As you'll see with most of the files and folders in your newly bootstrapped project, the Gridsome team has done a great job of trying to outline the basics for everything. If you open up `main.js` , you should see something similar to:
 
-```js
+```js{codeTitle: Main.js}
 // This is the main.js file. Import global CSS and scripts here.
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 
@@ -74,7 +74,7 @@ Let's go ahead and move into the layouts directory since we've already mentioned
 
 If you open up `/layouts/Default.vue`, and take a look at the code inside the `<template>` tags, you should see
 
-```jsx
+```html
 <template>
   <div class="layout">
     <header class="header">
@@ -97,14 +97,13 @@ So we have a few cool things happening here:
 -   You'll probably also notice the `$static.metadata.siteName`, which is a topic for another time but the basics of it is this; Gridsome uses GraphQL under the hood to organize data. This allows you to write GraphQL queries in your components to fetch relevant data and present it like so. Here, we have fetched the name of our site from the `metadata` object. Pretty cool stuff! If you want to learn more about it, you can check the docs [here](https://gridsome.org/docs/data-layer/).
 -   Lastly, we have a `slot` component. If you're unfamiliar with Vue slots, they are a way to create components that can be passed children. For example:
 
-    ```jsx
-    // CoolTitleComponent.js
+    ```html{CoolTitleComponent.vue}
     <template>
-    	<header class='awesomeHeader'>
-    		<h1 class='awesomeHeader--text'>
-    			<slot></slot>
-    		</h1>
-    	</header>
+      <header class='awesomeHeader'>
+        <h1 class='awesomeHeader--text'>
+          <slot></slot>
+        </h1>
+      </header>
     </template>
 
     // Somewhere else in our app
@@ -117,7 +116,7 @@ So we have a few cool things happening here:
 
     When Vue renders this component, the `slot` component will be replaced with the text that we passed in, and our component will be rendered as :
 
-    ```jsx
+    ```html
     <header class='awesomeHeader'>
         <h1 class='awesomeHeader--text'>Wassssuppppp</h1>
     </header>
@@ -167,7 +166,7 @@ So we can see how it works, lets go ahead and create a new file in our `/pages` 
 </script>
 ```
 
-Save your changes, and navigate to `[localhost:8080/blog](http://localhost:8000/blog)` in your browser. You should see your page load!
+Save your changes, and navigate to `localhost:8080/blog` in your browser. You should see your page load!
 
 ![Blog page](https://dev-to-uploads.s3.amazonaws.com/i/a5ivlfawrjll7kqb1tda.png)
 
