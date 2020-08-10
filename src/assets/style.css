@@ -1,12 +1,16 @@
 /* variables */
 :root {
-    --primary: #6200ee;
+    --purple: #6200ee;
+    --teal: #04dac6;
+
+    --primary: var(--purple);
     --primary-light: hsl(265, 70%, 95%);
     --primary-dark: #5d3991;
     --secondary: #04dac6;
     --white: #fafafa;
     --off-white: #ffffffcc;
-    --black: #333;
+    --black: #1a1a1a;
+    --darker-grey: #333;
     --dark-grey: #4e4c4c;
     --grey: #bbb;
 
@@ -15,17 +19,26 @@
     --text--dark: var(--off-white);
     --link-text--dark: var(--off-white);
     --active-link-text--dark: var(--secondary);
+    --shadow--dark: #121212;
+    --project-border--light: var(--primary);
+    --quote-bg--dark: rgb(2, 55, 81);
 
     /* Light Theme */
     --bg--light: var(--white);
-    --text--light: var(--black);
+    --text--light: var(--darker-grey);
     --link-text--light: var(--dark-grey);
     --active-link-text--light: var(--primary);
+    --shadow--light: var(--grey);
+    --project-border--light: transparent;
+    --quote-bg--light: var(--primary-light);
 
     --background: var(--bg--light);
     --text: var(--text--light);
     --link-text: var(--link-text--light);
     --active-link-text: var(--primary);
+    --shadow: var(--shadow--light);
+    --project-border: var(--project-border--light);
+    --quote-bg: var(--quote-bg--light);
 }
 
 /* global styles */
@@ -48,6 +61,7 @@ body {
     background: var(--background);
     font-weight: 500;
     color: var(--text);
+    transition: all 200ms ease-in;
 }
 
 a {
@@ -55,7 +69,7 @@ a {
 }
 
 h2 {
-    color: var(--black);
+    color: var(--text);
     font-weight: 400;
     font-size: 1.3rem;
 }
@@ -203,12 +217,12 @@ h2 {
     align-items: baseline;
     width: 50%;
     margin: 1rem 0;
-    color: var(--black);
+    color: var(--text);
     font-size: 1rem;
     background: linear-gradient(120deg, transparent 0%, transparent 50%, var(--primary) 50%);
     background-size: 225%;
     backface-visibility: hidden;
-    box-shadow: 0 0.1rem 0.3rem var(--grey);
+    box-shadow: 0 0.1rem 0.3rem var(--shadow);
     border-radius: 3px;
 
     transition: all 0.3s;
@@ -219,7 +233,7 @@ h2 {
     background-position: 100%;
     transform: scale(1.1) translateY(-0.4rem);
 
-    box-shadow: 0 0.4rem 0.5rem var(--grey);
+    box-shadow: 0 0.4rem 0.5rem var(--shadow);
 }
 
 .projects__project:hover .project__link {
@@ -228,7 +242,7 @@ h2 {
 }
 
 .project__link {
-    color: var(--black);
+    color: var(--text);
     transition: color 0.3s;
     padding: 1rem 0 1rem 1rem;
     width: 100%;
@@ -251,11 +265,11 @@ h2 {
     display: inline-block;
     background-clip: text;
     -webkit-background-clip: text;
-    color: var(--black);
+    color: var(--text);
     background-size: 225%;
     backface-visibility: hidden;
     margin-top: 1.5rem;
-    border-bottom: 1px solid var(--grey);
+    border-bottom: 1px solid var(--primary);
     padding: 1rem 1.2rem;
     font-size: 1.2rem;
     border-radius: 3px;
@@ -267,7 +281,7 @@ h2 {
     background: var(--primary);
     color: var(--white);
     transform: translateY(-0.5rem) scale(1.1);
-    box-shadow: 0 1rem 3rem var(--grey);
+    box-shadow: 0 1rem 3rem var(--shadow);
 }
 
 /* media queries */

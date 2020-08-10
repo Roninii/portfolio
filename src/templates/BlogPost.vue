@@ -1,4 +1,4 @@
-<template>
+\]'[<template>
     <div>
         <div class="blog">
             <header class="blog--header">
@@ -75,7 +75,7 @@ export default {
     },
     mounted() {
         const links = document.querySelectorAll('.icon.icon-link');
-        links.forEach((link) => {
+        links.forEach(link => {
             link.innerHTML = `<i class="fab fa-slack-hash"></i>`;
         });
     },
@@ -212,8 +212,8 @@ article >>> ul > li::before {
 }
 
 article >>> blockquote {
-    background: var(--primary-light);
-    color: var(--dark-grey);
+    background: var(--quote-bg);
+    color: var(--text);
     padding: 1rem 1rem;
     margin: 1.5rem 0;
     position: relative;

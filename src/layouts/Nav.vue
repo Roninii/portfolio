@@ -22,7 +22,9 @@
         <g-link class="nav--link" active-class="underline" to="/blog/"
           >Blog</g-link
         >
-        <button @click='toggleTheme'>🌓</button@>
+        <button @click='toggleTheme' class='theme-toggle'>
+          <i class="far fa-lightbulb"></i>
+        </button@>
       </div>
 
     </nav>
@@ -44,7 +46,7 @@ export default {
     data() {
         return {
             urlRegex: /\/blog\/.+\/$/gi,
-            currentTheme: 'light'
+            currentTheme: 'dark'
         };
     },
     computed: {
@@ -57,17 +59,23 @@ export default {
         if(this.currentTheme === 'dark') {
           this.currentTheme = 'light'
 
+          document.documentElement.style.setProperty('--primary', 'var(--purple)')
           document.documentElement.style.setProperty('--background', 'var(--bg--light)')
           document.documentElement.style.setProperty('--text', 'var(--text--light')
           document.documentElement.style.setProperty('--link-text', 'var(--link-text--light')
           document.documentElement.style.setProperty('--active-link-text', 'var(--active-link-text--light')
+          document.documentElement.style.setProperty('--shadow', 'var(--shadow--light')
+          document.documentElement.style.setProperty('--quote-bg', 'var(--quote-bg--light')
         } else {
           this.currentTheme = 'dark'
 
+          document.documentElement.style.setProperty('--primary', 'var(--teal)')
           document.documentElement.style.setProperty('--background', 'var(--bg--dark)')
           document.documentElement.style.setProperty('--text', 'var(--text--dark')
           document.documentElement.style.setProperty('--link-text', 'var(--link-text--dark')
           document.documentElement.style.setProperty('--active-link-text', 'var(--active-link-text--dark')
+          document.documentElement.style.setProperty('--shadow', 'var(--shadow--dark')
+          document.documentElement.style.setProperty('--quote-bg', 'var(--quote-bg--dark')
         }
       }
     }
@@ -80,5 +88,15 @@ span {
     justify-content: center;
     align-items: center;
     font-size: 1.25rem;
+}
+
+.theme-toggle {
+  border: none;
+  line-height: 1rem;
+  background: none;
+  color: var(--primary);
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 1rem;
 }
 </style>
