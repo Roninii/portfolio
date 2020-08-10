@@ -41,42 +41,19 @@ query {
 </static-query>
 
 <script>
+  import { computed } from "@vue/composition-api";
+import useTheme from '~/composables/useTheme'
+
 export default {
     name: 'Nav',
-    data() {
-        return {
-            urlRegex: /\/blog\/.+\/$/gi,
-            currentTheme: 'dark'
-        };
-    },
-    computed: {
-        viewingBlog() {
-            return this.urlRegex.test(this.$route.path);
-        },
-    },
-    methods: {
-      toggleTheme() {
-        if(this.currentTheme === 'dark') {
-          this.currentTheme = 'light'
+    setup(props, { root: { $route }}) {
+      const urlRegex = /\/blog\/.+\/$/gi
+      const viewingBlog = computed(() => urlRegex.test($route.path))
+      const { toggleTheme } = useTheme()
 
-          document.documentElement.style.setProperty('--primary', 'var(--purple)')
-          document.documentElement.style.setProperty('--background', 'var(--bg--light)')
-          document.documentElement.style.setProperty('--text', 'var(--text--light')
-          document.documentElement.style.setProperty('--link-text', 'var(--link-text--light')
-          document.documentElement.style.setProperty('--active-link-text', 'var(--active-link-text--light')
-          document.documentElement.style.setProperty('--shadow', 'var(--shadow--light')
-          document.documentElement.style.setProperty('--quote-bg', 'var(--quote-bg--light')
-        } else {
-          this.currentTheme = 'dark'
-
-          document.documentElement.style.setProperty('--primary', 'var(--teal)')
-          document.documentElement.style.setProperty('--background', 'var(--bg--dark)')
-          document.documentElement.style.setProperty('--text', 'var(--text--dark')
-          document.documentElement.style.setProperty('--link-text', 'var(--link-text--dark')
-          document.documentElement.style.setProperty('--active-link-text', 'var(--active-link-text--dark')
-          document.documentElement.style.setProperty('--shadow', 'var(--shadow--dark')
-          document.documentElement.style.setProperty('--quote-bg', 'var(--quote-bg--dark')
-        }
+      return {
+        viewingBlog,
+        toggleTheme
       }
     }
 };
