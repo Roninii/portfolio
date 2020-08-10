@@ -29,7 +29,7 @@ npm i
 npm run dev
 ```
 
-Now you should be all set up and if you open your browser to `[localhost:3000](http://localhost:3000)` you should be looking at something like this:
+Now you should be all set up and if you open your browser to `localhost:3000` you should be looking at something like this:
 
 ![Project scaffolding with Vite](/img/vite-starter.png)
 
@@ -41,7 +41,7 @@ Take a moment to look around the code if you want, otherwise lets get started!
 
 First lets start creating the board. We will start by renaming the `HelloWorld.vue` component to `Board.vue`(Don't forget to change the imports!), then we will alter the template in `App.vue` along with replacing the boiler plate in the now named `Board.vue`.
 
-```jsx
+```js
 // App.vue
 import Board from './components/Board.vue';
 
@@ -55,75 +55,79 @@ export default {
 
 The board and related styles:
 
-```jsx
+```html
 // Board.vue
 <template>
-<div class='board'>
-    <span class='vertical-line-1'></span>
-    <span class='vertical-line-2'></span>
-    <Square />
-</div>
+    <div class="board">
+        <span class="vertical-line-1"></span>
+        <span class="vertical-line-2"></span>
+        <Square />
+    </div>
 </template>
 
 <script>
-import Square from './Square.vue'
+    import Square from './Square.vue';
 
-export default {
-  name: 'Board',
-	components: {
-		Square,
-	}
-}
+    export default {
+        name: 'Board',
+        components: {
+            Square,
+        },
+    };
 </script>
 
 <style scoped>
-.board {
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-}
+    .board {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
 
-.board::before, .board::after {
-    background: linear-gradient(to right,  #41b883, #35495e)
-}
+    .board::before,
+    .board::after {
+        background: linear-gradient(to right, #41b883, #35495e);
+    }
 
-.vertical-line-1, .vertical-line-2 {
-    background: linear-gradient(to right,  #41b883, #35495e)
-}
+    .vertical-line-1,
+    .vertical-line-2 {
+        background: linear-gradient(to right, #41b883, #35495e);
+    }
 
-.board::before, .board::after {
-    content: '';
-    width: 100%;
-    height: 5px;
-    position: absolute;
-    border-radius: 1rem;
-}
+    .board::before,
+    .board::after {
+        content: '';
+        width: 100%;
+        height: 5px;
+        position: absolute;
+        border-radius: 1rem;
+    }
 
-.board::before {
-    top: 33%;
-}
+    .board::before {
+        top: 33%;
+    }
 
-.board::after {
-    top: 66%;
-}
+    .board::after {
+        top: 66%;
+    }
 
-.vertical-line-1, .vertical-line-2 {
-    position: absolute;
-    width: 100%;
-    height: 5px;
-    top: 50%;
-    border-radius: 1rem;
-    transform: translate(-50%, -50%) rotate(90deg);
-}
+    .vertical-line-1,
+    .vertical-line-2 {
+        position: absolute;
+        width: 100%;
+        height: 5px;
+        top: 50%;
+        border-radius: 1rem;
+        transform: translate(-50%, -50%) rotate(90deg);
+    }
 
-.vertical-line-1 {
-    left: 33%;
-}
+    .vertical-line-1 {
+        left: 33%;
+    }
 
-.vertical-line-2 {
-    left: 66%;
-}
+    .vertical-line-2 {
+        left: 66%;
+    }
 </style>
 ```
 
@@ -142,81 +146,76 @@ That's ... really it! So let's build it out:
 
 First let's take care of the template and the styles. We'll add a button with a disabled attribute which we will bind to `winner || value`, so that we can dynamically mark this button as disabled based on whether it has been clicked, or if the game is over. For accessibility reasons, we'll add a `name` attribute that we'll bind to a prop called `label`.
 
-```jsx
+```html
 // Square.vue
 
 <template>
-    <button
-        class='square'
-        :name="label"
-        :disabled='winner || value'
-    >
+    <button class="square" :name="label" :disabled="winner || value">
         {{ value }}
     </button>
 </template>
 
 <style scoped>
-.square {
-    border: none;
-    width: 10rem;
-    height: 10rem;
-    background: none;
-    color: inherit;
-    font-size: 3rem;
-    font-weight: 700;
-}
+    .square {
+        border: none;
+        width: 10rem;
+        height: 10rem;
+        background: none;
+        color: inherit;
+        font-size: 3rem;
+        font-weight: 700;
+    }
 
-.square:hover {
-    cursor: pointer;
-}
+    .square:hover {
+        cursor: pointer;
+    }
 
-.square:focus {
-    outline: none;
-    background: #41b88330;
-}
+    .square:focus {
+        outline: none;
+        background: #41b88330;
+    }
 
-.square:first-child,
-.square:nth-child(2),
-.square:nth-child(3) {
-    border-top: none;
-}
+    .square:first-child,
+    .square:nth-child(2),
+    .square:nth-child(3) {
+        border-top: none;
+    }
 
-.square:nth-child(3),
-.square:nth-child(6),
-.square:last-child {
-    border-right: none;
-}
+    .square:nth-child(3),
+    .square:nth-child(6),
+    .square:last-child {
+        border-right: none;
+    }
 
-.square:nth-child(7),
-.square:nth-child(8),
-.square:last-child {
-    border-bottom: none;
-}
+    .square:nth-child(7),
+    .square:nth-child(8),
+    .square:last-child {
+        border-bottom: none;
+    }
 
-.square:first-child,
-.square:nth-child(4),
-.square:nth-child(7) {
-    border-left: none;
-}
+    .square:first-child,
+    .square:nth-child(4),
+    .square:nth-child(7) {
+        border-left: none;
+    }
 </style>
 ```
 
 Now let's add the JS! Since our component isn't in charge of maintaining any state, it'll be pretty lean. All we need is to declare our props, `label`, `value`, and `winner`.
 
-```jsx
+```html
 <script>
-export default {
-    props: {
-        label: String,
-        value: {
-            type: String,
-            default: ' ',
+    export default {
+        props: {
+            label: String,
+            value: {
+                type: String,
+                default: ' ',
+            },
+            winner: null,
         },
-        winner: null,
-    },
-});
+    };
 </script>
-
 ```
 
 Cool! However, if you've been following along, you'll likely notice our app doesn't actually _do_ anything yet. Let's add the game logic now!
@@ -233,7 +232,7 @@ Let's plan everything out before we start writing code. (I'm just doing this to 
 
 Cool! Now that we know how everything _should_ work, lets get to coding.
 
-```jsx
+```js
 import { ref } from 'vue'
 
 setup() {
@@ -265,7 +264,7 @@ We'll now access the value located in our `boardCopy` array, located at the inde
 
 Last step here is the explicit return object from our `setup` function.
 
-```jsx
+```js
 return {
     board,
     playerValue,
@@ -314,7 +313,7 @@ Now if you load up the game, you should be able to click through each tile, mark
 
 First, we'll jump back down to our `setup` function to add the logic for calculating a winner. I borrowed the majority of the below function straight from the [React Docs](https://reactjs.org/tutorial/tutorial.html#declaring-a-winner), with some modifications to Vue-ify it.
 
-```jsx
+```js
 const calculateWinner = computed(() => {
     const lines = [
         [0, 1, 2],
@@ -435,7 +434,7 @@ As for the confetti, we'll use a small library from npm, [dom-confetti](https://
 
 Install it via `npm i dom-confetti`, and then in `Board.vue` we can import it like so
 
-```jsx
+```js
 import { confetti } from '../../node_modules/dom-confetti/src/main.js';
 ```
 
