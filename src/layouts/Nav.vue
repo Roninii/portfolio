@@ -22,7 +22,11 @@
         <g-link class="nav--link" active-class="underline" to="/blog/"
           >Blog</g-link
         >
+        <button @click='toggleTheme' class='theme-toggle'>
+          <i class="far fa-lightbulb"></i>
+        </button@>
       </div>
+
     </nav>
   </header>
 </template>
@@ -37,18 +41,21 @@ query {
 </static-query>
 
 <script>
+  import { computed } from "@vue/composition-api";
+import useTheme from '~/composables/useTheme'
+
 export default {
     name: 'Nav',
-    data() {
-        return {
-            urlRegex: /\/blog\/.+\/$/gi,
-        };
-    },
-    computed: {
-        viewingBlog() {
-            return this.urlRegex.test(this.$route.path);
-        },
-    },
+    setup(props, { root: { $route }}) {
+      const urlRegex = /\/blog\/.+\/$/gi
+      const viewingBlog = computed(() => urlRegex.test($route.path))
+      const { toggleTheme } = useTheme()
+
+      return {
+        viewingBlog,
+        toggleTheme
+      }
+    }
 };
 </script>
 
@@ -58,5 +65,15 @@ span {
     justify-content: center;
     align-items: center;
     font-size: 1.25rem;
+}
+
+.theme-toggle {
+  border: none;
+  line-height: 1rem;
+  background: none;
+  color: var(--primary);
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 1rem;
 }
 </style>
