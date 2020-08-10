@@ -309,7 +309,7 @@ Now if you load up the game, you should be able to click through each tile, mark
 
 First, we'll jump back down to our `setup` function to add the logic for calculating a winner. I borrowed the majority of the below function straight from the [React Docs](https://reactjs.org/tutorial/tutorial.html#declaring-a-winner), with some modifications to Vue-ify it.
 
-```js
+```js{codeTitle: Board.vue}
 const calculateWinner = computed(() => {
   const lines = [
     [0, 1, 2],
@@ -387,7 +387,7 @@ That's it! The game is complete! We can add a little polish though. How about a 
 
 First let's add the reset button, as well as a the accompanying logic.
 
-```html{5}
+```html{5}{codeTitle: Board.vue}
 <header v-if="calculateWinner" class="header">
   <h1>
     {{ calculateWinner }}
