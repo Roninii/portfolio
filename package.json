@@ -15,5 +15,6 @@
     "gridsome-plugin-remark-prismjs-all": "^0.3.5",
     "gridsome-plugin-rss": "^1.2.0",
     "victormono": "^1.4.1"
-  }
+  },
+  "devDependencies": {}
 }
