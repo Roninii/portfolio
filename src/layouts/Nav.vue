@@ -24,7 +24,7 @@
         >
         <button @click='toggleTheme' class='theme-toggle'>
           <i class="far fa-lightbulb"></i>
-        </button@>
+        </button>
       </div>
 
     </nav>
