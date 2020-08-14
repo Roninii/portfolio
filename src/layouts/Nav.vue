@@ -41,18 +41,22 @@ query {
 </static-query>
 
 <script>
-  import { computed } from "@vue/composition-api";
 import useTheme from '~/composables/useTheme'
 
 export default {
     name: 'Nav',
+    data() {
+      return{}
+    },
+    computed: {
+      viewingBlog() { 
+        return /\/blog\/.+\/$/gi.test(this.$route.path)
+        }
+    },
     setup(props, { root: { $route }}) {
-      const urlRegex = /\/blog\/.+\/$/gi
-      const viewingBlog = computed(() => urlRegex.test($route.path))
       const { toggleTheme } = useTheme()
 
       return {
-        viewingBlog,
         toggleTheme
       }
     }
