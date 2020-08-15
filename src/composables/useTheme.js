@@ -3,8 +3,14 @@ import { ref } from '@vue/composition-api';
 export default function useTheme() {
     const currentTheme = ref('light');
 
-    const toggleTheme = () => {
-        if (currentTheme.value === 'dark') {
+    // check local storage for saved theme preference and set it
+    const themePreference = window.localStorage.getItem('theme')
+    if (themePreference) {
+        currentTheme.value = themePreference
+        currentTheme.value === 'light' ? setLightTheme() : setDarkTheme()
+    }
+
+    function setLightTheme() {
             currentTheme.value = 'light';
 
             document.documentElement.style.setProperty('--primary', 'var(--purple)');
@@ -17,7 +23,11 @@ export default function useTheme() {
             );
             document.documentElement.style.setProperty('--shadow', 'var(--shadow--light');
             document.documentElement.style.setProperty('--quote-bg', 'var(--quote-bg--light');
-        } else {
+
+            window.localStorage.setItem('theme', 'light')
+    }
+
+    function setDarkTheme() {
             currentTheme.value = 'dark';
 
             document.documentElement.style.setProperty('--primary', 'var(--teal)');
@@ -30,6 +40,15 @@ export default function useTheme() {
             );
             document.documentElement.style.setProperty('--shadow', 'var(--shadow--dark');
             document.documentElement.style.setProperty('--quote-bg', 'var(--quote-bg--dark');
+
+            window.localStorage.setItem('theme', 'dark')
+    }
+
+    function toggleTheme() {
+        if (currentTheme.value === 'dark') {
+            setLightTheme()
+        } else {
+            setDarkTheme()
         }
     };
 
