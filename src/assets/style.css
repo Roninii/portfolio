@@ -3,7 +3,7 @@
     --purple: #6200ee;
     --teal: #04dac6;
 
-    --primary: var(--teal);
+    --primary: var(--purple);
     --primary-light: hsl(265, 70%, 95%);
     --primary-dark: #5d3991;
     --secondary: #04dac6;
@@ -32,13 +32,13 @@
     --project-border--light: transparent;
     --quote-bg--light: var(--primary-light);
 
-    --background: var(--bg--dark);
-    --text: var(--text--dark);
-    --link-text: var(--link-text--dark);
+    --background: var(--bg--light);
+    --text: var(--text--light);
+    --link-text: var(--link-text--light);
     --active-link-text: var(--primary);
-    --shadow: var(--shadow--dark);
-    --project-border: var(--project-border--dark);
-    --quote-bg: var(--quote-bg--dark);
+    --shadow: var(--shadow--light);
+    --project-border: var(--project-border--light);
+    --quote-bg: var(--quote-bg--light);
 }
 
 /* global styles */

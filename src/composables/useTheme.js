@@ -1,7 +1,7 @@
 import { ref } from '@vue/composition-api';
 
 export default function useTheme() {
-    const currentTheme = ref('dark');
+    const currentTheme = ref('light');
 
     const toggleTheme = () => {
         if (currentTheme.value === 'dark') {
