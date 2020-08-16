@@ -13,6 +13,11 @@ import Vue from 'vue'
 export const EventBus = new Vue()
 
 export default function(Vue, { router, head, body, isClient }) {
+    head.style.push({
+        href: "https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap",
+        rel: "stylesheet"
+    })
+    
     head.script.push({
         src: 'https://kit.fontawesome.com/963f59e308.js',
         body: false,

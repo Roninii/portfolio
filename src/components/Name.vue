@@ -25,7 +25,7 @@ export default {
   },
   mounted() {
       const { currentTheme } = useTheme()
-      this.theme = currentTheme
+      this.theme = currentTheme.value
       EventBus.$on('click', (payload) => { this.theme = payload})
   },
 }
@@ -33,8 +33,7 @@ export default {
 
 <style scoped>
 .name-container {
-  display: grid;
-  place-items: center;
+    grid-area: header;
 }
 
 /* Light mode */

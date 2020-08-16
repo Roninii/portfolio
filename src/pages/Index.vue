@@ -2,14 +2,6 @@
     <div class="container">
         <Name />
 
-        <section class="about">
-            <p class="about__info">
-                I love bringing ideas to life and experimenting with new technology. I am thriving
-                in the JavaScript ecosystem, but I also love branching out into design and learning
-                new things. If I'm not coding, I'm probably spending time with my family or Gaming!
-            </p>
-        </section>
-
         <section class="contact">
             <h2 class="contact__heading">
                 Let's <span class="highlight--primary">build</span> something
