@@ -1,17 +1,6 @@
 <template>
     <div class="container">
-        <header class="header">
-            <h1 class="header__name">
-                <span class="highlight--primary">Ron</span>nie Villar<span
-                    class="highlight--primary"
-                    >ini</span
-                >
-            </h1>
-            <h2 class="header__intro">
-                Hi, I'm Ronnie! I'm a full-stack developer living in a
-                <span class="highlight--primary">JavaScript</span> paradise. 🌴
-            </h2>
-        </header>
+        <Name />
 
         <section class="about">
             <p class="about__info">
@@ -137,10 +126,15 @@
 </template>
 
 <script>
+import Name from '@/components/Name'
+
 export default {
     metaInfo: {
         title: 'Ronini.dev',
     },
+    components: {
+        Name
+    }
 };
 </script>
 

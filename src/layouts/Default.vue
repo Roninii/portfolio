@@ -1,6 +1,6 @@
 <template>
     <div class="layout">
-        <Nav />
+        <Nav @theme-change='handleThemeChange'/>
         <main id="main">
             <slot />
         </main>
@@ -13,5 +13,15 @@ export default {
     components: {
         Nav: () => import('./Nav.vue'),
     },
+    data() {
+        return {
+            theme: ''
+        }
+    },
+    methods: {
+        handleThemeChange(e) {
+            this.theme = e
+        }
+    }
 };
 </script>

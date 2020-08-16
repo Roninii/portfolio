@@ -1,3 +1,4 @@
+import { EventBus } from '@/main'
 import { ref } from '@vue/composition-api';
 
 export default function useTheme() {
@@ -51,9 +52,12 @@ export default function useTheme() {
         } else {
             setDarkTheme();
         }
+
+        EventBus.$emit('click', currentTheme.value)
     }
 
     return {
         toggleTheme,
+        currentTheme,
     };
 }
