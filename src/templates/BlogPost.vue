@@ -96,6 +96,7 @@ export default {
     margin: 0 auto;
     width: 100%;
     max-width: 1024px;
+    text-align: center;
 }
 
 .blog--header__banner {
@@ -182,18 +183,18 @@ article >>> p > a:after {
     background: linear-gradient(to right, var(--secondary), var(--primary));
 }
 
-article >>> ul {
+article >>> ul, ol {
     list-style-type: none;
     margin-left: 2rem;
 }
 
-article >>> ol {
+/* article >>> ol {
     margin-left: 2rem;
 }
 
 article >>> ol > li::marker {
     color: var(--primary);
-}
+} */
 
 article >>> li {
     position: relative;
@@ -207,8 +208,6 @@ article >>> ul > li::before {
     left: -20px;
     color: var(--primary);
     font-weight: 700;
-
-    width: 5rem;
 }
 
 article >>> blockquote {

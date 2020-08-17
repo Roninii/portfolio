@@ -172,9 +172,9 @@ The accompanying styles:
 So in these functions I'm:
 
 1. Setting the value of the currentTheme, because I need to keep track of what the active theme is.
-2. Using the native browser `document.documentElement.style.setProperty` function, I'm finding the CSS variable that I need to change, and then passing in what I want the new valule to be.
+2. Using the native browser `setProperty` function, I'm finding the CSS variable that I need to change, and then passing in what I want the new valule to be.
 
-> If this is your first time seeing `document.documentElement.style.setProperty()` I **highly** recommend checking out [David Walsh's article](https://davidwalsh.name/css-variables-javascript)
+> If this is your first time seeing `setProperty()` I **highly** recommend checking out [David Walsh's article](https://davidwalsh.name/css-variables-javascript)
 
 The last line here is very specific to my development environment. Since I'm using Gridsome, when my site is built on Netlify it's going to run through all Vue components and turn them into static HTML. `localStorage` does not exist in Node, so trying to access it here will cause the build to fail. I'm using `process.isClient` to check if the current environment is in the browser. If it is, then it executes this line, setting the current theme in local storage. If not, the line is just skipped.
 
