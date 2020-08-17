@@ -1,34 +1,36 @@
 <template>
-  <header :class="['name-container', theme]">
-    <div>
-      <h1 class="name">
-        <span class="neon">Ron</span>
-        <span class="middle">nie Villar</span>
-        <span class="neon">ini</span>
-      </h1>
-      <h2 class="subtitle">
-        T Shaped Developer | Frontend Specialist | Vue.js Enthusiast
-      </h2>
-      <hr class="accent" />
-    </div>
-  </header>
+    <header :class="['name-container', theme]">
+        <div>
+            <h1 class="name">
+                <span class="neon">Ron</span>
+                <span class="middle">nie Villar</span>
+                <span class="neon">ini</span>
+            </h1>
+            <h2 class="subtitle">
+                T Shaped Developer | Frontend Specialist | Vue.js Enthusiast
+            </h2>
+            <hr class="accent" />
+        </div>
+    </header>
 </template>
 
 <script>
-import { EventBus } from "@/main";
+import { EventBus } from '@/main';
 import useTheme from '@/composables/useTheme';
-import { ref } from '@vue/composition-api'
+import { ref } from '@vue/composition-api';
 
 export default {
-  data() {
-    return { theme: '' }
-  },
-  mounted() {
-      const { currentTheme } = useTheme()
-      this.theme = currentTheme.value
-      EventBus.$on('click', (payload) => { this.theme = payload})
-  },
-}
+    data() {
+        return { theme: '' };
+    },
+    mounted() {
+        const { currentTheme } = useTheme();
+        this.theme = currentTheme.value;
+        EventBus.$on('click', payload => {
+            this.theme = payload;
+        });
+    },
+};
 </script>
 
 <style scoped>
@@ -38,121 +40,124 @@ export default {
 
 /* Light mode */
 .name-container.light .name {
-  color: var(--black);
+    color: var(--black);
 }
 
 .name-container.light .subtitle {
-  color: var(--grey);
+    color: var(--grey);
 }
 
 /* Dark mode */
 .name-container.dark .name {
-  color: var(--white);
+    color: var(--white);
 }
 .name-container.dark .name .neon {
-  animation-name: glow;
-  animation-duration: 2s;
-  animation-fill-mode: forwards;
+    animation-name: glow;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
 }
 
 .name-container.dark .subtitle {
-  color: var(--gray-light);
+    color: var(--gray-light);
 }
 
 .name {
-  text-transform: uppercase;
-  letter-spacing: 0.15rem;
-  font-size: 4rem;
-  line-height: 4.55rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    font-size: 4rem;
+    line-height: 4.55rem;
+    text-align: center;
 }
 
 .neon {
-  animation-name: fade-in;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-  color: var(--purple);
+    animation-name: fade-in;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    color: var(--purple);
 }
 
-.middle {
-  max-width: 0;
-  opacity: 0;
-  overflow: hidden;
-  white-space: nowrap;
+@media screen and (min-width: 768px) {
+    .name {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .middle {
+        max-width: 0;
+        opacity: 0;
+        overflow: hidden;
+        white-space: nowrap;
 
-  animation-name: grow;
-  animation-duration: 2s;
-  animation-delay: 2s;
-  animation-fill-mode: forwards;
+        animation-name: grow;
+        animation-duration: 2s;
+        animation-delay: 2s;
+        animation-fill-mode: forwards;
+    }
 }
 
 .subtitle {
-  text-align: center;
-  opacity: 0;
+    text-align: center;
+    opacity: 0;
 
-  animation-name: fade-in;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-  animation-delay: 3s;
+    animation-name: fade-in;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-delay: 3s;
 }
 
 .accent {
-  width: 10rem;
-  margin: 0.75rem auto;
-  border-color: var(--purple);
+    width: 10rem;
+    margin: 0.75rem auto;
+    border-color: var(--purple);
 }
 
 @keyframes fade-in {
-  from {
-    opacity: 0;
-  }
+    from {
+        opacity: 0;
+    }
 
-  to {
-    opacity: 1;
-  }
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes grow {
-  from {
-    max-width: 0;
-  }
+    from {
+        max-width: 0;
+    }
 
-  to {
-    max-width: 100vw;
-    overflow: show;
-    opacity: 1;
-  }
+    to {
+        max-width: 100vw;
+        overflow: show;
+        opacity: 1;
+    }
 }
 
 @keyframes glow {
-  0% {
-    color: black;
-    text-shadow: none;
-  }
+    0% {
+        color: black;
+        text-shadow: none;
+    }
 
-  15% {
-    text-shadow: 0.25rem 0 0.5rem var(--purple-dark),
-      -0.25rem 0 0.5rem var(--purple-dark);
-  }
+    15% {
+        text-shadow: 0.25rem 0 0.5rem var(--purple-dark), -0.25rem 0 0.5rem var(--purple-dark);
+    }
 
-  20% {
-    text-shadow: none;
-  }
+    20% {
+        text-shadow: none;
+    }
 
-  25% {
-    text-shadow: 0.25rem 0 0.5rem var(--purple-dark),
-      -0.25rem 0 0.5rem var(--purple-dark);
-  }
+    25% {
+        text-shadow: 0.25rem 0 0.5rem var(--purple-dark), -0.25rem 0 0.5rem var(--purple-dark);
+    }
 
-  30% {
-    text-shadow: none;
-  }
+    30% {
+        text-shadow: none;
+    }
 
-  100% {
-    text-shadow: 0.25rem 0 0.5rem var(--purple-dark),
-      -0.25rem 0 0.5rem var(--purple-dark), 0 0 3rem var(--purple);
-  }
+    100% {
+        text-shadow: 0.25rem 0 0.5rem var(--purple-dark), -0.25rem 0 0.5rem var(--purple-dark),
+            0 0 3rem var(--purple);
+    }
 }
 </style>
