@@ -53,7 +53,7 @@ export default {
         return /\/blog\/.+\/$/gi.test(this.$route.path)
         }
     },
-    setup(props, { root: { $route }}) {
+    setup() {
       const { toggleTheme } = useTheme()
 
       return {
