@@ -76,6 +76,10 @@ export default {
     color: var(--purple);
 }
 
+.subtitle {
+    text-align: center;
+}
+
 @media screen and (min-width: 768px) {
     .name {
         display: flex;
@@ -93,16 +97,15 @@ export default {
         animation-delay: 2s;
         animation-fill-mode: forwards;
     }
-}
 
-.subtitle {
-    text-align: center;
-    opacity: 0;
+    .subtitle {
+        opacity: 0;
 
-    animation-name: fade-in;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    animation-delay: 3s;
+        animation-name: fade-in;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        animation-delay: 3s;
+    }
 }
 
 .accent {
