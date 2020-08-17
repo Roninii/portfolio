@@ -3,6 +3,8 @@ title: 'Build A Dark Theme Toggle With The Composition API'
 description: 'Using the Vue 3 composition api to build a theme toggler.'
 author: Ronnie Villarini
 date: '2020-08-17'
+image: /img/theme-banner.jpg
+imageAlt: 'An amusement park at night.'
 ---
 
 I recently built a theme toggle for my personal site because, well, everything has a dark theme these days right?
