@@ -2,12 +2,14 @@
     <div>
         <div class="blog">
             <header class="blog--header">
-                <g-image
+                <img
                     class="blog--header__banner"
                     v-if="$page.blogPost.image"
                     :src="$page.blogPost.image"
                     :alt="$page.blogPost.imageAlt"
-                ></g-image>
+                    width="480"
+                    height="1000"
+                />
                 <h1 class="blog--header__title" v-html="$page.blogPost.title" />
             </header>
             <article v-html="$page.blogPost.content" />
@@ -75,7 +77,7 @@ export default {
     },
     mounted() {
         const links = document.querySelectorAll('.icon.icon-link');
-        links.forEach(link => {
+        links.forEach((link) => {
             link.innerHTML = `<i class="fab fa-slack-hash"></i>`;
         });
     },
@@ -183,7 +185,8 @@ article >>> p > a:after {
     background: linear-gradient(to right, var(--secondary), var(--primary));
 }
 
-article >>> ul, ol {
+article >>> ul,
+ol {
     list-style-type: none;
     margin-left: 2rem;
 }
