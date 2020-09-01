@@ -8,13 +8,19 @@
   },
   "dependencies": {
     "@gridsome/source-filesystem": "^0.6.2",
-    "@gridsome/transformer-remark": "^0.6.1",
-    "@vue/composition-api": "^1.0.0-beta.8",
+    "@gridsome/transformer-remark": "^0.6.2",
+    "@vue/composition-api": "^1.0.0-beta.11",
     "global": "^4.4.0",
-    "gridsome": "^0.7.19",
+    "gridsome": "^0.7.20",
     "gridsome-plugin-remark-prismjs-all": "^0.3.5",
     "gridsome-plugin-rss": "^1.2.0",
     "victormono": "^1.4.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-brands-svg-icons": "^5.14.0",
+    "@fortawesome/free-regular-svg-icons": "^5.14.0",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/vue-fontawesome": "^0.1.10"
+  }
 }

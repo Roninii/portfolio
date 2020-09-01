@@ -16,7 +16,10 @@
                     class="contact__link"
                     title="dev.to"
                 >
-                    <i class="fab fa-dev" title="_ronini's DEV Profile"></i>
+                    <font-awesome
+                        :icon="['fab', 'dev']"
+                        title="_ronini's DEV Profile"
+                    ></font-awesome>
                 </a>
 
                 <a
@@ -26,7 +29,7 @@
                     class="contact__link"
                     title="github"
                 >
-                    <i class="fab fa-github contact__icon"></i>
+                    <font-awesome :icon="['fab', 'github']" class="contact__icon"></font-awesome>
                 </a>
 
                 <a
@@ -36,7 +39,7 @@
                     title="linkedin"
                     rel="noreferrer"
                 >
-                    <i class="fab fa-linkedin-in contact__icon"></i>
+                    <font-awesome :icon="['fab', 'linkedin']" class="contact__icon"></font-awesome>
                 </a>
 
                 <a
@@ -46,7 +49,7 @@
                     title="twitter"
                     rel="noreferrer"
                 >
-                    <i class="fab fa-twitter contact__icon"></i>
+                    <font-awesome :icon="['fab', 'twitter']" class="contact__icon"></font-awesome>
                 </a>
 
                 <a
@@ -56,7 +59,10 @@
                     title="email"
                     rel="noreferrer"
                 >
-                    <i class="fas fa-envelope-open-text contact__icon"></i>
+                    <font-awesome
+                        :icon="['fas', 'envelope-open-text']"
+                        class="contact__icon"
+                    ></font-awesome>
                 </a>
             </div>
         </section>
@@ -73,8 +79,9 @@
                     rel="noreferrer"
                     class="project__link"
                     title="ZeroGen Apparel"
-                >&rarr; ZeroGen Apparel</a>
-                <i class="fab fa-vuejs icon"></i>
+                    >&rarr; ZeroGen Apparel</a
+                >
+                <!-- <font-awesome :icon="['fab', 'vuejs']" class="icon"></font-awesome> -->
             </div>
 
             <div class="projects__project">
@@ -84,9 +91,10 @@
                     class="project__link"
                     rel="noreferrer"
                     title="Winning Streak"
-                >&rarr; Winning Streak</a>
+                    >&rarr; Winning Streak</a
+                >
                 <div class="project__icons">
-                    <i class="fab fa-vuejs icon"></i>
+                    <!-- <font-awesome :icon="['fab', 'vuejs']" class="icon"></font-awesome> -->
                 </div>
             </div>
 
@@ -97,11 +105,12 @@
                     class="project__link"
                     title="eSportacus"
                     rel="noreferrer"
-                >&rarr; eSportacus</a>
-                <i class="fab fa-aws icon"></i>
-                <i class="fab fa-node-js icon"></i>
-                <i class="fab fa-sass icon"></i>
-                <i class="fab fa-react icon"></i>
+                    >&rarr; eSportacus</a
+                >
+                <font-awesome :icon="['fab', 'aws']" class="icon"></font-awesome>
+                <font-awesome :icon="['fab', 'node-js']" class="icon"></font-awesome>
+                <font-awesome :icon="['fab', 'sass']" class="icon"></font-awesome>
+                <font-awesome :icon="['fab', 'react']" class="icon"></font-awesome>
             </div>
 
             <a
@@ -112,7 +121,10 @@
                 title="ronnie's github"
             >
                 more on github
-                <i class="fab fa-github projects__github--icon"></i>
+                <font-awesome
+                    :icon="['fab', 'github']"
+                    class="projects__github--icon"
+                ></font-awesome>
             </a>
         </section>
     </div>

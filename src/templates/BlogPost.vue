@@ -1,4 +1,4 @@
-\]'[<template>
+<template>
     <div>
         <div class="blog">
             <header class="blog--header">
@@ -22,7 +22,10 @@
                     class="contact__link"
                     title="dev.to"
                 >
-                    <i class="fab fa-dev" title="_ronini's DEV Profile"></i>
+                    <font-awesome
+                        :icon="['fab', 'dev']"
+                        title="_ronini's DEV Profile"
+                    ></font-awesome>
                 </a>
                 <a
                     href="https://github.com/roninii/"
@@ -31,7 +34,11 @@
                     class="contact__link"
                     title="github"
                 >
-                    <i class="fab fa-github contact__icon" title="ronini's github profile"></i>
+                    <font-awesome
+                        :icon="['fab', 'github']"
+                        class="contact__icon"
+                        title="ronini's github profile"
+                    ></font-awesome>
                 </a>
                 <a
                     href="https://twitter.com/_ronini"
@@ -40,7 +47,7 @@
                     title="twitter"
                     rel="noreferrer"
                 >
-                    <i class="fab fa-twitter contact__icon"></i>
+                    <font-awesome :icon="['fab', 'twitter']" class="contact__icon"></font-awesome>
                 </a>
                 <a
                     href="https://linkedin.com/in/ronnievillarini"
@@ -49,7 +56,7 @@
                     title="linkedin"
                     rel="noreferrer"
                 >
-                    <i class="fab fa-linkedin-in contact__icon"></i>
+                    <font-awesome :icon="['fab', 'linkedin']" class="contact__icon"></font-awesome>
                 </a>
             </footer>
         </div>
@@ -77,7 +84,7 @@ export default {
     },
     mounted() {
         const links = document.querySelectorAll('.icon.icon-link');
-        links.forEach((link) => {
+        links.forEach(link => {
             link.innerHTML = `<i class="fab fa-slack-hash"></i>`;
         });
     },
