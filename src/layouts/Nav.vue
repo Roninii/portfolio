@@ -22,11 +22,14 @@
         <g-link class="nav--link" active-class="underline" to="/blog/"
           >Blog</g-link
         >
+        <button
+          @click="toggleTheme"
+          class="theme-toggle"
           title="toggle dark theme"
+        >
           <i class="far fa-lightbulb"></i>
         </button>
       </div>
-
     </nav>
   </header>
 </template>
@@ -41,34 +44,34 @@ query {
 </static-query>
 
 <script>
-import useTheme from '~/composables/useTheme'
+import useTheme from "~/composables/useTheme";
 
 export default {
-    name: 'Nav',
-    data() {
-      return{}
+  name: "Nav",
+  data() {
+    return {};
+  },
+  computed: {
+    viewingBlog() {
+      return /\/blog\/.+\/$/gi.test(this.$route.path);
     },
-    computed: {
-      viewingBlog() { 
-        return /\/blog\/.+\/$/gi.test(this.$route.path)
-        }
-    },
-    setup() {
-      const { toggleTheme } = useTheme()
+  },
+  setup() {
+    const { toggleTheme } = useTheme();
 
-      return {
-        toggleTheme
-      }
-    }
+    return {
+      toggleTheme,
+    };
+  },
 };
 </script>
 
 <style scoped>
 span {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.25rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
 }
 
 .theme-toggle {
