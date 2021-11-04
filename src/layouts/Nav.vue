@@ -22,7 +22,7 @@
         <g-link class="nav--link" active-class="underline" to="/blog/"
           >Blog</g-link
         >
-        <button @click='toggleTheme' class='theme-toggle'>
+          title="toggle dark theme"
           <i class="far fa-lightbulb"></i>
         </button>
       </div>
