@@ -87,32 +87,6 @@
         ></i>
       </div>
 
-      <div class="projects__project">
-        <a
-          href="https://www.zerogenapparel.com/"
-          target="_blank"
-          rel="noreferrer noopener"
-          class="project__link"
-          title="ZeroGen Apparel"
-          >&rarr; ZeroGen Apparel</a
-        >
-        <i class="fab fa-vuejs icon"></i>
-      </div>
-
-      <div class="projects__project">
-        <a
-          href="https://www.winning-streak.com"
-          target="_blank"
-          class="project__link"
-          rel="noreferrer noopener"
-          title="Winning Streak"
-          >&rarr; Winning Streak</a
-        >
-        <div class="project__icons">
-          <i class="fab fa-vuejs icon"></i>
-        </div>
-      </div>
-
       <a
         href="https://github.com/roninii"
         target="_blank"
