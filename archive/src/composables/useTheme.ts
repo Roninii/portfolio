@@ -1,9 +1,9 @@
 export default function useTheme() {
   const currentTheme = ref("light");
 
-  if (process.isClient) {
+  if (window) {
     // check local storage for saved theme preference and set it
-    const themePreference = localStorage.getItem("theme");
+    const themePreference = window.localStorage.getItem("theme");
     if (themePreference) {
       currentTheme.value = themePreference;
       currentTheme.value === "light" ? setLightTheme() : setDarkTheme();
@@ -35,7 +35,7 @@ export default function useTheme() {
       "var(--quote-bg--light"
     );
 
-    process.isClient && localStorage.setItem("theme", "light");
+    saveToLocalStorage();
   }
 
   function setDarkTheme() {
@@ -64,7 +64,7 @@ export default function useTheme() {
       "var(--quote-bg--dark"
     );
 
-    process.isClient && localStorage.setItem("theme", "dark");
+    saveToLocalStorage();
   }
 
   function toggleTheme() {
@@ -73,6 +73,12 @@ export default function useTheme() {
     } else {
       setDarkTheme();
     }
+  }
+
+  function saveToLocalStorage() {
+    if (!window) return;
+
+    window.localStorage.setItem("theme", currentTheme.value);
   }
 
   return {
