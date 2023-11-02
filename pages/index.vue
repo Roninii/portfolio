@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <!-- TODO: Refactor Name component to be compatible -->
-    <!-- <Name /> -->
+    <Name />
 
     <section class="contact">
       <h2 class="contact__heading">

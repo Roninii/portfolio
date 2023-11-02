@@ -15,22 +15,12 @@
 </template>
 
 <script setup lang="ts">
-import { EventBus } from "@/main";
-import useTheme from "@/composables/useTheme";
-import { ref } from "@vue/composition-api";
+const theme = ref<"light" | "dark">("light");
 
-export default {
-  data() {
-    return { theme: "" };
-  },
-  mounted() {
-    const { currentTheme } = useTheme();
-    this.theme = currentTheme.value;
-    EventBus.$on("click", (payload) => {
-      this.theme = payload;
-    });
-  },
-};
+onMounted(() => {
+  const { currentTheme } = useTheme();
+  theme.value = currentTheme.value;
+});
 </script>
 
 <style scoped>
