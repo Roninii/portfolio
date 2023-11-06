@@ -252,6 +252,10 @@ h2 {
   margin-left: 0.5rem;
 }
 
+.projects__project .icon:last-child {
+  margin-right: 1rem;
+}
+
 .projects__github {
   display: inline-block;
   background-clip: text;
