@@ -9,57 +9,8 @@
         <span class="highlight--primary">build</span> something
         <span class="highlight--primary">together</span>
       </h2>
-      <div class="contact__links">
-        <a
-          href="https://dev.to/_ronini"
-          target="_blank"
-          rel="noreferrer noopener"
-          class="contact__link"
-          title="dev.to"
-        >
-          <i class="fab fa-dev" title="_ronini's DEV Profile"></i>
-        </a>
 
-        <a
-          href="https://github.com/roninii/"
-          target="_blank"
-          rel="noreferrer noopener"
-          class="contact__link"
-          title="github"
-        >
-          <i class="fab fa-github contact__icon"></i>
-        </a>
-
-        <a
-          href="https://linkedin.com/in/ronnievillarini"
-          target="_blank"
-          class="contact__link"
-          title="linkedin"
-          rel="noreferrer noopener"
-        >
-          <i class="fab fa-linkedin-in contact__icon"></i>
-        </a>
-
-        <a
-          href="https://twitter.com/_ronini"
-          target="_blank"
-          class="contact__link"
-          title="twitter"
-          rel="noreferrer noopener"
-        >
-          <i class="fab fa-twitter contact__icon"></i>
-        </a>
-
-        <a
-          href="mailto:ronnie@ronini.dev"
-          target="_blank"
-          class="contact__link"
-          title="email"
-          rel="noreferrer noopener"
-        >
-          <i class="fas fa-envelope-open-text contact__icon"></i>
-        </a>
-      </div>
+      <ContactLinks />
     </section>
 
     <section class="projects">

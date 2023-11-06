@@ -3,9 +3,9 @@
 // App Config
 import type { Defu } from 'defu'
 
+import type { default as appConfig0 } from "/Users/ronini/dev/personal/portfolio/app.config";
 
-
-type UserAppConfig = Defu<{}, []>
+type UserAppConfig = Defu<{}, [typeof appConfig0]>
 
 declare module 'nitropack' {
   interface AppConfig extends UserAppConfig {}
