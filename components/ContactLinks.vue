@@ -25,31 +25,31 @@ const contactLinks = ref<ContactLink[]>([
   {
     href: "https://dev.to/_ronini",
     linkTitle: "dev.to",
-    iconName: "ph:dev-to-logo-bold",
+    iconName: "simple-icons:devdotto",
     iconTitle: "_ronini's DEV.to Profile",
   },
   {
     href: "https://github.com/roninii/",
     linkTitle: "GitHub",
-    iconName: "ph:github-logo-bold",
+    iconName: "simple-icons:github",
     iconTitle: "_ronini's GitHub Profile",
   },
   {
     href: "https://linkedin.com/in/ronnievillarini",
     linkTitle: "LinkedIn",
-    iconName: "ph:linkedin-logo-bold",
+    iconName: "simple-icons:linkedin",
     iconTitle: "_ronini's LinkedIn Profile",
   },
   {
     href: "https://twitter.com/_ronini",
     linkTitle: "Twitter/X",
-    iconName: "ph:twitter-logo-bold",
+    iconName: "simple-icons:twitter",
     iconTitle: "_ronini's Twitter/X Profile",
   },
   {
     href: "mailto:ronnie@ronini.dev",
     linkTitle: "Email",
-    iconName: "ph:envelope-open-bold",
+    iconName: "simple-icons:maildotru",
     iconTitle: "_ronini's Email Profile",
   },
 ]);
