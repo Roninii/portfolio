@@ -204,7 +204,7 @@ h2 {
 .projects__project {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   width: 50%;
   margin: 1rem 0;
   color: var(--text);

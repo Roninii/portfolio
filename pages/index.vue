@@ -27,16 +27,12 @@
           title="ZeroGen Apparel"
           >&rarr; GreyNoise.io</a
         >
-        <i
-          class="fab fa-vuejs icon"
+        <Icon name="simple-icons:vuedotjs" title="Vue.js" role="presentation" />
+        <Icon
+          name="simple-icons:nodedotjs"
+          title="Node.js"
           role="presentation"
-          aria-label="vue.js icon"
-        ></i>
-        <i
-          class="fab fa-node-js icon"
-          role="presentation"
-          aria-label="node.js icon"
-        ></i>
+        />
       </div>
 
       <a
@@ -47,7 +43,11 @@
         title="ronnie's github"
       >
         more on github
-        <i class="fab fa-github projects__github--icon"></i>
+        <Icon
+          name="simple-icons:github"
+          title="Ronini's profile on GitHub"
+          class="projects__github--icon"
+        />
       </a>
     </section>
   </div>
