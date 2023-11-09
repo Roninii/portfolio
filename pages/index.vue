@@ -20,12 +20,12 @@
 
       <div class="projects__project">
         <a
-          href="https://greynoise.io"
+          href="https://viz.greynoise.io"
           target="_blank"
           rel="noreferrer noopener"
           class="project__link"
-          title="ZeroGen Apparel"
-          >&rarr; GreyNoise.io</a
+          title="GreyNoise Intelligence Visualizer"
+          >&rarr; GreyNoise Visualizer</a
         >
         <Icon name="simple-icons:vuedotjs" title="Vue.js" role="presentation" />
         <Icon
