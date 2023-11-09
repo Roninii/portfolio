@@ -16,12 +16,12 @@
       </div>
 
       <div>
-        <NuxtLink class="nav--link" active-class="underline" exact to="/"
-          >Home</NuxtLink
-        >
-        <NuxtLink class="nav--link" active-class="underline" to="/blog/"
-          >Blog</NuxtLink
-        >
+        <NuxtLink class="nav--link" active-class="underline" exact to="/">
+          Home
+        </NuxtLink>
+        <NuxtLink class="nav--link" active-class="underline" to="/blog/">
+          Blog
+        </NuxtLink>
         <button
           @click="toggleTheme"
           class="theme-toggle"

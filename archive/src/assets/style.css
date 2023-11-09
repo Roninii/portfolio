@@ -57,8 +57,8 @@
 
 html,
 body {
-  font-family: 'Spartan', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: "Spartan", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 
   background: var(--background);
   font-weight: 500;
@@ -120,7 +120,7 @@ h2 {
 }
 
 .nav--link:hover::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 75%;
   height: 2px;
@@ -135,10 +135,10 @@ h2 {
   display: grid;
   max-width: 90%;
   grid-template-areas:
-    'header contact'
-    'header projects'
-    'header projects'
-    'header projects';
+    "header contact"
+    "header projects"
+    "header projects"
+    "header projects";
   grid-template-columns: repeat(2, minmax(300px, 1fr));
   grid-template-rows: repeat(4, 1fr);
   grid-gap: 0 2rem;
@@ -225,6 +225,7 @@ h2 {
 
 .projects__project:hover {
   color: var(--white);
+  cursor: pointer;
   background-position: 100%;
   transform: scale(1.1) translateY(-0.4rem);
 
@@ -302,10 +303,10 @@ h2 {
   .container {
     grid-template-rows: 1fr 1fr 1fr 2fr;
     grid-template-areas:
-      'header header'
-      'about about'
-      'contact contact'
-      'projects projects';
+      "header header"
+      "about about"
+      "contact contact"
+      "projects projects";
     width: 100%;
     margin-top: 0;
   }
@@ -338,7 +339,7 @@ h2 {
   color: var(--active-link-text);
 }
 .underline::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 75%;
   height: 2px;
@@ -361,7 +362,7 @@ h2 {
   font-style: italic;
   font-weight: 100;
   text-align: center;
-  font-family: PT Mono, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono',
+  font-family: PT Mono, Consolas, Monaco, "Andale Mono", "Ubuntu Mono",
     monospace;
   line-height: 1.5;
   border-top-left-radius: 0.3em;
