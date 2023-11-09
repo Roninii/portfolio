@@ -5,5 +5,5 @@ export default defineNuxtConfig({
     shim: false,
   },
   css: ["~/assets/style.css"],
-  modules: ["nuxt-icon", "@nuxt/image"],
+  modules: ["nuxt-icon", "@nuxt/image", "@nuxt/content"],
 });
