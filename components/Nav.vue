@@ -7,7 +7,7 @@
         </NuxtLink>
         <NuxtLink v-else to="/" aria-label="Home">
           <img
-            src="../assets/Logo.svg"
+            src="/Logo.svg"
             width="50"
             class="nav--logo"
             alt="Ronini.dev logo"
