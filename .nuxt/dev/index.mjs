@@ -31,7 +31,7 @@ const defineAppConfig = (config) => config;
 
 const appConfig0 = defineAppConfig({
   nuxtIcon: {
-    size: "2rem",
+    size: "24px",
     // default <Icon> size applied
     class: "icon"
     // default <Icon> class applied

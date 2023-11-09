@@ -16,19 +16,15 @@
       </div>
 
       <div>
+        <ClientOnly>
+          <ThemeToggle />
+        </ClientOnly>
         <NuxtLink class="nav--link" active-class="underline" exact to="/">
           Home
         </NuxtLink>
         <NuxtLink class="nav--link" active-class="underline" to="/blog/">
           Blog
         </NuxtLink>
-        <button
-          @click="toggleTheme"
-          class="theme-toggle"
-          title="toggle dark theme"
-        >
-          <Icon name="fa6-regular:lightbulb" />
-        </button>
       </div>
     </nav>
   </header>
@@ -39,8 +35,6 @@ const route = useRoute();
 const viewingBlog = computed(() => {
   return /\/blog\/.+\/$/gi.test(route.path);
 });
-
-const { toggleTheme } = useTheme();
 </script>
 
 <style scoped>
