@@ -10,17 +10,16 @@
       </div>
     </header>
     <!-- TODO: Add Blog Posts -->
-    <!-- <section class="blog--posts">
-            <div class="posts--post" v-for="edge in $page.posts.edges" :key="edge.node.id">
-                <g-link class="post--link" :to="edge.node.path">
-                    <h2 class="post--title">{{ edge.node.title }}</h2>
-                </g-link>
-                <p class="post--time">
-                    {{ edge.node.timeToRead }} minute read | Published
-                    {{ formatDate(edge.node.date) }}
-                </p>
-            </div>
-        </section> -->
+    <section class="blog--posts">
+      <ContentList path="/blog" v-slot="{ list }">
+        <div class="posts--post" v-for="article in list" :key="article._path">
+          <NuxtLink class="post--link" :to="article._path">
+            <h2 class="post--title">{{ article.title }}</h2>
+          </NuxtLink>
+          <p class="post--time">Published {{ formatDate(article.date) }}</p>
+        </div>
+      </ContentList>
+    </section>
   </div>
 </template>
 
@@ -28,6 +27,14 @@
 definePageMeta({
   title: "Blog",
 });
+
+const formatDate = (date: string) => {
+  return new Intl.DateTimeFormat("en-us", {
+    month: "long",
+    year: "numeric",
+    day: "numeric",
+  }).format(new Date(date));
+};
 </script>
 
 <style scoped>

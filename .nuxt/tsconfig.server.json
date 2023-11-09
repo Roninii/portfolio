@@ -59,6 +59,12 @@
       ],
       "#image/*": [
         "../node_modules/@nuxt/image/dist/runtime/*"
+      ],
+      "#mdc-imports": [
+        "./file:/Users/ronini/dev/personal/portfolio/.nuxt/mdc-imports"
+      ],
+      "#content/server": [
+        "../node_modules/@nuxt/content/dist/runtime/legacy/server"
       ]
     }
   },
@@ -66,6 +72,8 @@
     "./types/nitro-nuxt.d.ts",
     "../node_modules/nuxt-icon/runtime/server",
     "../node_modules/@nuxt/image/runtime/server",
+    "../node_modules/@nuxtjs/mdc/runtime/server",
+    "../node_modules/@nuxt/content/runtime/server",
     "../node_modules/@nuxt/devtools/runtime/server",
     "../node_modules/@nuxt/telemetry/runtime/server",
     "./types/nitro.d.ts",

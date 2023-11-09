@@ -5,5 +5,13 @@ export { withCtx, withDirectives, withKeys, withMemo, withModifiers, withScopeId
 export { injectHead, useHead, useSeoMeta, useHeadSafe, useServerHead, useServerSeoMeta, useServerHeadSafe } from '@unhead/vue';
 export { default as useTheme } from '../composables/useTheme';
 export { useImage } from '../node_modules/@nuxt/image/dist/runtime/composables';
+export { queryContent } from '../node_modules/@nuxt/content/dist/runtime/legacy/composables/query';
+export { useContentHelpers } from '../node_modules/@nuxt/content/dist/runtime/composables/helpers';
+export { useContentHead } from '../node_modules/@nuxt/content/dist/runtime/composables/head';
+export { useContentPreview } from '../node_modules/@nuxt/content/dist/runtime/composables/preview';
+export { withContentBase, useContentDisabled as useContentState, useContentDisabled as useContent } from '../node_modules/@nuxt/content/dist/runtime/composables/utils';
+export { useUnwrap } from '../node_modules/@nuxt/content/dist/runtime/composables/useUnwrap';
+export { fetchContentNavigation } from '../node_modules/@nuxt/content/dist/runtime/legacy/composables/navigation';
+export { flatUnwrap as unwrapSlot } from '../node_modules/@nuxtjs/mdc/dist/runtime/utils/node';
 export { useNuxtDevTools } from '../node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools';
 export { definePageMeta } from '../node_modules/nuxt/dist/pages/runtime/composables';
