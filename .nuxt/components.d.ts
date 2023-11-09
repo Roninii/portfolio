@@ -3,6 +3,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     'ContactLinks': typeof import("../components/ContactLinks.vue")['default']
     'Name': typeof import("../components/Name.vue")['default']
+    'Nav': typeof import("../components/Nav.vue")['default']
     'NuxtWelcome': typeof import("../node_modules/@nuxt/ui-templates/dist/templates/welcome.vue")['default']
     'NuxtLayout': typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
     'NuxtErrorBoundary': typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary")['default']
@@ -27,6 +28,7 @@ declare module 'vue' {
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
     'LazyContactLinks': typeof import("../components/ContactLinks.vue")['default']
     'LazyName': typeof import("../components/Name.vue")['default']
+    'LazyNav': typeof import("../components/Nav.vue")['default']
     'LazyNuxtWelcome': typeof import("../node_modules/@nuxt/ui-templates/dist/templates/welcome.vue")['default']
     'LazyNuxtLayout': typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
     'LazyNuxtErrorBoundary': typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary")['default']
@@ -54,6 +56,7 @@ declare module 'vue' {
 
 export const ContactLinks: typeof import("../components/ContactLinks.vue")['default']
 export const Name: typeof import("../components/Name.vue")['default']
+export const Nav: typeof import("../components/Nav.vue")['default']
 export const NuxtWelcome: typeof import("../node_modules/@nuxt/ui-templates/dist/templates/welcome.vue")['default']
 export const NuxtLayout: typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
 export const NuxtErrorBoundary: typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary")['default']
@@ -78,6 +81,7 @@ export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const LazyContactLinks: typeof import("../components/ContactLinks.vue")['default']
 export const LazyName: typeof import("../components/Name.vue")['default']
+export const LazyNav: typeof import("../components/Nav.vue")['default']
 export const LazyNuxtWelcome: typeof import("../node_modules/@nuxt/ui-templates/dist/templates/welcome.vue")['default']
 export const LazyNuxtLayout: typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
 export const LazyNuxtErrorBoundary: typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary")['default']
