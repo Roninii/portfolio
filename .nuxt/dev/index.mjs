@@ -1,11 +1,10 @@
-globalThis._importMeta_={url:import.meta.url,env:process.env};import { getHighlighter } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/shikiji/dist/index.mjs';
-import 'file:///Users/ronini/dev/personal/portfolio/node_modules/node-fetch-native/dist/polyfill.mjs';
+globalThis._importMeta_={url:import.meta.url,env:process.env};import 'file:///Users/ronini/dev/personal/portfolio/node_modules/node-fetch-native/dist/polyfill.mjs';
 import { Server } from 'node:http';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { mkdirSync } from 'node:fs';
 import { parentPort, threadId } from 'node:worker_threads';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, isEvent, createEvent, getRequestHeader, eventHandler, setHeaders, sendRedirect, proxyRequest, setResponseHeader, send, getResponseStatus, setResponseStatus, setResponseHeaders, getRequestHeaders, getQuery as getQuery$1, getCookie, createError, lazyEventHandler, useBase, createApp, createRouter as createRouter$1, toNodeListener, fetchWithEvent, getResponseStatusText } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/h3/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, isEvent, createEvent, getRequestHeader, eventHandler, setHeaders, sendRedirect, proxyRequest, setResponseHeader, send, getResponseStatus, setResponseStatus, setResponseHeaders, getRequestHeaders, lazyEventHandler, getQuery as getQuery$1, getCookie, createError, useBase, createApp, createRouter as createRouter$1, toNodeListener, fetchWithEvent, getResponseStatusText } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/h3/dist/index.mjs';
 import { getRequestDependencies, getPreloadLinks, getPrefetchLinks, createRenderer } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/vue-bundle-renderer/dist/runtime.mjs';
 import { stringify, uneval } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/devalue/index.js';
 import { renderToString } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/vue/server-renderer/index.mjs';
@@ -22,6 +21,7 @@ import { parseURL, withoutBase, joinURL, getQuery, withQuery, withLeadingSlash, 
 import { createStorage, prefixStorage } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/unstorage/dist/index.mjs';
 import unstorage_47drivers_47fs from 'file:///Users/ronini/dev/personal/portfolio/node_modules/unstorage/drivers/fs.mjs';
 import { toRouteMatcher, createRouter } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/radix3/dist/index.mjs';
+import { getHighlighter, loadWasm } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/shikiji/dist/index.mjs';
 import { extname, isAbsolute } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/pathe/dist/index.mjs';
 import { unified } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/unified/index.js';
 import { toString } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/mdast-util-to-string/index.js';
@@ -180,7 +180,9 @@ const _inlineRuntimeConfig = {
         "th": "prose-th",
         "tr": "prose-tr"
       },
-      "highlight": false,
+      "highlight": {
+        "theme": "dracula"
+      },
       "wsUrl": "ws://localhost:4000/",
       "documentDriven": false,
       "host": "",
@@ -196,11 +198,15 @@ const _inlineRuntimeConfig = {
     }
   },
   "mdc": {
-    "highlight": {}
+    "highlight": {
+      "theme": "dracula",
+      "preload": "",
+      "wrapperStyle": ""
+    }
   },
   "content": {
     "cacheVersion": 2,
-    "cacheIntegrity": "dLYeSFVwsx",
+    "cacheIntegrity": "1va79VYA06",
     "transformers": [],
     "base": "",
     "api": {
@@ -223,7 +229,9 @@ const _inlineRuntimeConfig = {
     "ignores": [],
     "locales": [],
     "defaultLocale": "",
-    "highlight": false,
+    "highlight": {
+      "theme": "dracula"
+    },
     "markdown": {
       "tags": {
         "p": "prose-p",
@@ -889,6 +897,170 @@ const errorHandler = (async function errorhandler(error, event) {
   }
   setResponseStatus(event, res.status && res.status !== 200 ? res.status : void 0, res.statusText);
   return send(event, html);
+});
+
+const useShikiHighlighter = createSingleton((opts) => {
+  const { theme, preload, wrapperStyle } = opts || {};
+  let promise;
+  const getShikiHighlighter = () => {
+    if (!promise) {
+      promise = getHighlighter({
+        themes: [
+          theme?.default || theme || "dark-plus"
+        ],
+        langs: [
+          ...preload || [],
+          "diff",
+          "json",
+          "js",
+          "ts",
+          "css",
+          "shell",
+          "html",
+          "md",
+          "yaml",
+          "vue",
+          "mdc"
+        ]
+      }).then((highlighter) => {
+        const themes = Object.values(typeof theme === "string" ? { default: theme } : theme || {});
+        if (themes.length) {
+          return Promise.all(themes.map((theme2) => highlighter.loadTheme(theme2))).then(() => highlighter);
+        }
+        return highlighter;
+      });
+    }
+    return promise;
+  };
+  const getHighlightedAST = async (code, lang, theme2, opts2) => {
+    try {
+      const highlighter = await getShikiHighlighter();
+      const { highlights = [] } = opts2 || {};
+      const themesObject = typeof theme2 === "string" ? { default: theme2 } : theme2 || {};
+      const themeNames = Object.values(themesObject);
+      if (themeNames.length) {
+        await Promise.all(themeNames.map((theme3) => highlighter.loadTheme(theme3)));
+      }
+      if (lang && !highlighter.getLoadedLanguages().includes(lang)) {
+        await highlighter.loadLanguage(lang);
+      }
+      const root = highlighter.codeToHast(code.trimEnd(), {
+        lang,
+        themes: themesObject,
+        defaultColor: false,
+        transforms: {
+          line(node, line) {
+            node.properties ||= {};
+            if (highlights.includes(line)) {
+              node.properties.class = (node.properties.class || "") + " highlight";
+            }
+            node.properties.line = line;
+            if (node.children.length === 0) {
+              node.children.push({
+                type: "element",
+                tagName: "span",
+                properties: {
+                  emptyLinePlaceholder: true
+                },
+                children: [{ type: "text", value: "" }]
+              });
+            }
+            const last = node.children.at(-1);
+            if (last?.type === "element" && last.tagName === "span") {
+              const text = last.children.at(-1);
+              if (text?.type === "text")
+                text.value += "\n";
+            }
+          }
+        }
+      });
+      const preEl = root.children[0];
+      const codeEl = preEl.children[0];
+      preEl.properties.style = wrapperStyle ? typeof wrapperStyle === "string" ? wrapperStyle : preEl.properties.style : "";
+      const styles = [];
+      Object.keys(themesObject).forEach((color) => {
+        const colorScheme = color !== "default" ? `.${color}` : "";
+        styles.push(
+          wrapperStyle ? `${colorScheme} .shiki,` : "",
+          `html .${color} .shiki span {`,
+          `color: var(--shiki-${color});`,
+          `background: var(--shiki-${color}-bg);`,
+          `font-style: var(--shiki-${color}-font-style);`,
+          `font-weight: var(--shiki-${color}-font-weight);`,
+          `text-decoration: var(--shiki-${color}-text-decoration);`,
+          "}"
+        );
+        styles.unshift(
+          `html${colorScheme} .shiki span {`,
+          `color: var(--shiki-${color});`,
+          `background: var(--shiki-${color}-bg);`,
+          `font-style: var(--shiki-${color}-font-style);`,
+          `font-weight: var(--shiki-${color}-font-weight);`,
+          `text-decoration: var(--shiki-${color}-text-decoration);`,
+          "}"
+        );
+      });
+      return {
+        tree: codeEl.children,
+        className: preEl.properties.class,
+        inlineStyle: preEl.properties.style,
+        style: styles.join("")
+      };
+    } catch (error) {
+      console.warn("[@nuxtjs/mdc] Failed to highlight code block", error.message);
+      return {
+        tree: [{ type: "text", value: code }],
+        className: "",
+        inlineStyle: "",
+        style: ""
+      };
+    }
+  };
+  return {
+    getHighlightedAST
+  };
+});
+function createSingleton(fn) {
+  let instance;
+  return (...args) => {
+    if (!instance) {
+      instance = fn(...args);
+    }
+    return instance;
+  };
+}
+
+const highlighter = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  useShikiHighlighter: useShikiHighlighter
+});
+
+function buildAssetsDir() {
+  return useRuntimeConfig().app.buildAssetsDir;
+}
+function buildAssetsURL(...path) {
+  return joinURL(publicAssetsURL(), buildAssetsDir(), ...path);
+}
+function publicAssetsURL(...path) {
+  const publicBase = useRuntimeConfig().app.cdnURL || useRuntimeConfig().app.baseURL;
+  return path.length ? joinURL(publicBase, ...path) : publicBase;
+}
+
+const _EgELhj = lazyEventHandler(async () => {
+  const { highlight } = useRuntimeConfig().mdc;
+  try {
+    const wasm = await import('file:///Users/ronini/dev/personal/portfolio/node_modules/shikiji/dist/onig.wasm').then((r) => r.default);
+    await loadWasm(async (obj) => WebAssembly.instantiate(wasm, obj));
+  } catch {
+    await loadWasm({ data: await import('file:///Users/ronini/dev/personal/portfolio/node_modules/shikiji/dist/wasm.mjs').then((r) => r.getWasmInlined()).then((r) => r.data) });
+  }
+  const shiki = useShikiHighlighter(highlight);
+  return eventHandler(async (event) => {
+    const { code, lang, theme: themeString, highlights: highlightsString } = getQuery$1(event);
+    const theme = JSON.parse(themeString);
+    const highlights = highlightsString ? JSON.parse(highlightsString) : void 0;
+    return await shiki.getHighlightedAST(code, lang, theme, { highlights });
+  });
 });
 
 const get = (obj, path) => path.split(".").reduce((acc, part) => acc && acc[part], obj);
@@ -2490,142 +2662,6 @@ function contentHeading(body) {
   };
 }
 
-const useShikiHighlighter = createSingleton((opts) => {
-  const { theme, preload, wrapperStyle } = opts || {};
-  let promise;
-  const getShikiHighlighter = () => {
-    if (!promise) {
-      promise = getHighlighter({
-        themes: [
-          theme?.default || theme || "dark-plus"
-        ],
-        langs: [
-          ...preload || [],
-          "diff",
-          "json",
-          "js",
-          "ts",
-          "css",
-          "shell",
-          "html",
-          "md",
-          "yaml",
-          "vue",
-          "mdc"
-        ]
-      }).then((highlighter) => {
-        const themes = Object.values(typeof theme === "string" ? { default: theme } : theme || {});
-        if (themes.length) {
-          return Promise.all(themes.map((theme2) => highlighter.loadTheme(theme2))).then(() => highlighter);
-        }
-        return highlighter;
-      });
-    }
-    return promise;
-  };
-  const getHighlightedAST = async (code, lang, theme2, opts2) => {
-    try {
-      const highlighter = await getShikiHighlighter();
-      const { highlights = [] } = opts2 || {};
-      const themesObject = typeof theme2 === "string" ? { default: theme2 } : theme2 || {};
-      const themeNames = Object.values(themesObject);
-      if (themeNames.length) {
-        await Promise.all(themeNames.map((theme3) => highlighter.loadTheme(theme3)));
-      }
-      if (lang && !highlighter.getLoadedLanguages().includes(lang)) {
-        await highlighter.loadLanguage(lang);
-      }
-      const root = highlighter.codeToHast(code.trimEnd(), {
-        lang,
-        themes: themesObject,
-        defaultColor: false,
-        transforms: {
-          line(node, line) {
-            node.properties ||= {};
-            if (highlights.includes(line)) {
-              node.properties.class = (node.properties.class || "") + " highlight";
-            }
-            node.properties.line = line;
-            if (node.children.length === 0) {
-              node.children.push({
-                type: "element",
-                tagName: "span",
-                properties: {
-                  emptyLinePlaceholder: true
-                },
-                children: [{ type: "text", value: "" }]
-              });
-            }
-            const last = node.children.at(-1);
-            if (last?.type === "element" && last.tagName === "span") {
-              const text = last.children.at(-1);
-              if (text?.type === "text")
-                text.value += "\n";
-            }
-          }
-        }
-      });
-      const preEl = root.children[0];
-      const codeEl = preEl.children[0];
-      preEl.properties.style = wrapperStyle ? typeof wrapperStyle === "string" ? wrapperStyle : preEl.properties.style : "";
-      const styles = [];
-      Object.keys(themesObject).forEach((color) => {
-        const colorScheme = color !== "default" ? `.${color}` : "";
-        styles.push(
-          wrapperStyle ? `${colorScheme} .shiki,` : "",
-          `html .${color} .shiki span {`,
-          `color: var(--shiki-${color});`,
-          `background: var(--shiki-${color}-bg);`,
-          `font-style: var(--shiki-${color}-font-style);`,
-          `font-weight: var(--shiki-${color}-font-weight);`,
-          `text-decoration: var(--shiki-${color}-text-decoration);`,
-          "}"
-        );
-        styles.unshift(
-          `html${colorScheme} .shiki span {`,
-          `color: var(--shiki-${color});`,
-          `background: var(--shiki-${color}-bg);`,
-          `font-style: var(--shiki-${color}-font-style);`,
-          `font-weight: var(--shiki-${color}-font-weight);`,
-          `text-decoration: var(--shiki-${color}-text-decoration);`,
-          "}"
-        );
-      });
-      return {
-        tree: codeEl.children,
-        className: preEl.properties.class,
-        inlineStyle: preEl.properties.style,
-        style: styles.join("")
-      };
-    } catch (error) {
-      console.warn("[@nuxtjs/mdc] Failed to highlight code block", error.message);
-      return {
-        tree: [{ type: "text", value: code }],
-        className: "",
-        inlineStyle: "",
-        style: ""
-      };
-    }
-  };
-  return {
-    getHighlightedAST
-  };
-});
-function createSingleton(fn) {
-  let instance;
-  return (...args) => {
-    if (!instance) {
-      instance = fn(...args);
-    }
-    return instance;
-  };
-}
-
-const highlighter = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  useShikiHighlighter: useShikiHighlighter
-});
-
 const SEMVER_REGEX = /^(\d+)(\.\d+)*(\.x)?$/;
 const describeId = (id) => {
   const [_source, ...parts] = id.split(":");
@@ -3090,17 +3126,6 @@ const getPreview = (event) => {
   const key = getQuery$1(event).previewToken || getCookie(event, "previewToken");
   return { key };
 };
-
-function buildAssetsDir() {
-  return useRuntimeConfig().app.buildAssetsDir;
-}
-function buildAssetsURL(...path) {
-  return joinURL(publicAssetsURL(), buildAssetsDir(), ...path);
-}
-function publicAssetsURL(...path) {
-  const publicBase = useRuntimeConfig().app.cdnURL || useRuntimeConfig().app.baseURL;
-  return path.length ? joinURL(publicBase, ...path) : publicBase;
-}
 
 async function getContentIndex(event) {
   const defaultLocale = useRuntimeConfig().content.defaultLocale;
@@ -3568,6 +3593,7 @@ const _lazy_xCFf84 = () => Promise.resolve().then(function () { return renderer$
 
 const handlers = [
   { route: '/__nuxt_error', handler: _lazy_xCFf84, lazy: true, middleware: false, method: undefined },
+  { route: '/api/_mdc/highlight', handler: _EgELhj, lazy: false, middleware: false, method: undefined },
   { route: '/api/_content/query/:qid/**:params', handler: _2meRxG, lazy: false, middleware: false, method: "get" },
   { route: '/api/_content/query/:qid', handler: _2meRxG, lazy: false, middleware: false, method: "get" },
   { route: '/api/_content/query', handler: _2meRxG, lazy: false, middleware: false, method: "get" },

@@ -62,23 +62,6 @@
   </article>
 </template>
 
-<script>
-// export default {
-//   name: "Post",
-//   metaInfo() {
-//     return {
-//       title: this.$page.blogPost.title,
-//     };
-//   },
-//   mounted() {
-//     const links = document.querySelectorAll(".icon.icon-link");
-//     links.forEach((link) => {
-//       link.innerHTML = `<i class="fab fa-slack-hash"></i>`;
-//     });
-//   },
-// };
-</script>
-
 <style scoped>
 .blog {
   display: grid;
@@ -136,41 +119,41 @@ article {
   display: grid;
 }
 
-article >>> .icon-link {
+article :deep(.icon-link) {
   padding-right: 0.5rem;
   color: var(--grey);
 
   transition: color 300ms linear;
 }
 
-article >>> .icon-link:hover {
+article :deep(.icon-link:hover) {
   color: var(--primary);
 }
 
-article >>> img {
+article :deep(img) {
   display: block;
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
 }
 
-article >>> h2 {
+article :deep(h2) {
   font-weight: 700;
   text-transform: uppercase;
 }
 
-article >>> h2,
-article >>> h3 {
+article :deep(h2),
+article :deep(h3) {
   margin-top: 2rem;
 }
-article >>> p {
+article :deep(p) {
   margin-top: 1rem;
 }
-article >>> a {
+article :deep(a) {
   position: relative;
   color: var(--primary);
 }
-article >>> p > a:after {
+article :deep(p) > a:after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -180,26 +163,18 @@ article >>> p > a:after {
   background: linear-gradient(to right, var(--secondary), var(--primary));
 }
 
-article >>> ul,
+article :deep(ul),
 ol {
   list-style-type: none;
   margin-left: 2rem;
 }
 
-/* article >>> ol {
-    margin-left: 2rem;
-}
-
-article >>> ol > li::marker {
-    color: var(--primary);
-} */
-
-article >>> li {
+article :deep(li) {
   position: relative;
   margin-top: 0.5rem;
 }
 
-article >>> ul > li::before {
+article :deep(ul) > li::before {
   content: "›";
   position: absolute;
   top: 0;
@@ -208,7 +183,7 @@ article >>> ul > li::before {
   font-weight: 700;
 }
 
-article >>> blockquote {
+article :deep(blockquote) {
   background: var(--quote-bg);
   color: var(--text);
   padding: 1rem 1rem;
@@ -217,7 +192,7 @@ article >>> blockquote {
   border-radius: 3px;
 }
 
-article >>> blockquote::before {
+article :deep(blockquote::before) {
   position: absolute;
   content: "";
   width: 5px;
@@ -228,11 +203,11 @@ article >>> blockquote::before {
   border-radius: 3px;
 }
 
-article >>> blockquote > * {
+article :deep(blockquote) > * {
   margin: 0;
 }
 
-article >>> pre {
+article :deep(pre) {
   border-radius: 3px;
   width: 100%;
 }

@@ -19,7 +19,13 @@ declare module 'nuxt/schema' {
    },
 
    mdc: {
-      highlight: any,
+      highlight: {
+         theme: string,
+
+         preload: any,
+
+         wrapperStyle: any,
+      },
    },
 
    content: {
@@ -57,7 +63,9 @@ declare module 'nuxt/schema' {
 
       defaultLocale: any,
 
-      highlight: boolean,
+      highlight: {
+         theme: string,
+      },
 
       markdown: {
          tags: {
@@ -298,7 +306,9 @@ declare module 'nuxt/schema' {
          tr: string,
       },
 
-      highlight: boolean,
+      highlight: {
+         theme: string,
+      },
 
       wsUrl: string,
 

@@ -6,4 +6,9 @@ export default defineNuxtConfig({
   },
   css: ["~/assets/style.css"],
   modules: ["nuxt-icon", "@nuxt/image", "@nuxt/content"],
+  content: {
+    highlight: {
+      theme: "dracula",
+    },
+  },
 });
