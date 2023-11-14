@@ -15,8 +15,8 @@
 <script lang="ts" setup>
 withDefaults(
   defineProps<{
-    filename: string;
-    language: string;
+    filename?: null | string;
+    language?: null | string;
   }>(),
   {
     filename: "",
