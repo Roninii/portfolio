@@ -9,6 +9,8 @@ imageAlt: "A camera with a repeating image on the screen"
 
 At Winning Streak, we recently began our transition of migrating our biggest project from AngularJS to Vue. This is the why and the how!
 
+<!--more-->
+
 ## Why Vue?
 
 ---
