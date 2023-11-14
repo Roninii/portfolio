@@ -1,10 +1,10 @@
 ---
-title: 'Vue Inside AJS?!'
-description: 'How we migrated an AJS app to Vue at Winning Streak.'
+title: "Vue Inside AJS?!"
+description: "How we migrated an AJS app to Vue at Winning Streak."
 author: Ronnie Villarini
-date: '2020-08-03'
+date: "2020-08-03"
 image: /img/inception.jpg
-imageAlt: 'A camera with a repeating image on the screen'
+imageAlt: "A camera with a repeating image on the screen"
 ---
 
 At Winning Streak, we recently began our transition of migrating our biggest project from AngularJS to Vue. This is the why and the how!
@@ -29,9 +29,9 @@ The app in question is fairly large, and an integral part of day-to-day operatio
 
 So here is the plan:
 
--   Refactor _everything_ and get the codebase prepped for a modern approach to old solutions.
--   Replace our build tool, gulp, with Parcel (I'll explain this decision in the next section)
--   Use AJS components as an entry point for Vue components, acting as a wrapper until Vue becomes the larger portion of the app, in which case we could sprint to finally make the swap.
+- Refactor _everything_ and get the codebase prepped for a modern approach to old solutions.
+- Replace our build tool, gulp, with Parcel (I'll explain this decision in the next section)
+- Use AJS components as an entry point for Vue components, acting as a wrapper until Vue becomes the larger portion of the app, in which case we could sprint to finally make the swap.
 
 ## Phase 1 - The Refactor
 
@@ -89,8 +89,8 @@ Pitchforks down? Okay, lets move on.
 
 We chose Parcel for a couple reasons:
 
--   No on _really_ enjoys working with Webpack.
--   It echos Vue's "easy to get up and running" approach.
+- No on _really_ enjoys working with Webpack.
+- It echos Vue's "easy to get up and running" approach.
 
 On top of those points, since it uses Babel under the hood, we also got access to extra javascript features without any extra configuration. A huge benefit, is Parcel's support of Vue SFCs [right out of the box](https://parceljs.org/vue.html).
 
@@ -103,11 +103,11 @@ Since there is no complicated setup or configuration required for Parcel, there 
 This was the simplest part of the refactor, at was the last step. In ES6, we have support for import/export syntax like so:
 
 ```js
-import MyComponent from '../components/MyComponent';
+import MyComponent from "../components/MyComponent";
 
 // MyComponent.js
 export default {
-    // ... component logic ...
+  // ... component logic ...
 };
 ```
 
@@ -115,7 +115,7 @@ Now if we refactor all our angular components to this syntax, we can simplify ho
 
 now in our `index.js` file, we can register our components like so:
 
-```jsx{codeTitle: index.js}
+```js{codeTitle: index.js}
 // first mass import all the components
 import * as components from './components/*.js';
 
@@ -127,9 +127,9 @@ for (component in components) {
 
 Let's break this down just to clarify what is happening:
 
--   First we're mass importing everything that ends in `.js` in our components directory, and giving this object that contains them all the name of `components`.
--   Then we loop through each property in `components`, which each of which is a component object.
--   Then we register this component with Angular. `Component` is the first argument which is the component's name. `components[component].default` is the actual component _object_. It's important to note the `.default` here, because the object contains a property, default, which is the default export declared in each component file.
+- First we're mass importing everything that ends in `.js` in our components directory, and giving this object that contains them all the name of `components`.
+- Then we loop through each property in `components`, which each of which is a component object.
+- Then we register this component with Angular. `Component` is the first argument which is the component's name. `components[component].default` is the actual component _object_. It's important to note the `.default` here, because the object contains a property, default, which is the default export declared in each component file.
 
 Now instead of registering each component with Angular in each module, they're all being declared and registered in one location in our app. Even more importantly, this won't break when some of them get refactored to Vue components, because the import loop only imports `.js` files, not `.vue`!
 
@@ -143,7 +143,7 @@ Thankfully, I discovered the codepen mentioned earlier in the article that showc
 
 Calm down, I'm getting there.
 
-```jsx{codeTitle: login.js}
+```js{codeTitle: login.js}
 import Login from './Login.vue'
 
 export default {
@@ -167,7 +167,7 @@ So we're importing our Vue component and using Angular to find the custom tag in
 
 This approach becomes _really_ cool when you start passing data between the layers.
 
-```jsx
+```js
 import Login from './Login.vue'
 
 export default {

@@ -3,7 +3,7 @@
 // App Config
 import type { Defu } from 'defu'
 
-import type { default as appConfig0 } from "/Users/ronini/dev/personal/portfolio/app.config";
+import type { default as appConfig0 } from "/home/ronini/dev/portfolio/app.config";
 
 type UserAppConfig = Defu<{}, [typeof appConfig0]>
 

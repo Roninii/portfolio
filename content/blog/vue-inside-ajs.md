@@ -117,7 +117,7 @@ Now if we refactor all our angular components to this syntax, we can simplify ho
 
 now in our `index.js` file, we can register our components like so:
 
-```jsx{codeTitle: index.js}
+```js{codeTitle: index.js}
 // first mass import all the components
 import * as components from './components/*.js';
 
@@ -145,7 +145,7 @@ Thankfully, I discovered the codepen mentioned earlier in the article that showc
 
 Calm down, I'm getting there.
 
-```jsx{codeTitle: login.js}
+```js{codeTitle: login.js}
 import Login from './Login.vue'
 
 export default {
@@ -169,7 +169,7 @@ So we're importing our Vue component and using Angular to find the custom tag in
 
 This approach becomes _really_ cool when you start passing data between the layers.
 
-```jsx
+```js
 import Login from './Login.vue'
 
 export default {

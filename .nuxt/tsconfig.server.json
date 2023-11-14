@@ -61,7 +61,7 @@
         "../node_modules/@nuxt/image/dist/runtime/*"
       ],
       "#mdc-imports": [
-        "./file:/Users/ronini/dev/personal/portfolio/.nuxt/mdc-imports"
+        "./file:/home/ronini/dev/portfolio/.nuxt/mdc-imports"
       ],
       "#content/server": [
         "../node_modules/@nuxt/content/dist/runtime/legacy/server"

@@ -41,6 +41,10 @@
   --shadow: var(--shadow--light);
   --project-border: var(--project-border--light);
   --quote-bg: var(--quote-bg--light);
+
+  /** Dracula Theme Vars **/
+  --dracula-bg: #282a36;
+  --dracula-fg: #f8f8f2;
 }
 
 /* global styles */
