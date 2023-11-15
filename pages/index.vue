@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <!-- TODO: Refactor Name component to be compatible -->
     <Name />
 
     <section class="contact">

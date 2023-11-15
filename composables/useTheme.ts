@@ -1,7 +1,6 @@
+const currentTheme = ref<"light" | "dark">("light");
 export default function useTheme() {
-  const currentTheme = ref<"light" | "dark">("light");
-
-  if (window) {
+  if (process.client) {
     // check local storage for saved theme preference and set it
     const themePreference = window.localStorage.getItem("theme");
     if (themePreference) {
