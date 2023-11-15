@@ -15,7 +15,9 @@
         </header>
       </ContentQuery>
 
-      <ContentDoc />
+      <article class="blog-post">
+        <ContentDoc />
+      </article>
 
       <footer class="blog--footer">
         <a
@@ -111,7 +113,7 @@
   align-items: flex-end;
 }
 
-article {
+.blog-post {
   max-width: 1024px;
   margin: 0 auto 1rem auto;
   padding: 0 2rem;
@@ -119,41 +121,41 @@ article {
   display: grid;
 }
 
-article :deep(.icon-link) {
+.blog-post :deep(.icon-link) {
   padding-right: 0.5rem;
   color: var(--grey);
 
   transition: color 300ms linear;
 }
 
-article :deep(.icon-link:hover) {
+.blog-post :deep(.icon-link:hover) {
   color: var(--primary);
 }
 
-article :deep(img) {
+.blog-post :deep(img) {
   display: block;
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
 }
 
-article :deep(h2) {
+.blog-post :deep(h2) {
   font-weight: 700;
   text-transform: uppercase;
 }
 
-article :deep(h2),
-article :deep(h3) {
+.blog-post :deep(h2),
+.blog-post :deep(h3) {
   margin-top: 2rem;
 }
-article :deep(p) {
+.blog-post :deep(p) {
   margin-top: 1rem;
 }
-article :deep(a) {
+.blog-post :deep(a) {
   position: relative;
   color: var(--primary);
 }
-article :deep(p) > a:after {
+.blog-post :deep(p) > a:after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -163,18 +165,18 @@ article :deep(p) > a:after {
   background: linear-gradient(to right, var(--secondary), var(--primary));
 }
 
-article :deep(ul),
+.blog-post :deep(ul),
 ol {
   list-style-type: none;
   margin-left: 2rem;
 }
 
-article :deep(li) {
+.blog-post :deep(li) {
   position: relative;
   margin-top: 0.5rem;
 }
 
-article :deep(ul) > li::before {
+.blog-post :deep(ul) > li::before {
   content: "›";
   position: absolute;
   top: 0;
@@ -183,7 +185,7 @@ article :deep(ul) > li::before {
   font-weight: 700;
 }
 
-article :deep(blockquote) {
+.blog-post :deep(blockquote) {
   background: var(--quote-bg);
   color: var(--text);
   padding: 1rem 1rem;
@@ -192,7 +194,7 @@ article :deep(blockquote) {
   border-radius: 3px;
 }
 
-article :deep(blockquote::before) {
+.blog-post :deep(blockquote::before) {
   position: absolute;
   content: "";
   width: 5px;
@@ -203,11 +205,11 @@ article :deep(blockquote::before) {
   border-radius: 3px;
 }
 
-article :deep(blockquote) > * {
+.blog-post :deep(blockquote) > * {
   margin: 0;
 }
 
-article :deep(pre) {
+.blog-post :deep(pre) {
   border-radius: 3px;
   width: 100%;
 }
