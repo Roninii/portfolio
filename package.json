@@ -1,20 +1,23 @@
 {
-  "name": "portfolio",
+  "name": "nuxt-app",
   "private": true,
+  "type": "module",
   "scripts": {
-    "build": "gridsome build",
-    "develop": "gridsome develop",
-    "explore": "gridsome explore"
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "nuxt": "^3.8.0",
+    "nuxt-icon": "^0.6.1",
+    "vue": "^3.3.7",
+    "vue-router": "^4.2.5"
   },
   "dependencies": {
-    "@gridsome/source-filesystem": "^0.6.2",
-    "@gridsome/transformer-remark": "^0.6.3",
-    "@vue/composition-api": "^1.0.0-beta.8",
-    "global": "^4.4.0",
-    "gridsome": "^0.7.19",
-    "gridsome-plugin-remark-prismjs-all": "^0.3.5",
-    "gridsome-plugin-rss": "^1.2.0",
-    "victormono": "^1.4.1"
-  },
-  "devDependencies": {}
+    "@nuxt/content": "^2.9.0",
+    "@nuxt/image": "^1.0.0"
+  }
 }

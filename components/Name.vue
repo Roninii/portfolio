@@ -1,5 +1,5 @@
 <template>
-  <header :class="['name-container', theme]">
+  <header :class="['name-container', currentTheme]">
     <div>
       <h1 class="name">
         <span class="neon">Ron</span>
@@ -14,23 +14,8 @@
   </header>
 </template>
 
-<script>
-import { EventBus } from "@/main";
-import useTheme from "@/composables/useTheme";
-import { ref } from "@vue/composition-api";
-
-export default {
-  data() {
-    return { theme: "" };
-  },
-  mounted() {
-    const { currentTheme } = useTheme();
-    this.theme = currentTheme.value;
-    EventBus.$on("click", (payload) => {
-      this.theme = payload;
-    });
-  },
-};
+<script setup lang="ts">
+const { currentTheme } = useTheme();
 </script>
 
 <style scoped>
