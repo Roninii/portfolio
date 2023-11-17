@@ -54,4 +54,11 @@ span {
   cursor: pointer;
   padding: 1rem;
 }
+
+.page-header {
+  background: var(--background);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 </style>
