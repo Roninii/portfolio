@@ -9,9 +9,8 @@
         </h2>
       </div>
     </header>
-    <!-- TODO: Add Blog Posts -->
     <section class="blog--posts">
-      <ContentList path="/blog" v-slot="{ list }">
+      <ContentList path="/blog" v-slot="{ list }" v-bind="{ query }">
         <div class="posts--post" v-for="article in list" :key="article._path">
           <NuxtLink class="post--link" :to="article._path">
             <h2 class="post--title">{{ article.title }}</h2>
@@ -24,6 +23,12 @@
 </template>
 
 <script setup lang="ts">
+import type { QueryBuilderParams } from "@nuxt/content/dist/runtime/types";
+const query: QueryBuilderParams = {
+  path: "/blog",
+  sort: [{ date: 1, $numeric: true }],
+};
+
 definePageMeta({
   title: "Blog",
 });
