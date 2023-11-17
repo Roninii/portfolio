@@ -1,6 +1,7 @@
 <template>
   <div class="blog">
     <header class="blog--header">
+      <img src="/Logo.svg" width="150" alt="Purple fox logo" />
       <div class="blog--titles">
         <h1 class="blog--title">Oh, for fox sake!</h1>
         <h2 class="blog--subtitle">
