@@ -72,7 +72,7 @@
         "../node_modules/@nuxt/image/dist/runtime/*"
       ],
       "#mdc-imports": [
-        "./mdc-imports"
+        "file:///home/ronini/dev/portfolio/.nuxt/mdc-imports.mjs"
       ],
       "#vue-router": [
         "./vue-router-stub"

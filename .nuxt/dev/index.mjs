@@ -3,52 +3,52 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { mkdirSync } from 'node:fs';
 import { parentPort, threadId } from 'node:worker_threads';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, isEvent, createEvent, getRequestHeader, eventHandler, setHeaders, sendRedirect, proxyRequest, setResponseHeader, send, getResponseStatus, setResponseStatus, setResponseHeaders, getRequestHeaders, lazyEventHandler, getQuery as getQuery$1, getCookie, createError, useBase, createApp, createRouter as createRouter$1, toNodeListener, fetchWithEvent, getResponseStatusText } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/h3/dist/index.mjs';
-import { getRequestDependencies, getPreloadLinks, getPrefetchLinks, createRenderer } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/vue-bundle-renderer/dist/runtime.mjs';
-import { stringify, uneval } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/devalue/index.js';
-import { renderToString } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/vue/server-renderer/index.mjs';
-import { renderSSRHead } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/@unhead/ssr/dist/index.mjs';
-import { createFetch as createFetch$1, Headers as Headers$1 } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/ofetch/dist/node.mjs';
-import destr, { destr as destr$1 } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/destr/dist/index.mjs';
-import { createCall, createFetch } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/unenv/runtime/fetch/index.mjs';
-import { createHooks } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/hookable/dist/index.mjs';
-import { snakeCase, kebabCase, pascalCase, camelCase } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/scule/dist/index.mjs';
-import { klona } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/klona/dist/index.mjs';
-import defu, { defuFn, defu as defu$1 } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/defu/dist/defu.mjs';
-import { hash } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/ohash/dist/index.mjs';
-import { parseURL, withoutBase, joinURL, getQuery, withQuery, withLeadingSlash, withoutTrailingSlash, isRelative } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/ufo/dist/index.mjs';
-import { createStorage, prefixStorage } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/unstorage/dist/index.mjs';
-import unstorage_47drivers_47fs from 'file:///Users/ronini/dev/personal/portfolio/node_modules/unstorage/drivers/fs.mjs';
-import { toRouteMatcher, createRouter } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/radix3/dist/index.mjs';
-import { getHighlighter, loadWasm } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/shikiji/dist/index.mjs';
-import { extname, isAbsolute } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/pathe/dist/index.mjs';
-import { unified } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/unified/index.js';
-import { toString } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/mdast-util-to-string/index.js';
-import { postprocess, preprocess } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/micromark/dev/index.js';
-import { stringifyPosition } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/unist-util-stringify-position/index.js';
-import { markdownLineEnding, markdownSpace } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/micromark-util-character/dev/index.js';
-import { push, splice } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/micromark-util-chunked/dev/index.js';
-import { resolveAll } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/micromark-util-resolve-all/index.js';
-import { normalizeUri } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/micromark-util-sanitize-uri/dev/index.js';
-import slugify from 'file:///Users/ronini/dev/personal/portfolio/node_modules/slugify/slugify.js';
-import remarkParse from 'file:///Users/ronini/dev/personal/portfolio/node_modules/remark-parse/index.js';
-import remark2rehype from 'file:///Users/ronini/dev/personal/portfolio/node_modules/remark-rehype/index.js';
-import remarkMDC, { parseFrontMatter } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/remark-mdc/dist/index.mjs';
-import { toString as toString$1 } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/hast-util-to-string/index.js';
-import Slugger from 'file:///Users/ronini/dev/personal/portfolio/node_modules/github-slugger/index.js';
-import { detab } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/detab/index.js';
-import remarkEmoji from 'file:///Users/ronini/dev/personal/portfolio/node_modules/remark-emoji/index.js';
-import remarkGFM from 'file:///Users/ronini/dev/personal/portfolio/node_modules/remark-gfm/index.js';
-import rehypeExternalLinks from 'file:///Users/ronini/dev/personal/portfolio/node_modules/rehype-external-links/index.js';
-import rehypeSortAttributeValues from 'file:///Users/ronini/dev/personal/portfolio/node_modules/rehype-sort-attribute-values/index.js';
-import rehypeSortAttributes from 'file:///Users/ronini/dev/personal/portfolio/node_modules/rehype-sort-attributes/index.js';
-import rehypeRaw from 'file:///Users/ronini/dev/personal/portfolio/node_modules/rehype-raw/index.js';
-import { visit } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/unist-util-visit/index.js';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, isEvent, createEvent, getRequestHeader, eventHandler, setHeaders, sendRedirect, proxyRequest, setResponseHeader, send, getResponseStatus, setResponseStatus, setResponseHeaders, getRequestHeaders, lazyEventHandler, getQuery as getQuery$1, getCookie, createError, useBase, createApp, createRouter as createRouter$1, toNodeListener, fetchWithEvent, getResponseStatusText } from 'file:///home/ronini/dev/portfolio/node_modules/h3/dist/index.mjs';
+import { getRequestDependencies, getPreloadLinks, getPrefetchLinks, createRenderer } from 'file:///home/ronini/dev/portfolio/node_modules/vue-bundle-renderer/dist/runtime.mjs';
+import { stringify, uneval } from 'file:///home/ronini/dev/portfolio/node_modules/devalue/index.js';
+import { renderToString } from 'file:///home/ronini/dev/portfolio/node_modules/vue/server-renderer/index.mjs';
+import { renderSSRHead } from 'file:///home/ronini/dev/portfolio/node_modules/@unhead/ssr/dist/index.mjs';
+import { createFetch as createFetch$1, Headers as Headers$1 } from 'file:///home/ronini/dev/portfolio/node_modules/ofetch/dist/node.mjs';
+import destr, { destr as destr$1 } from 'file:///home/ronini/dev/portfolio/node_modules/destr/dist/index.mjs';
+import { createCall, createFetch } from 'file:///home/ronini/dev/portfolio/node_modules/unenv/runtime/fetch/index.mjs';
+import { createHooks } from 'file:///home/ronini/dev/portfolio/node_modules/hookable/dist/index.mjs';
+import { snakeCase, kebabCase, pascalCase, camelCase } from 'file:///home/ronini/dev/portfolio/node_modules/scule/dist/index.mjs';
+import { klona } from 'file:///home/ronini/dev/portfolio/node_modules/klona/dist/index.mjs';
+import defu, { defuFn, defu as defu$1 } from 'file:///home/ronini/dev/portfolio/node_modules/defu/dist/defu.mjs';
+import { hash } from 'file:///home/ronini/dev/portfolio/node_modules/ohash/dist/index.mjs';
+import { parseURL, withoutBase, joinURL, getQuery, withQuery, withLeadingSlash, withoutTrailingSlash, isRelative } from 'file:///home/ronini/dev/portfolio/node_modules/ufo/dist/index.mjs';
+import { createStorage, prefixStorage } from 'file:///home/ronini/dev/portfolio/node_modules/unstorage/dist/index.mjs';
+import unstorage_47drivers_47fs from 'file:///home/ronini/dev/portfolio/node_modules/unstorage/drivers/fs.mjs';
+import { toRouteMatcher, createRouter } from 'file:///home/ronini/dev/portfolio/node_modules/radix3/dist/index.mjs';
+import { getHighlighter, loadWasm } from 'file:///home/ronini/dev/portfolio/node_modules/shikiji/dist/index.mjs';
+import { extname, isAbsolute } from 'file:///home/ronini/dev/portfolio/node_modules/pathe/dist/index.mjs';
+import { unified } from 'file:///home/ronini/dev/portfolio/node_modules/unified/index.js';
+import { toString } from 'file:///home/ronini/dev/portfolio/node_modules/mdast-util-to-string/index.js';
+import { postprocess, preprocess } from 'file:///home/ronini/dev/portfolio/node_modules/micromark/dev/index.js';
+import { stringifyPosition } from 'file:///home/ronini/dev/portfolio/node_modules/unist-util-stringify-position/index.js';
+import { markdownLineEnding, markdownSpace } from 'file:///home/ronini/dev/portfolio/node_modules/micromark-util-character/dev/index.js';
+import { push, splice } from 'file:///home/ronini/dev/portfolio/node_modules/micromark-util-chunked/dev/index.js';
+import { resolveAll } from 'file:///home/ronini/dev/portfolio/node_modules/micromark-util-resolve-all/index.js';
+import { normalizeUri } from 'file:///home/ronini/dev/portfolio/node_modules/micromark-util-sanitize-uri/dev/index.js';
+import slugify from 'file:///home/ronini/dev/portfolio/node_modules/slugify/slugify.js';
+import remarkParse from 'file:///home/ronini/dev/portfolio/node_modules/remark-parse/index.js';
+import remark2rehype from 'file:///home/ronini/dev/portfolio/node_modules/remark-rehype/index.js';
+import remarkMDC, { parseFrontMatter } from 'file:///home/ronini/dev/portfolio/node_modules/remark-mdc/dist/index.mjs';
+import { toString as toString$1 } from 'file:///home/ronini/dev/portfolio/node_modules/hast-util-to-string/index.js';
+import Slugger from 'file:///home/ronini/dev/portfolio/node_modules/github-slugger/index.js';
+import { detab } from 'file:///home/ronini/dev/portfolio/node_modules/detab/index.js';
+import remarkEmoji from 'file:///home/ronini/dev/portfolio/node_modules/remark-emoji/index.js';
+import remarkGFM from 'file:///home/ronini/dev/portfolio/node_modules/remark-gfm/index.js';
+import rehypeExternalLinks from 'file:///home/ronini/dev/portfolio/node_modules/rehype-external-links/index.js';
+import rehypeSortAttributeValues from 'file:///home/ronini/dev/portfolio/node_modules/rehype-sort-attribute-values/index.js';
+import rehypeSortAttributes from 'file:///home/ronini/dev/portfolio/node_modules/rehype-sort-attributes/index.js';
+import rehypeRaw from 'file:///home/ronini/dev/portfolio/node_modules/rehype-raw/index.js';
+import { visit } from 'file:///home/ronini/dev/portfolio/node_modules/unist-util-visit/index.js';
 import { fileURLToPath } from 'node:url';
-import { ipxFSStorage, ipxHttpStorage, createIPX, createIPXH3Handler } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/ipx/dist/index.mjs';
-import { version, unref } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/vue/index.mjs';
-import { createServerHead as createServerHead$1 } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/unhead/dist/index.mjs';
-import { defineHeadPlugin } from 'file:///Users/ronini/dev/personal/portfolio/node_modules/@unhead/shared/dist/index.mjs';
+import { ipxFSStorage, ipxHttpStorage, createIPX, createIPXH3Handler } from 'file:///home/ronini/dev/portfolio/node_modules/ipx/dist/index.mjs';
+import { version, unref } from 'file:///home/ronini/dev/portfolio/node_modules/vue/index.mjs';
+import { createServerHead as createServerHead$1 } from 'file:///home/ronini/dev/portfolio/node_modules/unhead/dist/index.mjs';
+import { defineHeadPlugin } from 'file:///home/ronini/dev/portfolio/node_modules/@unhead/shared/dist/index.mjs';
 
 const r=Object.create(null),t=e=>globalThis.process?.env||globalThis._importMeta_.env||globalThis.Deno?.env.toObject()||globalThis.__env__||(e?r:globalThis),s=new Proxy(r,{get(e,o){return t()[o]??r[o]},has(e,o){const i=t();return o in i||o in r},set(e,o,i){const p=t(!0);return p[o]=i,!0},deleteProperty(e,o){if(!o)return !1;const i=t(!0);return delete i[o],!0},ownKeys(){const e=t(!0);return Object.keys(e)}}),E=typeof process<"u"&&process.env&&"development"||"",d=[["APPVEYOR"],["AZURE_PIPELINES","SYSTEM_TEAMFOUNDATIONCOLLECTIONURI"],["AZURE_STATIC","INPUT_AZURE_STATIC_WEB_APPS_API_TOKEN"],["APPCIRCLE","AC_APPCIRCLE"],["BAMBOO","bamboo_planKey"],["BITBUCKET","BITBUCKET_COMMIT"],["BITRISE","BITRISE_IO"],["BUDDY","BUDDY_WORKSPACE_ID"],["BUILDKITE"],["CIRCLE","CIRCLECI"],["CIRRUS","CIRRUS_CI"],["CLOUDFLARE_PAGES","CF_PAGES",{ci:!0}],["CODEBUILD","CODEBUILD_BUILD_ARN"],["CODEFRESH","CF_BUILD_ID"],["DRONE"],["DRONE","DRONE_BUILD_EVENT"],["DSARI"],["GITHUB_ACTIONS"],["GITLAB","GITLAB_CI"],["GITLAB","CI_MERGE_REQUEST_ID"],["GOCD","GO_PIPELINE_LABEL"],["LAYERCI"],["HUDSON","HUDSON_URL"],["JENKINS","JENKINS_URL"],["MAGNUM"],["NETLIFY"],["NETLIFY","NETLIFY_LOCAL",{ci:!1}],["NEVERCODE"],["RENDER"],["SAIL","SAILCI"],["SEMAPHORE"],["SCREWDRIVER"],["SHIPPABLE"],["SOLANO","TDDIUM"],["STRIDER"],["TEAMCITY","TEAMCITY_VERSION"],["TRAVIS"],["VERCEL","NOW_BUILDER"],["VERCEL","VERCEL",{ci:!1}],["VERCEL","VERCEL_ENV",{ci:!1}],["APPCENTER","APPCENTER_BUILD_ID"],["CODESANDBOX","CODESANDBOX_SSE",{ci:!1}],["STACKBLITZ"],["STORMKIT"],["CLEAVR"]];function B(){if(globalThis.process?.env)for(const e of d){const o=e[1]||e[0];if(globalThis.process?.env[o])return {name:e[0].toLowerCase(),...e[2]}}return globalThis.process?.env?.SHELL==="/bin/jsh"&&globalThis.process?.versions?.webcontainer?{name:"stackblitz",ci:!1}:{name:"",ci:!1}}const I=B(),U=I.name;function n(e){return e?e!=="false":!1}const l=globalThis.process?.platform||"",T=n(s.CI)||I.ci!==!1,a=n(globalThis.process?.stdout&&globalThis.process?.stdout.isTTY);n(s.DEBUG);const c=E==="test"||n(s.TEST);n(s.MINIMAL)||T||c||!a;const C=/^win/i.test(l);!n(s.NO_COLOR)&&(n(s.FORCE_COLOR)||C&&s.TERM!=="dumb"||a&&s.TERM&&s.TERM==="dumb"||T);const R=(globalThis.process?.versions?.node||"").replace(/^v/,"")||null;Number(R?.split(".")[0])||null;const Y=globalThis.process||Object.create(null),L={versions:{}};new Proxy(Y,{get(e,o){if(o==="env")return s;if(o in e)return e[o];if(o in L)return L[o]}});const _=!!globalThis.Netlify,O=!!globalThis.EdgeRuntime,D=globalThis.navigator?.userAgent==="Cloudflare-Workers",A=!!globalThis.Deno,u=!!globalThis.__lagon__,N=globalThis.process?.release?.name==="node",S=!!globalThis.Bun||!!globalThis.process?.versions?.bun,b=!!globalThis.fastly,K=[[_,"netlify"],[O,"edge-light"],[D,"workerd"],[A,"deno"],[u,"lagon"],[N,"node"],[S,"bun"],[b,"fastly"]];function F(){const e=K.find(o=>o[0]);if(e)return {name:e[1]}}const g=F();g?.name||"";
 
@@ -289,7 +289,7 @@ const _inlineRuntimeConfig = {
     "baseURL": "/_ipx",
     "alias": {},
     "fs": {
-      "dir": "/Users/ronini/dev/personal/portfolio/public"
+      "dir": "/home/ronini/dev/portfolio/public"
     },
     "http": {
       "domains": []
@@ -361,7 +361,7 @@ new Proxy(/* @__PURE__ */ Object.create(null), {
   }
 });
 
-const serverAssets = [{"baseName":"server","dir":"/Users/ronini/dev/personal/portfolio/server/assets"}];
+const serverAssets = [{"baseName":"server","dir":"/home/ronini/dev/portfolio/server/assets"}];
 
 const assets = createStorage();
 
@@ -373,13 +373,13 @@ const storage = createStorage({});
 
 storage.mount('/assets', assets);
 
-storage.mount('content:source:content', unstorage_47drivers_47fs({"name":"content:source:content","driver":"fs","base":"/Users/ronini/dev/personal/portfolio/content","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('cache:content', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/ronini/dev/personal/portfolio/.nuxt/content-cache","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/ronini/dev/personal/portfolio","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/ronini/dev/personal/portfolio/server","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/ronini/dev/personal/portfolio/.nuxt","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/ronini/dev/personal/portfolio/.nuxt/cache","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/ronini/dev/personal/portfolio/.data/kv","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('content:source:content', unstorage_47drivers_47fs({"name":"content:source:content","driver":"fs","base":"/home/ronini/dev/portfolio/content","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('cache:content', unstorage_47drivers_47fs({"driver":"fs","base":"/home/ronini/dev/portfolio/.nuxt/content-cache","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/home/ronini/dev/portfolio","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/home/ronini/dev/portfolio/server","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/home/ronini/dev/portfolio/.nuxt","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/home/ronini/dev/portfolio/.nuxt/cache","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"/home/ronini/dev/portfolio/.data/kv","ignore":["**/node_modules/**","**/.git/**"]}));
 
 function useStorage(base = "") {
   return base ? prefixStorage(storage, base) : storage;
@@ -803,14 +803,14 @@ if (!window.__NUXT_DEVTOOLS_TIME_METRIC__) {
 window.__NUXT_DEVTOOLS_TIME_METRIC__.appInit = Date.now()
 `;
 
-const _XJIhwvHGlO = (function(nitro) {
+const _I17ScLg7is = (function(nitro) {
   nitro.hooks.hook("render:html", (htmlContext) => {
     htmlContext.head.push(`<script>${script}<\/script>`);
   });
 });
 
 const plugins = [
-  _XJIhwvHGlO
+  _I17ScLg7is
 ];
 
 function defineRenderHandler(handler) {
@@ -1045,13 +1045,13 @@ function publicAssetsURL(...path) {
   return path.length ? joinURL(publicBase, ...path) : publicBase;
 }
 
-const _EgELhj = lazyEventHandler(async () => {
+const _HTjoKI = lazyEventHandler(async () => {
   const { highlight } = useRuntimeConfig().mdc;
   try {
-    const wasm = await import('file:///Users/ronini/dev/personal/portfolio/node_modules/shikiji/dist/onig.wasm').then((r) => r.default);
+    const wasm = await import('file:///home/ronini/dev/portfolio/node_modules/shikiji/dist/onig.wasm').then((r) => r.default);
     await loadWasm(async (obj) => WebAssembly.instantiate(wasm, obj));
   } catch {
-    await loadWasm({ data: await import('file:///Users/ronini/dev/personal/portfolio/node_modules/shikiji/dist/wasm.mjs').then((r) => r.getWasmInlined()).then((r) => r.data) });
+    await loadWasm({ data: await import('file:///home/ronini/dev/portfolio/node_modules/shikiji/dist/wasm.mjs').then((r) => r.getWasmInlined()).then((r) => r.data) });
   }
   const shiki = useShikiHighlighter(highlight);
   return eventHandler(async (event) => {
@@ -2605,7 +2605,7 @@ let moduleOptions;
 const parseMarkdown = async (md, opts = {}) => {
   if (!moduleOptions) {
     moduleOptions = await import(
-      'file:///Users/ronini/dev/personal/portfolio/.nuxt/mdc-imports.mjs'
+      'file:///home/ronini/dev/portfolio/.nuxt/mdc-imports.mjs'
       /* @vite-ignore */
     ).catch(() => ({}));
   }
@@ -2820,7 +2820,7 @@ const json = defineTransformer({
     let parsed;
     if (typeof content === "string") {
       if (_id.endsWith("json5")) {
-        parsed = (await import('file:///Users/ronini/dev/personal/portfolio/node_modules/json5/lib/index.js').then((m) => m.default || m)).parse(content);
+        parsed = (await import('file:///home/ronini/dev/portfolio/node_modules/json5/lib/index.js').then((m) => m.default || m)).parse(content);
       } else if (_id.endsWith("json")) {
         parsed = destr$1(content);
       }
@@ -3402,7 +3402,7 @@ const getContentQuery = (event) => {
   return query;
 };
 
-const _2meRxG = defineEventHandler(async (event) => {
+const _8xeZ9w = defineEventHandler(async (event) => {
   const query = getContentQuery(event);
   const { advanceQuery } = useRuntimeConfig().public.content.experimental;
   if (query.first) {
@@ -3431,7 +3431,7 @@ const _2meRxG = defineEventHandler(async (event) => {
   return serverQueryContent(event, query).find();
 });
 
-const _3v4FVB = defineEventHandler(async (event) => {
+const _c56ogg = defineEventHandler(async (event) => {
   const { content } = useRuntimeConfig();
   const now = Date.now();
   const contents = await serverQueryContent(event).find();
@@ -3533,7 +3533,7 @@ function isObject(obj) {
   return Object.prototype.toString.call(obj) === "[object Object]";
 }
 
-const _xZ9VpM = defineEventHandler(async (event) => {
+const _k0uDe6 = defineEventHandler(async (event) => {
   const query = getContentQuery(event);
   if (!isPreview(event) && Object.keys(query).length === 0) {
     const cache = await cacheStorage.getItem("content-navigation.json");
@@ -3570,7 +3570,7 @@ const _xZ9VpM = defineEventHandler(async (event) => {
   return createNav(contents?.result || contents, configs);
 });
 
-const _udx22u = lazyEventHandler(() => {
+const _vnyP5E = lazyEventHandler(() => {
   const opts = useRuntimeConfig().ipx || {};
   const fsDir = opts.fs?.dir ? isAbsolute(opts.fs.dir) ? opts.fs.dir : fileURLToPath(new URL(opts.fs.dir, globalThis._importMeta_.url)) : void 0;
   const fsStorage = opts.fs?.dir ? ipxFSStorage({ ...opts.fs, dir: fsDir }) : void 0;
@@ -3588,20 +3588,20 @@ const _udx22u = lazyEventHandler(() => {
   return useBase(opts.baseURL, ipxHandler);
 });
 
-const _lazy_xCFf84 = () => Promise.resolve().then(function () { return renderer$1; });
+const _lazy_1ffXVA = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
-  { route: '/__nuxt_error', handler: _lazy_xCFf84, lazy: true, middleware: false, method: undefined },
-  { route: '/api/_mdc/highlight', handler: _EgELhj, lazy: false, middleware: false, method: undefined },
-  { route: '/api/_content/query/:qid/**:params', handler: _2meRxG, lazy: false, middleware: false, method: "get" },
-  { route: '/api/_content/query/:qid', handler: _2meRxG, lazy: false, middleware: false, method: "get" },
-  { route: '/api/_content/query', handler: _2meRxG, lazy: false, middleware: false, method: "get" },
-  { route: '/api/_content/cache.json', handler: _3v4FVB, lazy: false, middleware: false, method: "get" },
-  { route: '/api/_content/navigation/:qid/**:params', handler: _xZ9VpM, lazy: false, middleware: false, method: "get" },
-  { route: '/api/_content/navigation/:qid', handler: _xZ9VpM, lazy: false, middleware: false, method: "get" },
-  { route: '/api/_content/navigation', handler: _xZ9VpM, lazy: false, middleware: false, method: "get" },
-  { route: '/_ipx/**', handler: _udx22u, lazy: false, middleware: false, method: undefined },
-  { route: '/**', handler: _lazy_xCFf84, lazy: true, middleware: false, method: undefined }
+  { route: '/__nuxt_error', handler: _lazy_1ffXVA, lazy: true, middleware: false, method: undefined },
+  { route: '/api/_mdc/highlight', handler: _HTjoKI, lazy: false, middleware: false, method: undefined },
+  { route: '/api/_content/query/:qid/**:params', handler: _8xeZ9w, lazy: false, middleware: false, method: "get" },
+  { route: '/api/_content/query/:qid', handler: _8xeZ9w, lazy: false, middleware: false, method: "get" },
+  { route: '/api/_content/query', handler: _8xeZ9w, lazy: false, middleware: false, method: "get" },
+  { route: '/api/_content/cache.json', handler: _c56ogg, lazy: false, middleware: false, method: "get" },
+  { route: '/api/_content/navigation/:qid/**:params', handler: _k0uDe6, lazy: false, middleware: false, method: "get" },
+  { route: '/api/_content/navigation/:qid', handler: _k0uDe6, lazy: false, middleware: false, method: "get" },
+  { route: '/api/_content/navigation', handler: _k0uDe6, lazy: false, middleware: false, method: "get" },
+  { route: '/_ipx/**', handler: _vnyP5E, lazy: false, middleware: false, method: undefined },
+  { route: '/**', handler: _lazy_1ffXVA, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {
@@ -3849,8 +3849,8 @@ const appRootTag = "div";
 
 globalThis.__buildAssetsURL = buildAssetsURL;
 globalThis.__publicAssetsURL = publicAssetsURL;
-const getClientManifest = () => import('file:///Users/ronini/dev/personal/portfolio/.nuxt/dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
-const getServerEntry = () => import('file:///Users/ronini/dev/personal/portfolio/.nuxt/dist/server/server.mjs').then((r) => r.default || r);
+const getClientManifest = () => import('file:///home/ronini/dev/portfolio/.nuxt/dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
+const getServerEntry = () => import('file:///home/ronini/dev/portfolio/.nuxt/dist/server/server.mjs').then((r) => r.default || r);
 const getSSRStyles = lazyCachedFunction(() => Promise.resolve().then(function () { return styles$1; }).then((r) => r.default || r));
 const getSSRRenderer = lazyCachedFunction(async () => {
   const manifest = await getClientManifest();

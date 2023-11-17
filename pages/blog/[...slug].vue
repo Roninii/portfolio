@@ -91,6 +91,7 @@
 
 .blog--header__title {
   font-weight: 400;
+  font-size: 2rem;
   margin-top: 3rem;
 }
 
