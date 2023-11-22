@@ -1,5 +1,5 @@
 <template>
-  <header :class="['name-container', currentTheme]">
+  <header :class="['name-container', theme]">
     <div>
       <h1 class="name">
         <span class="neon">Ron</span>
@@ -15,7 +15,12 @@
 </template>
 
 <script setup lang="ts">
-const { currentTheme } = useTheme();
+const theme = ref<"light" | "dark">("light");
+
+onMounted(() => {
+  const { currentTheme } = useTheme();
+  theme.value = currentTheme.value;
+});
 </script>
 
 <style scoped>

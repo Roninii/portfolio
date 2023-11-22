@@ -8,6 +8,7 @@ export default function useTheme() {
       currentTheme.value === "light" ? setLightTheme() : setDarkTheme();
     }
   }
+
   function setLightTheme() {
     currentTheme.value = "light";
 
