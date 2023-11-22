@@ -20,45 +20,9 @@
       </article>
 
       <footer class="blog--footer">
-        <a
-          href="https://dev.to/_ronini"
-          target="_blank"
-          rel="noreferrer"
-          class="contact__link"
-          title="dev.to"
-        >
-          <i class="fab fa-dev" title="_ronini's DEV Profile"></i>
-        </a>
-        <a
-          href="https://github.com/roninii/"
-          target="_blank"
-          rel="noreferrer"
-          class="contact__link"
-          title="github"
-        >
-          <i
-            class="fab fa-github contact__icon"
-            title="ronini's github profile"
-          ></i>
-        </a>
-        <a
-          href="https://twitter.com/_ronini"
-          target="_blank"
-          class="contact__link"
-          title="twitter"
-          rel="noreferrer"
-        >
-          <i class="fab fa-twitter contact__icon"></i>
-        </a>
-        <a
-          href="https://linkedin.com/in/ronnievillarini"
-          target="_blank"
-          class="contact__link"
-          title="linkedin"
-          rel="noreferrer"
-        >
-          <i class="fab fa-linkedin-in contact__icon"></i>
-        </a>
+        <div class="blog--footer__contact-links">
+          <ContactLinks />
+        </div>
       </footer>
     </div>
   </article>
@@ -108,6 +72,7 @@
 .blog--footer {
   align-self: end;
   margin-top: 1rem;
+  margin-bottom: 2rem;
   padding: 2rem 4rem 1rem 4rem;
   font-size: 12px;
   display: flex;
@@ -234,7 +199,11 @@ ol {
   background: linear-gradient(to right, var(--secondary), var(--primary));
 }
 
-.blog--footer a {
-  margin: 0 0.5rem;
+.blog--footer__contact-links {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
 }
 </style>
