@@ -1,17 +1,15 @@
 <template>
-  <div class="contact__links">
-    <a
-      v-for="link in contactLinks"
-      :key="link.linkTitle"
-      :href="link.href"
-      target="_blank"
-      rel="noreferrer noopener"
-      class="contact__link"
-      :title="link.linkTitle"
-    >
-      <Icon :name="link.iconName" :title="link.iconTitle" />
-    </a>
-  </div>
+  <a
+    v-for="link in contactLinks"
+    :key="link.linkTitle"
+    :href="link.href"
+    target="_blank"
+    rel="noreferrer noopener"
+    class="contact__link"
+    :title="link.linkTitle"
+  >
+    <Icon :name="link.iconName" :title="link.iconTitle" />
+  </a>
 </template>
 
 <script lang="ts" setup>

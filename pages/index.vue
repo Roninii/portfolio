@@ -9,7 +9,9 @@
         <span class="highlight--primary">together</span>
       </h2>
 
-      <ContactLinks />
+      <div class="contact__links">
+        <ContactLinks />
+      </div>
     </section>
 
     <section class="projects">
