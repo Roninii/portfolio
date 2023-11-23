@@ -3,14 +3,13 @@
     <div class="blog">
       <ContentQuery :path="$route.path" find="one" v-slot="{ data }">
         <header class="blog--header">
-          <NuxtImg
+          <img
             class="blog--header__banner"
             v-if="data.image"
             :src="data.image"
             :alt="data.imageAlt"
             width="480"
             height="1000"
-            fit="contain"
           />
           <h1 class="blog--header__title" v-html="data.title" />
         </header>
