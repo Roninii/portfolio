@@ -52,8 +52,9 @@ onMounted(() => {
 }
 .name-container.dark .name .neon {
   animation-name: glow;
-  animation-duration: 2s;
+  animation-duration: 3s;
   animation-fill-mode: forwards;
+  color: var(--primary-light);
 }
 
 .name-container.dark .subtitle {
