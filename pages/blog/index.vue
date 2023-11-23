@@ -1,7 +1,6 @@
 <template>
   <div class="blog">
     <header class="blog--header">
-      <img src="/Logo.svg" width="150" alt="Purple fox logo" />
       <div class="blog--titles">
         <h1 class="blog--title">Oh, for fox sake!</h1>
         <h2 class="blog--subtitle">
@@ -49,19 +48,10 @@ const formatDate = (date: string) => {
   padding: 0 1rem;
 }
 
-.blog--header {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.blog--titles {
-  width: 75%;
-}
-
 .blog--title {
   text-transform: uppercase;
   font-weight: 400;
+  color: var(--primary);
 }
 
 .blog--subtitle {
