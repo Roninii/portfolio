@@ -35,6 +35,7 @@ export default defineNuxtConfig({
       theme: "dracula",
     },
   },
+  ssr: true,
   nitro: {
     static: true,
     prerender: true,
