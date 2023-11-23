@@ -38,6 +38,5 @@ export default defineNuxtConfig({
   ssr: true,
   nitro: {
     static: true,
-    prerender: true,
   },
 });
