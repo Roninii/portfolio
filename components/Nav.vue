@@ -61,4 +61,18 @@ span {
   top: 0;
   z-index: 100;
 }
+
+.underline {
+  color: var(--active-link-text);
+}
+.underline::after {
+  content: "";
+  position: absolute;
+  width: 75%;
+  height: 2px;
+  bottom: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(to right, var(--secondary), var(--primary));
+}
 </style>
