@@ -191,8 +191,7 @@ h2 {
 .projects {
   grid-area: projects;
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   width: 100%;
 }
@@ -256,12 +255,10 @@ h2 {
   margin-left: 0.5rem;
 }
 
-.projects__project .icon:last-child {
-  margin-right: 1rem;
-}
-
 .projects__github {
-  display: inline-block;
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
   background-clip: text;
   -webkit-background-clip: text;
   color: var(--text);

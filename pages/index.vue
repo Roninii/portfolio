@@ -15,27 +15,6 @@
     </section>
 
     <section class="projects">
-      <header>
-        <h2 class="projects__heading">Recent work:</h2>
-      </header>
-
-      <div class="projects__project">
-        <a
-          href="https://viz.greynoise.io"
-          target="_blank"
-          rel="noreferrer noopener"
-          class="project__link"
-          title="GreyNoise Intelligence Visualizer"
-          >&rarr; GreyNoise Visualizer</a
-        >
-        <Icon name="simple-icons:vuedotjs" title="Vue.js" role="presentation" />
-        <Icon
-          name="simple-icons:nodedotjs"
-          title="Node.js"
-          role="presentation"
-        />
-      </div>
-
       <a
         href="https://github.com/roninii"
         target="_blank"
@@ -43,7 +22,7 @@
         rel="noreferrer noopener"
         title="ronnie's github"
       >
-        more on github
+        Check out my projects on GitHub
         <Icon
           name="simple-icons:github"
           title="Ronini's profile on GitHub"
