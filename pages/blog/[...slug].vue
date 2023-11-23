@@ -10,6 +10,7 @@
             :alt="data.imageAlt"
             width="480"
             height="1000"
+            fit="contain"
           />
           <h1 class="blog--header__title" v-html="data.title" />
         </header>
