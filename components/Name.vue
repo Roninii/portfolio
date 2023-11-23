@@ -16,6 +16,11 @@
 
 <script setup lang="ts">
 const theme = ref<"light" | "dark">("light");
+const { currentTheme } = useTheme();
+
+watch(currentTheme, (newTheme) => {
+  theme.value = newTheme;
+});
 
 onMounted(() => {
   const { currentTheme } = useTheme();
