@@ -33,7 +33,7 @@
 <script setup lang="ts">
 const route = useRoute();
 const viewingBlog = computed(() => {
-  return /\/blog\/.+\/$/gi.test(route.path);
+  return route.name === "blog-slug";
 });
 </script>
 
