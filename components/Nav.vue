@@ -19,10 +19,19 @@
         <ClientOnly>
           <ThemeToggle />
         </ClientOnly>
-        <NuxtLink class="nav--link" active-class="underline" exact to="/">
+        <NuxtLink
+          class="nav--link"
+          active-class="gradient-underline"
+          exact
+          to="/"
+        >
           Home
         </NuxtLink>
-        <NuxtLink class="nav--link" active-class="underline" to="/blog/">
+        <NuxtLink
+          class="nav--link"
+          active-class="gradient-underline"
+          to="/blog/"
+        >
           Blog
         </NuxtLink>
       </div>
@@ -62,10 +71,10 @@ span {
   z-index: 100;
 }
 
-.underline {
+.gradient-underline {
   color: var(--active-link-text);
 }
-.underline::after {
+.gradient-underline::after {
   content: "";
   position: absolute;
   width: 75%;
