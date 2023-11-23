@@ -29,7 +29,7 @@ export default defineNuxtConfig({
       ],
     },
   },
-  modules: ["nuxt-icon", "@nuxt/image", "@nuxt/content"],
+  modules: ["nuxt-icon", "@nuxt/image", "@nuxt/content", "@nuxtjs/tailwindcss"],
   content: {
     highlight: {
       theme: "dracula",

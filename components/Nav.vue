@@ -19,10 +19,19 @@
         <ClientOnly>
           <ThemeToggle />
         </ClientOnly>
-        <NuxtLink class="nav--link" active-class="underline" exact to="/">
+        <NuxtLink
+          class="nav--link"
+          active-class="gradient-underline"
+          exact
+          to="/"
+        >
           Home
         </NuxtLink>
-        <NuxtLink class="nav--link" active-class="underline" to="/blog/">
+        <NuxtLink
+          class="nav--link"
+          active-class="gradient-underline"
+          to="/blog/"
+        >
           Blog
         </NuxtLink>
       </div>
@@ -33,7 +42,7 @@
 <script setup lang="ts">
 const route = useRoute();
 const viewingBlog = computed(() => {
-  return /\/blog\/.+\/$/gi.test(route.path);
+  return route.name === "blog-slug";
 });
 </script>
 
@@ -60,5 +69,19 @@ span {
   position: sticky;
   top: 0;
   z-index: 100;
+}
+
+.gradient-underline {
+  color: var(--active-link-text);
+}
+.gradient-underline::after {
+  content: "";
+  position: absolute;
+  width: 75%;
+  height: 2px;
+  bottom: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(to right, var(--secondary), var(--primary));
 }
 </style>

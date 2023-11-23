@@ -2,8 +2,8 @@
   <div class="blog">
     <header class="blog--header">
       <div class="blog--titles">
-        <h1 class="blog--title">Oh, for fox sake!</h1>
-        <h2 class="blog--subtitle">
+        <h1 class="blog--title text-3xl">Oh, for fox sake!</h1>
+        <h2 class="blog--subtitle text-lg">
           A blog about the adventures in web development and design.
         </h2>
       </div>
