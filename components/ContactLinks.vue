@@ -52,3 +52,18 @@ const contactLinks = ref<ContactLink[]>([
   },
 ]);
 </script>
+
+<style scoped>
+.contact__link {
+  color: var(--primary);
+  font-size: 2rem;
+  backface-visibility: hidden;
+  transform: translate3d();
+
+  transition: all 0.3s;
+}
+.contact__link:hover {
+  filter: drop-shadow(0 3px 3px var(--shadow));
+  transform: scale(1.1) translateY(-0.4rem);
+}
+</style>
