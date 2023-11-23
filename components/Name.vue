@@ -18,6 +18,10 @@
 const theme = ref<"light" | "dark">("light");
 const { currentTheme } = useTheme();
 
+/**
+ * Setting up a watcher here because we lose reactivity when using `.value` on initial load.
+ * Unfortunately, that's also a requirement to make sure the theme is correct on first load
+ */
 watch(currentTheme, (newTheme) => {
   theme.value = newTheme;
 });
