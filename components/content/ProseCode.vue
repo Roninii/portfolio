@@ -29,8 +29,9 @@ withDefaults(
 .code-block {
   background: #282a36;
   border-radius: 3px;
-  overflow: hidden;
-  width: 100%;
+  overflow: auto;
+  width: calc(100vw - 4rem);
+  max-width: 1024px;
   margin-top: 1rem;
 }
 .file-name {

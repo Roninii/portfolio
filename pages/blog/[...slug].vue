@@ -3,13 +3,15 @@
     <div class="blog">
       <ContentQuery :path="$route.path" find="one" v-slot="{ data }">
         <header class="blog--header">
-          <img
+          <NuxtImg
             class="blog--header__banner"
             v-if="data.image"
             :src="data.image"
             :alt="data.imageAlt"
             width="480"
             height="1000"
+            quality="100"
+            fit="outside"
           />
           <h1 class="blog--header__title" v-html="data.title" />
         </header>
@@ -46,8 +48,6 @@
 }
 
 .blog--header__banner {
-  object-fit: cover;
-  -o-object-fit: cover;
   width: 100%;
   max-height: 30rem;
   border-radius: 3px;
@@ -133,8 +133,7 @@
 
 .blog-post :deep(ul),
 ol {
-  list-style-type: none;
-  margin-left: 2rem;
+  @apply lg:ml-8;
 }
 
 .blog-post :deep(li) {

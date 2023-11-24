@@ -1,6 +1,6 @@
 <template>
   <div class="blog">
-    <header class="blog--header">
+    <header class="blog--header mt-8">
       <div class="blog--titles">
         <h1 class="blog--title text-3xl">Oh, for fox sake!</h1>
         <h2 class="blog--subtitle text-lg">
