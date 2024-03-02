@@ -16,6 +16,9 @@
                     :key="article._path"
                 >
                     <NuxtLink class="post--link" :to="article._path">
+                        <span v-if="article.new" class="post--new-badge">
+                            New
+                        </span>
                         <h2 class="post--title">{{ article.title }}</h2>
                     </NuxtLink>
                     <p class="post--time">
@@ -72,8 +75,16 @@ const formatDate = (date: string) => {
 .posts--post {
     margin-top: 2rem;
 }
-
+/* .post--link {
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+} */
+.post--new-badge {
+    color: var(--primary);
+}
 .post--title {
+    margin-top: -0.5rem;
     font-weight: 500;
     color: var(--text);
 }
