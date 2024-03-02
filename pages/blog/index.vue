@@ -16,7 +16,10 @@
                     :key="article._path"
                 >
                     <NuxtLink class="post--link" :to="article._path">
-                        <span v-if="article.new" class="post--new-badge">
+                        <span
+                            v-if="showNewBadge(article.date)"
+                            class="post--new-badge"
+                        >
                             New
                         </span>
                         <h2 class="post--title">{{ article.title }}</h2>
@@ -47,6 +50,14 @@ const formatDate = (date: string) => {
         year: "numeric",
         day: "numeric",
     }).format(new Date(date));
+};
+
+const showNewBadge = (date: string) => {
+    const today = new Date();
+    const articleDate = new Date(date);
+    const weekInMilliseconds = 1000 * 60 * 60 * 24 * 7;
+
+    return today.getTime() - articleDate.getTime() < weekInMilliseconds;
 };
 </script>
 

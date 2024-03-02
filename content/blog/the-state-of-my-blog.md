@@ -2,7 +2,6 @@
 title: "The State of My Blog"
 author: Ronnie Villarini
 date: "2024-03-01"
-new: true
 ---
 
 Wow, so.. It's been a while.
