@@ -6,7 +6,7 @@ image: /img/web-idea-forge.png
 imageAlt: "A website with the title 'Web Idea Forge' and an example idea that says 'Raycast for Windows'"
 ---
 
-Today I'm excited to announce a little side project I worked on called the [Web Idea Forge](https://webideaforge.vercel.app/)! I spent some time putting this together for two reasons:
+Today I'm excited to announce a little side project I have been working on called the [Web Idea Forge](https://webideaforge.vercel.app/)! I spent some time putting this together for two reasons:
 
 1. I wanted to have a **public** place where I could put the massive backlog of ideas I've been hoarding for the last couple of years.
 2. I wanted to give those of you asking "what should I build" a few ideas!
@@ -25,7 +25,7 @@ I don't know if you knew this, but actually _building_ things, is way more effec
 
 It's been a while since I built something outside of work. Maybe it was burn out, or maybe is was just a general lack of interest. No matter the reason, other than the occasional update to my site, or maybe toying with an idea in a codepen, I just haven't been interested in building anything.
 
-![An tired eldery woman saying "it's been 84 years"](/img/84-years.jpg)
+<img src="https://media3.giphy.com/media/xUanPliWDp9Pq/giphy.gif" alt="A tired, elderly woman saying 'it's been 84 years'" class="small-img"/>
 
 I hated that. I knew that at one point, I _loved_ to code. Most people that know me well know how much I love video games, but when I was first learning to code, it quickly became a passion that far exceeded my love for games. I wanted to get back to that. I knew there was a part of me that loved the creative outlet that coding provided, and I knew, based on my notes, that I still had a ton of ideas. I just needed something to reignite that spark.
 
