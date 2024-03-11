@@ -1,76 +1,41 @@
 <header class="name-container">
   <div>
-    <h1 class="name">
-      <span class="neon">Ron</span>
-      <span class="middle">nie Villar</span>
-      <span class="neon">ini</span>
+    <h1
+      class="name md:flex md:justify-center md:items-center uppercase tracking-[0.15rem] text-[4rem] leading-[4.55rem] text-center"
+    >
+      <span class="neon text-ronini-purple-700 dark:text-primary-light">
+        Ron
+      </span>
+      <span
+        class="middle md:max-w-0 md:opacity-0 md:overflow-hidden md:whitespace-nowrap text-gray-900 dark:text-gray-50"
+      >
+        nie Villar
+      </span>
+      <span class="neon text-ronini-purple-700 dark:text-primary-light">
+        ini
+      </span>
     </h1>
-    <h2 class="subtitle">
+    <h2
+      class="subtitle text-2xl text-gray-700 dark:text-gray-200 text-center md:opacity-0"
+    >
       T Shaped Developer | Frontend Specialist | Vue.js Enthusiast
     </h2>
-    <hr class="accent" />
+    <hr class="w-40 my-3 mx-auto border border-ronini-purple-700" />
   </div>
 </header>
 <style>
   .name-container {
-    grid-area: header;
+    --purple-dark: theme(colors.ronini-purple.800);
   }
-
-  /* Light mode */
-  .name-container.light .name {
-    color: var(--black);
-  }
-
-  .name-container.light .subtitle {
-    color: var(--grey);
-  }
-
-  /* Dark mode */
-  .name-container.dark .name {
-    color: var(--white);
-  }
-  .name-container.dark .name .neon {
-    animation-name: glow;
-    animation-duration: 3s;
-    animation-fill-mode: forwards;
-    color: var(--primary-light);
-  }
-
-  .name-container.dark .subtitle {
-    color: var(--gray-light);
-  }
-
-  .name {
-    text-transform: uppercase;
-    letter-spacing: 0.15rem;
-    font-size: 4rem;
-    line-height: 4.55rem;
-    text-align: center;
-  }
-
   .neon {
-    animation-name: fade-in;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    color: var(--purple);
+    animation: fade-in 1s forwards;
+  }
+  html.dark .neon {
+    animation: glow 3s forwards;
   }
 
-  .subtitle {
-    text-align: center;
-  }
-
-  @media screen and (min-width: 768px) {
-    .name {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+  @media screen(md) {
     .middle {
-      max-width: 0;
-      opacity: 0;
-      overflow: hidden;
-      white-space: nowrap;
-
       animation-name: grow;
       animation-duration: 2s;
       animation-delay: 2s;
@@ -78,21 +43,12 @@
     }
 
     .subtitle {
-      opacity: 0;
-
       animation-name: fade-in;
       animation-duration: 1s;
       animation-fill-mode: forwards;
       animation-delay: 3s;
     }
   }
-
-  .accent {
-    width: 10rem;
-    margin: 0.75rem auto;
-    border-color: var(--purple);
-  }
-
   @keyframes fade-in {
     from {
       opacity: 0;
@@ -145,7 +101,7 @@
       text-shadow:
         0.25rem 0 0.5rem var(--purple-dark),
         -0.25rem 0 0.5rem var(--purple-dark),
-        0 0 3rem var(--purple);
+        0 0 3rem theme(colors.ronini-purple.700);
     }
   }
 </style>
