@@ -10,9 +10,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body>
+  <body class="grid grid-rows-[auto_1fr_auto] min-h-svh">
     <Header />
-    <main>
+    <main class="my-12">
       <slot />
     </main>
     <Footer />

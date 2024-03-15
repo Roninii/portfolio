@@ -1,8 +1,25 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Name from "../components/Name.astro";
+import ContactLinks from "../components/ContactLinks.astro";
 ---
 
 <BaseLayout>
   <Name />
+
+  <div class="mt-10">
+    <h2 class="text-xl md:text-2xl text-center">
+      Let's
+      <span class="text-ronini-purple-700 dark:text-turquoise-500">build</span> something
+      <span class="text-ronini-purple-700 dark:text-turquoise-500"
+        >together</span
+      >
+    </h2>
+
+    <div
+      class="flex w-full mx-auto p-1 border-b border-gray-400 justify-evenly"
+    >
+      <ContactLinks />
+    </div>
+  </div>
 </BaseLayout>
