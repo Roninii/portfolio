@@ -1,4 +1,6 @@
 ---
+import { Icon } from "astro-icon/components";
+
 type ContactLink = {
   href: string;
   linkTitle: string;
@@ -10,31 +12,31 @@ const contactLinks: ContactLink[] = [
   {
     href: "https://dev.to/_ronini",
     linkTitle: "dev.to",
-    iconName: "simple-icons:devdotto",
+    iconName: "devdotto",
     iconTitle: "_ronini's DEV.to Profile",
   },
   {
     href: "https://github.com/roninii/",
     linkTitle: "GitHub",
-    iconName: "simple-icons:github",
+    iconName: "github",
     iconTitle: "_ronini's GitHub Profile",
   },
   {
     href: "https://linkedin.com/in/ronnievillarini",
     linkTitle: "LinkedIn",
-    iconName: "simple-icons:linkedin",
+    iconName: "linkedin",
     iconTitle: "_ronini's LinkedIn Profile",
   },
   {
     href: "https://twitter.com/_ronini",
     linkTitle: "Twitter/X",
-    iconName: "simple-icons:twitter",
+    iconName: "twitter",
     iconTitle: "_ronini's Twitter/X Profile",
   },
   {
     href: "mailto:ronnie@ronini.dev",
     linkTitle: "Email",
-    iconName: "simple-icons:maildotru",
+    iconName: "minutemailer",
     iconTitle: "_ronini's Email Profile",
   },
 ];
@@ -43,18 +45,13 @@ const contactLinks: ContactLink[] = [
 {
   contactLinks.map((link) => (
     <a
-      key={link.linkTitle}
       href={link.href}
       title={link.linkTitle}
       target="_blank"
       rel="noopener noreferrer"
       class="text-ronini-purple-700 dark:text-turquoise-500 text-4xl transform-gpu transition-all duration-300 hover:drop-shadow-md hover:scale-110 hover:translate-y-2"
     >
-      {/*
-       * TODO: Add Icons
-       * <Icon name={link.iconName} title={link.iconTitle} />
-       */}
-      {link.linkTitle}
+      <Icon name={link.iconName} title={link.iconTitle} />
     </a>
   ))
 }
