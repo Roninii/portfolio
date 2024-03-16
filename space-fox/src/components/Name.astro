@@ -1,112 +1,112 @@
 <header class="name-container">
-    <div>
-        <h1
-            class="hidden text-center text-[4rem] uppercase leading-[4.55rem] tracking-[0.15rem] md:flex md:items-center md:justify-center"
-        >
-            <span class="neon text-ronini-purple-700 dark:text-primary-light">
-                Ron
-            </span>
-            <span
-                class="middle text-gray-900 md:max-w-0 md:overflow-hidden md:whitespace-nowrap md:opacity-0 dark:text-gray-50"
-            >
-                nie Villar
-            </span>
-            <span class="neon text-ronini-purple-700 dark:text-primary-light">
-                ini
-            </span>
-        </h1>
-        <h1
-            class="text-ronini-purple-700 text-center text-4xl uppercase leading-tight md:hidden"
-        >
-            Ronnie Villarini
-        </h1>
-        <h2
-            class="subtitle text-center text-xl text-gray-700 md:text-2xl md:opacity-0 dark:text-gray-200"
-        >
-            T Shaped Developer | Frontend Specialist | Vue.js Enthusiast
-        </h2>
-        <hr class="border-ronini-purple-700 mx-auto my-3 w-40 border" />
-    </div>
+  <div>
+    <h1
+      class="hidden text-center text-[4rem] uppercase leading-[4.55rem] tracking-[0.15rem] md:flex md:items-center md:justify-center"
+    >
+      <span class="neon text-ronini-purple-700 dark:text-primary-light">
+        Ron
+      </span>
+      <span
+        class="middle text-gray-900 md:max-w-0 md:overflow-hidden md:whitespace-nowrap md:opacity-0 dark:text-gray-50"
+      >
+        nie Villar
+      </span>
+      <span class="neon text-ronini-purple-700 dark:text-primary-light">
+        ini
+      </span>
+    </h1>
+    <h1
+      class="neon text-ronini-purple-700 dark:text-primary-light text-center text-4xl uppercase leading-tight md:hidden"
+    >
+      Ronnie Villarini
+    </h1>
+    <h2
+      class="subtitle text-center text-xl text-gray-700 md:text-2xl md:opacity-0 dark:text-gray-200 p-2"
+    >
+      T Shaped Developer | Frontend Specialist | Vue.js Enthusiast
+    </h2>
+    <hr class="border-ronini-purple-700 mx-auto my-3 w-40 border" />
+  </div>
 </header>
 <style>
-    .name-container {
-        --purple-dark: theme(colors.ronini-purple.800);
-    }
-    .neon {
-        animation: fade-in 1s forwards;
-    }
-    html.dark .neon {
-        animation: glow 3s forwards;
-    }
+  .name-container {
+    --purple-dark: theme(colors.ronini-purple.800);
+  }
+  .neon {
+    animation: fade-in 1s forwards;
+  }
+  html.dark .neon {
+    animation: glow 3s forwards;
+  }
 
-    @media screen(md) {
-        .middle {
-            animation-name: grow;
-            animation-duration: 2s;
-            animation-delay: 2s;
-            animation-fill-mode: forwards;
-        }
-
-        .subtitle {
-            animation-name: fade-in;
-            animation-duration: 1s;
-            animation-fill-mode: forwards;
-            animation-delay: 3s;
-        }
-    }
-    @keyframes fade-in {
-        from {
-            opacity: 0;
-        }
-
-        to {
-            opacity: 1;
-        }
+  @media screen(md) {
+    .middle {
+      animation-name: grow;
+      animation-duration: 2s;
+      animation-delay: 2s;
+      animation-fill-mode: forwards;
     }
 
-    @keyframes grow {
-        from {
-            max-width: 0;
-        }
-
-        to {
-            max-width: 100vw;
-            overflow: show;
-            opacity: 1;
-        }
+    .subtitle {
+      animation-name: fade-in;
+      animation-duration: 1s;
+      animation-fill-mode: forwards;
+      animation-delay: 3s;
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
     }
 
-    @keyframes glow {
-        0% {
-            color: black;
-            text-shadow: none;
-        }
-
-        15% {
-            text-shadow:
-                0.25rem 0 0.5rem var(--purple-dark),
-                -0.25rem 0 0.5rem var(--purple-dark);
-        }
-
-        20% {
-            text-shadow: none;
-        }
-
-        25% {
-            text-shadow:
-                0.25rem 0 0.5rem var(--purple-dark),
-                -0.25rem 0 0.5rem var(--purple-dark);
-        }
-
-        30% {
-            text-shadow: none;
-        }
-
-        100% {
-            text-shadow:
-                0.25rem 0 0.5rem var(--purple-dark),
-                -0.25rem 0 0.5rem var(--purple-dark),
-                0 0 3rem theme(colors.ronini-purple.700);
-        }
+    to {
+      opacity: 1;
     }
+  }
+
+  @keyframes grow {
+    from {
+      max-width: 0;
+    }
+
+    to {
+      max-width: 100vw;
+      overflow: show;
+      opacity: 1;
+    }
+  }
+
+  @keyframes glow {
+    0% {
+      color: black;
+      text-shadow: none;
+    }
+
+    15% {
+      text-shadow:
+        0.25rem 0 0.5rem var(--purple-dark),
+        -0.25rem 0 0.5rem var(--purple-dark);
+    }
+
+    20% {
+      text-shadow: none;
+    }
+
+    25% {
+      text-shadow:
+        0.25rem 0 0.5rem var(--purple-dark),
+        -0.25rem 0 0.5rem var(--purple-dark);
+    }
+
+    30% {
+      text-shadow: none;
+    }
+
+    100% {
+      text-shadow:
+        0.25rem 0 16px var(--purple-dark),
+        -0.25rem 0 16px var(--purple-dark),
+        0 0 64px theme(colors.ronini-purple.700);
+    }
+  }
 </style>
