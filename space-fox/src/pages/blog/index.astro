@@ -1,111 +1,58 @@
 ---
-import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
-import { getCollection } from 'astro:content';
-import FormattedDate from '../../components/FormattedDate.astro';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import FormattedDate from "../../components/FormattedDate.astro";
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+const posts = (await getCollection("blog")).sort(
+  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
+
+const showNewBadge = (date: Date) => {
+  const today = new Date();
+  const weekInMilliseconds = 1000 * 60 * 60 * 24 * 7;
+
+  return today.getTime() - date.getTime() < weekInMilliseconds;
+};
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			main {
-				width: 960px;
-			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			ul li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-				color: rgb(var(--gray));
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
-			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
-			}
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
-				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.slug}/`}>
-									<img width={720} height={360} src={post.data.heroImage} alt="" />
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
-		</main>
-		<Footer />
-	</body>
-</html>
+<BaseLayout>
+  <section class="max-w-screen-md mx-auto px-4">
+    <header class="mt-8">
+      <h1
+        class="uppercase text-ronini-purple-700 dark:text-turquoise-500 text-3xl"
+      >
+        Oh, for fox sake!
+      </h1>
+      <h2 class="text-lg text-gray-600 dark:text-gray-400">
+        A blog about the adventures in web development and design.
+      </h2>
+    </header>
+
+    <div class="padding-8">
+      <ul>
+        {
+          posts.map((post) => (
+            <li class="mt-2 transition-transform duration-300 ease-out transform hover:translate-x-1 focus-within:translate-x-1">
+              <a
+                href={`/blog/${post.slug}/`}
+                class="flex gap-2 items-baseline group"
+              >
+                {showNewBadge(post.data.pubDate) && (
+                  <span class="text-xs bg-ronini-purple-700 dark:bg-turquoise-500 text-gray-100 px-2 py-1 rounded">
+                    New
+                  </span>
+                )}
+                <h2 class="font-medium text-gray-800 dark:text-gray-200 transition-all duration-300 ease-out group-hover:text-ronini-purple-700 dark:group-hover:text-turquoise-500 group-focus:text-ronini-purple-700 dark:group-focus:text-turquoise-500">
+                  {post.data.title}
+                </h2>
+              </a>
+              <p class="text-xs text-gray-600 dark:text-gray-400">
+                <FormattedDate date={post.data.pubDate} />
+              </p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
