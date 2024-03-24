@@ -2,7 +2,7 @@
 title: "Getting Set Up With Gridsome"
 description: "A short guide on starting a new project with Gridsome"
 pubDate: "2020-07-09"
-heroImage: /img/gridsome-logo.png
+heroImage: /gridsome-logo.png
 # imageAlt: "Grisome logo"
 ---
 

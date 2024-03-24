@@ -3,7 +3,7 @@ title: "Vue Inside AJS?!"
 description: "How we migrated an AJS app to Vue at Winning Streak."
 
 pubDate: "2020-08-03"
-heroImage: /img/inception.jpg
+heroImage: /inception.jpg
 # imageAlt: "A camera with a repeating image on the screen"
 ---
 

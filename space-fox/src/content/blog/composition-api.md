@@ -2,7 +2,7 @@
 title: "Composition API - what is it, and why?"
 description: "Everything you need to know about the upcoming Vue Composition API"
 pubDate: "2020-07-11"
-heroImage: /img/composition-api-banner.webp
+heroImage: /composition-api-banner.webp
 # imageAlt: "Glasses in front of multiple monitors displaying code and other developer tools."
 ---
 

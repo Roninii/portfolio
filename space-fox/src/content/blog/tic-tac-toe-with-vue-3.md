@@ -2,7 +2,7 @@
 title: "Let's Build A Game With Vue 3"
 description: "A project-based guide to learning Vue 3 by building a tic-tac-toe game."
 pubDate: "2020-08-08"
-heroImage: /img/vue-3-game-banner.webp
+heroImage: /vue-3-game-banner.webp
 # imageAlt: "Glasses in front of multiple monitors displaying code and other developer tools."
 ---
 
@@ -31,7 +31,7 @@ npm run dev
 
 Now you should be all set up and if you open your browser to `localhost:3000` you should be looking at something like this:
 
-![Project scaffolding with Vite](/img/vite-starter.png)
+![Project scaffolding with Vite](/vite-starter.png)
 
 Take a moment to look around the code if you want, otherwise lets get started!
 
