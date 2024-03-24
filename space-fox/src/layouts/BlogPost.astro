@@ -67,7 +67,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
         }
 
         & pre {
-          @apply rounded w-full p-6;
+          @apply rounded w-full mt-4 p-6 border-2 dark:border-rosePine-pine;
 
           & code {
             all: unset;
@@ -78,7 +78,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
   </head>
 
   <body
-    class="bg-gray-100 dark:bg-gray-950 transition-colors duration-300 ease-out text-gray-800 dark:text-gray-300 relative"
+    class="bg-gray-100 dark:bg-rosePine-base transition-colors duration-300 ease-out text-gray-800 dark:text-gray-300 relative"
   >
     <div class="sticky top-0">
       <Header />
