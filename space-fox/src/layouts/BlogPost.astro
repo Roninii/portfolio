@@ -78,9 +78,11 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
   </head>
 
   <body
-    class="bg-gray-100 dark:bg-gray-950 transition-colors duration-300 ease-out text-gray-800 dark:text-gray-300"
+    class="bg-gray-100 dark:bg-gray-950 transition-colors duration-300 ease-out text-gray-800 dark:text-gray-300 relative"
   >
-    <Header />
+    <div class="sticky top-0">
+      <Header />
+    </div>
     <main class="mt-12">
       <article class="max-w-screen-lg mx-auto px-4">
         <header class="w-full text-center">
