@@ -239,7 +239,7 @@ Now when the user clicks on the lightbulb:
 2. The value of `currentTheme` will be checked, and the appropriate theme function will be called.
 
 This works!
-![ronini.dev toggling between dark and light mode.](/gif/dark-mode-toggle.gif)
+![ronini.dev toggling between dark and light mode.](./dark-mode-toggle.gif)
 
 ### Saving the user's preference
 
