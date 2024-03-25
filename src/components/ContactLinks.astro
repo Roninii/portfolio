@@ -1,0 +1,57 @@
+---
+import { Icon } from "astro-icon/components";
+
+type ContactLink = {
+  href: string;
+  linkTitle: string;
+  iconName: string;
+  iconTitle: string;
+};
+
+const contactLinks: ContactLink[] = [
+  {
+    href: "https://dev.to/_ronini",
+    linkTitle: "dev.to",
+    iconName: "devdotto",
+    iconTitle: "_ronini's DEV.to Profile",
+  },
+  {
+    href: "https://github.com/roninii/",
+    linkTitle: "GitHub",
+    iconName: "github",
+    iconTitle: "_ronini's GitHub Profile",
+  },
+  {
+    href: "https://linkedin.com/in/ronnievillarini",
+    linkTitle: "LinkedIn",
+    iconName: "linkedin",
+    iconTitle: "_ronini's LinkedIn Profile",
+  },
+  {
+    href: "https://twitter.com/_ronini",
+    linkTitle: "Twitter/X",
+    iconName: "twitter",
+    iconTitle: "_ronini's Twitter/X Profile",
+  },
+  {
+    href: "mailto:ronnie@ronini.dev",
+    linkTitle: "Email",
+    iconName: "minutemailer",
+    iconTitle: "_ronini's Email Profile",
+  },
+];
+---
+
+{
+  contactLinks.map((link) => (
+    <a
+      href={link.href}
+      title={link.linkTitle}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-gray-600 dark:text-white hover:text-ronini-purple-700 hover:dark:text-turquoise-500 text-4xl transform-gpu transition-all duration-300 filter hover:drop-shadow-lg hover:scale-110 hover:-translate-y-1"
+    >
+      <Icon name={link.iconName} title={link.iconTitle} />
+    </a>
+  ))
+}

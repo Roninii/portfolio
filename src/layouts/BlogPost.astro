@@ -1,0 +1,140 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+import ContactLinks from "../components/ContactLinks.astro";
+import { Image } from "astro:assets";
+
+type Props = CollectionEntry<"blog">["data"];
+
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+    <style is:global>
+      .post-content {
+        @apply leading-6;
+
+        & p {
+          @apply mt-4;
+        }
+
+        & img {
+          @apply block max-w-full h-auto mx-auto;
+        }
+
+        & h2 {
+          @apply font-bold uppercase;
+        }
+
+        & h2,
+        h3 {
+          @apply mt-8 text-ronini-purple-700 dark:text-turquoise-500;
+        }
+
+        & a {
+          @apply text-ronini-purple-700 dark:text-turquoise-500 hover:text-ronini-purple-500 dark:hover:text-turquoise-300 underline underline-offset-4;
+        }
+
+        & ul,
+        ol {
+          @apply lg:ml-8;
+        }
+
+        & li {
+          @apply relative mt-2;
+        }
+
+        & ul > li::before {
+          content: "›";
+          @apply absolute top-0 -left-[20px] text-ronini-purple-700 dark:text-turquoise-500 font-bold;
+        }
+
+        & blockquote {
+          @apply bg-ronini-purple-100 dark:bg-ronini-purple-700 dark:bg-opacity-20 text-gray-800 dark:text-gray-300 p-4 my-6 relative rounded-sm text-base;
+
+          &::before {
+            content: "";
+            @apply absolute w-1 h-full left-0 top-0 bg-gradient-to-b from-ronini-purple-700 to-turquoise-500 rounded-l;
+          }
+          & p {
+            @apply mt-0;
+          }
+        }
+
+        & pre {
+          @apply rounded w-full mt-4 p-6 border-2 dark:border-rosePine-pine;
+
+          & code {
+            all: unset;
+          }
+        }
+      }
+    </style>
+  </head>
+
+  <body
+    class="bg-gray-100 dark:bg-rosePine-base transition-colors duration-300 ease-out text-gray-800 dark:text-gray-300 relative"
+  >
+    <div class="sticky top-0">
+      <Header />
+    </div>
+    <main class="mt-12">
+      <article class="max-w-screen-lg mx-auto px-4">
+        <header class="w-full text-center">
+          <div class="hero-image">
+            {
+              heroImage && (
+                <Image
+                  loading="eager"
+                  width={1020}
+                  height={510}
+                  src={heroImage}
+                  alt=""
+                  class="block mx-auto rounded-xl shadow-lg"
+                />
+              )
+            }
+          </div>
+          <div>
+            <div>
+              <h1
+                class="text-3xl font-semibold tracking-wide mt-16 transition-all duration-300 ease-out dark:bg-gradient-to-l dark:from-ronini-purple-700 dark:to-turquoise-500 dark:bg-clip-text dark:text-transparent text-ronini-purple-700"
+              >
+                {title}
+              </h1>
+              <div class="text-gray-600 dark:text-gray-400">
+                <FormattedDate date={pubDate} />
+                {
+                  updatedDate && (
+                    <div class="italic">
+                      Last updated on <FormattedDate date={updatedDate} />
+                    </div>
+                  )
+                }
+              </div>
+              <hr
+                class="mt-1 h-[1.5px] w-full max-w-screen-sm mx-auto bg-gradient-to-r from-ronini-purple-700 to-turquoise-500 dark:from-rosePine-subtle dark:to-rosePine-subtle rounded-sm border-none"
+              />
+            </div>
+          </div>
+        </header>
+
+        <div class="mt-8 post-content">
+          <slot />
+        </div>
+      </article>
+    </main>
+
+    <div class="mt-4 mb-8 pt-8 pb-4">
+      <div class="flex justify-evenly items-center w-full max-w-sm mx-auto">
+        <ContactLinks />
+      </div>
+      <Footer />
+    </div>
+  </body>
+</html>
