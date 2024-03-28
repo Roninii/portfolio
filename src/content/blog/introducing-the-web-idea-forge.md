@@ -43,4 +43,4 @@ I added some basic tags to the ideas, but they don't really do anything as of ri
 
 I'm sure there will be more things that I can think of adding down the line, but that's all that I can think of right now. I hope at least a few of you find this useful, and I hope it helps you find something fun to build!
 
-Cya Nerds 👋ntil next time. Cya nerds. 👋🏻
+Until next time. Cya nerds. 👋
