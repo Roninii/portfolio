@@ -50,7 +50,7 @@ Now, I won't go over _everything_ because there is a lot going on here and Grids
 
 As you'll see with most of the files and folders in your newly bootstrapped project, the Gridsome team has done a great job of trying to outline the basics for everything. If you open up `main.js` , you should see something similar to:
 
-```js{codeTitle: Main.js}
+```javascript
 // This is the main.js file. Import global CSS and scripts here.
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 
@@ -97,7 +97,7 @@ So we have a few cool things happening here:
 - You'll probably also notice the `$static.metadata.siteName`, which is a topic for another time but the basics of it is this; Gridsome uses GraphQL under the hood to organize data. This allows you to write GraphQL queries in your components to fetch relevant data and present it like so. Here, we have fetched the name of our site from the `metadata` object. Pretty cool stuff! If you want to learn more about it, you can check the docs [here](https://gridsome.org/docs/data-layer/).
 - Lastly, we have a `slot` component. If you're unfamiliar with Vue slots, they are a way to create components that can be passed children. For example:
 
-  ```html{CoolTitleComponent.vue}
+  ```html
   <template>
     <header class='awesomeHeader'>
       <h1 class='awesomeHeader--text'>
@@ -140,7 +140,7 @@ This one is fairly straight forward. Any files and directories you place here wi
 
 This directory is where you put all your, you guessed it, **pages!** Here you'll create `.vue` files that are various pages in your application. Any file you put here, Gridsome will automagically create a route for! So in the generated code we have:
 
-```js
+```javascript
     ├── pages/
     │   ├── Index.vue
     │   └── About.vue
@@ -150,7 +150,7 @@ This means Gridsome has generated two routes for us, `/` (index.vue, this is the
 
 So we can see how it works, lets go ahead and create a new file in our `/pages` directory called `Blog.vue`. We'll put this into the file,
 
-```js
+```javascript
 <template>
   <Layout>
     <div>This is my blog!!</div>
@@ -158,7 +158,7 @@ So we can see how it works, lets go ahead and create a new file in our `/pages` 
 </template>
 ```
 
-```js
+```javascript
 <script>
     export default {
         name: 'Blog'

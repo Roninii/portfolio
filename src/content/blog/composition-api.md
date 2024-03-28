@@ -36,7 +36,7 @@ Along with the API change the Vue codebase has been rewritten with TypeScript in
 
 In Vue, there is a lot of magic happening behind the scenes, and one of those spells that they are casting is the way that `this` is automagically bound to the component instance for you. Those of you who used React in the early days may remember how painful keeping track of the scope of `this` could be. Vue made this easy by taking care of the scope for you. Ensuring that referencing `this` in your methods, computed properties, or even lifecycle hooks, was always bound to the component instance. This was great, as it greatly reduced cognitive overhead when working inside a component and it really lowered the barrier to entry for more inexperienced devs.
 
-```js
+```javascript
 export default {
   name: "MyComponent",
   data() {
@@ -55,7 +55,7 @@ export default {
 
 The drawback of course to all of this was the extra work that had to be done to add proper type inference. Plugin authors had to jump through extra hoops, and TypeScript devs using Vue often resorted to using a [community package](https://class-component.vuejs.org/) that added decorators to classes and properties. Now, if you opt to use the composition API, there is no need for this extra legwork since you're working with more natural and type-friendly Javascript.
 
-```js
+```javascript
 import { ref } from 'vue'
 
 export default {
@@ -82,7 +82,7 @@ The more you have to navigate up and down a file, the more cognitive load you're
 
 Since the composition API doesn't rely on organization by component options, you're free to organize your code by logic. For example:
 
-```js{codeTitle: Options API}
+```javascript
 export default {
     name: 'MyComponent',
     data() {
@@ -103,7 +103,7 @@ export default {
 };
 ```
 
-```js{codeTitle: Composition API}
+```javascript
 import { ref, computed } from 'vue'
 
 export default {

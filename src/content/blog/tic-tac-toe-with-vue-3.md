@@ -41,7 +41,7 @@ Take a moment to look around the code if you want, otherwise lets get started!
 
 First lets start creating the board. We will start by renaming the `HelloWorld.vue` component to `Board.vue`(Don't forget to change the imports!), then we will alter the template in `App.vue` along with replacing the boiler plate in the now named `Board.vue`.
 
-```js{codeTitle: App.vue}
+```javascript
 import Board from "./components/Board.vue";
 
 export default {
@@ -54,7 +54,7 @@ export default {
 
 The board and related styles:
 
-```html{codeTitle: Board.vue}
+```vue
 <template>
   <div class="board">
     <span class="vertical-line-1"></span>
@@ -144,7 +144,7 @@ That's ... really it! So let's build it out:
 
 First let's take care of the template and the styles. We'll add a button with a disabled attribute which we will bind to `winner || value`, so that we can dynamically mark this button as disabled based on whether it has been clicked, or if the game is over. For accessibility reasons, we'll add a `name` attribute that we'll bind to a prop called `label`.
 
-```html{codeTitle: Square.vue}
+```vue
 <template>
   <button class="square" :name="label" :disabled="winner || value">
     {{ value }}
@@ -199,7 +199,7 @@ First let's take care of the template and the styles. We'll add a button with a 
 
 Now let's add the JS! Since our component isn't in charge of maintaining any state, it'll be pretty lean. All we need is to declare our props: `label`, `value`, and `winner`.
 
-```html
+```vue
 <script>
   export default {
     props: {
@@ -228,7 +228,7 @@ Let's plan everything out before we start writing code. (I'm just doing this to 
 
 Cool! Now that we know how everything _should_ work, lets get to coding.
 
-```js{codeTitle: Square.vue}
+```javascript
 import { ref } from 'vue'
 
 setup() {
@@ -260,7 +260,7 @@ We'll now access the value located in our `boardCopy` array, located at the inde
 
 Last step here is the explicit return object from our `setup` function.
 
-```js
+```javascript
 return {
   board,
   playerValue,
@@ -276,7 +276,7 @@ Anything returned from the setup function becomes available in the template.
 
 Now that we have our game logic in place, let's add the updates to the board so that we can start applying this logic and interacting with the game!
 
-```html{1, 6-10}{codeTitle: Board.vue}
+```html
 <h1 v-else>Next Up: {{ playerValue }}</h1>
 <div class="board">
   <span class="vertical-line-1"></span>
@@ -309,7 +309,7 @@ Now if you load up the game, you should be able to click through each tile, mark
 
 First, we'll jump back down to our `setup` function to add the logic for calculating a winner. I borrowed the majority of the below function straight from the [React Docs](https://reactjs.org/tutorial/tutorial.html#declaring-a-winner), with some modifications to Vue-ify it.
 
-```js{codeTitle: Board.vue}
+```javascript
 const calculateWinner = computed(() => {
   const lines = [
     [0, 1, 2],
@@ -348,7 +348,7 @@ So a few things are happening here:
 
 Let's remember to declare this in our `return` object so we can use this computed function in the output.
 
-```js{5}
+```javascript
 return {
   board,
   playerValue,
@@ -359,7 +359,7 @@ return {
 
 Now we can reference this in our template to both disable all remaining squares on the board, and show a message to the user if a winner has been declared or if there is a tie.
 
-```html{1-5, 17}
+```html
 <header v-if="calculateWinner" class="header">
   <h1>
     {{ calculateWinner }}
@@ -387,7 +387,7 @@ That's it! The game is complete! We can add a little polish though. How about a 
 
 First let's add the reset button, as well as a the accompanying logic.
 
-```html{5}{codeTitle: Board.vue}
+```html
 <header v-if="calculateWinner" class="header">
   <h1>
     {{ calculateWinner }}
@@ -410,7 +410,7 @@ First let's add the reset button, as well as a the accompanying logic.
 </div>
 ```
 
-```js{1-4, 10}
+```javascript
 const reset = () => {
   board.value = Array(9).fill(null);
   playerValue.value = "X";
@@ -430,7 +430,7 @@ As for the confetti, we'll use a small library from npm, [dom-confetti](https://
 
 Install it via `npm i dom-confetti`, and then in `Board.vue` we can import it like so
 
-```js
+```javascript
 import { confetti } from "../../node_modules/dom-confetti/src/main.js";
 ```
 
@@ -438,7 +438,7 @@ import { confetti } from "../../node_modules/dom-confetti/src/main.js";
 
 The `confetti` function takes a DOM element as it's parameter, so we'll add an element to our template just for this
 
-```html{8}
+```html
 <header v-if="calculateWinner" class="header">
   <h1>
     {{ calculateWinner }}
@@ -463,7 +463,7 @@ The `confetti` function takes a DOM element as it's parameter, so we'll add an e
 
 Now in the `setup` function, we'll declare a `ref` that points at this DOM node, and then in the `calculateWinner` computed property, we'll call `confetti` if there is a winner, passing in our `boardRef` as the origin of the confetti.
 
-```js{1,25,37}
+```javascript
 setup() {
     const boardRef = ref(null)
 

@@ -117,7 +117,7 @@ Now if we refactor all our angular components to this syntax, we can simplify ho
 
 now in our `index.js` file, we can register our components like so:
 
-```js{codeTitle: index.js}
+```javascript
 // first mass import all the components
 import * as components from './components/*.js';
 
@@ -145,7 +145,7 @@ Thankfully, I discovered the codepen mentioned earlier in the article that showc
 
 Calm down, I'm getting there.
 
-```js{codeTitle: login.js}
+```javascript
 import Login from './Login.vue'
 
 export default {
