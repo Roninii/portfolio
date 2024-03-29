@@ -150,6 +150,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"introducing-the-web-idea-forge.md": {
+	id: "introducing-the-web-idea-forge.md";
+  slug: "introducing-the-web-idea-forge";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "rebuilding-my-personal-site-with-gridsome.md": {
 	id: "rebuilding-my-personal-site-with-gridsome.md";
   slug: "rebuilding-my-personal-site-with-gridsome";

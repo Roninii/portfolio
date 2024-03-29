@@ -4,7 +4,7 @@ import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
 
 const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 
 const showNewBadge = (date: Date) => {
@@ -17,7 +17,7 @@ const showNewBadge = (date: Date) => {
 
 <BaseLayout>
   <section class="max-w-screen-md mx-auto px-4">
-    <header class="mt-8">
+    <header class="my-8 mb-6">
       <h1
         class="uppercase text-ronini-purple-700 dark:text-turquoise-500 text-3xl"
       >
