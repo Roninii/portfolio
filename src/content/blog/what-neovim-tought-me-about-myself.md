@@ -31,6 +31,8 @@ It's weird to title a section "enjoyment" a few paragraphs after talking about j
 
 > This section is going to be very specific to me, my experience, and my own personal growth. If you're not interested in that, feel free to stop here. I really hope you give Vim a shot though, and if you do, please let me know how it goes for you!
 
+<img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExYThycjI5NWNkbWljYjI3ZDl1cjgzNHFqdnY5Ym80a25mMm9jY3I3cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0MYEwUrE0ei2BAGc/giphy.gif" alt="A man with a skull reciting the famous 'to be or not to be' line by shakespeare." class="small-img my-8"/>
+
 So, before I speak about what I learned about myself, I want to share how I even got started on this path.
 
 A former manager, mentor, and now good friend of mine whom you may know as [Dreams of Code](https://www.youtube.com/@dreamsofcode), absolutely blew me away when I used to pair with him. When I started to grow interested in learning, I had a few conversations with him about it and he suggested Vim Adventures. I played through the first few levels, but it wasn't really clicking for me. I was mildly interested at best. I did change the arrow keys on my keyboard to be on a layer under `h,j,k,l` as opposed to the `i,j,k,l` that I had been using, but that was about as far as I got for several months after.
@@ -50,6 +52,8 @@ At the end of the above mentioned course, there was a section on Neovim, and in 
 In my case, this couldn't have been further from the truth. In fact, this was the first time I almost gave up on vim all together. LazyVim is actually great. It has so many useful plugins, lots of great defaults, and it saves you lots of time on configuring Neovim. For me though, it was so incredibly *overwhelming*. There was just so much, and if I wanted to change something, I was totally lost on where to go to change it. I think LazyVim actually does a good job of documenting things, but as my first experience with Neovim, a lot of it just simply didn't make sense to me.
 
 ### Kickstart
+
+<img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2drOGh0MjdidDh3d2k0YTM3MXFmeWk2YmlodG1nZ3N0b2F6ZTg2ayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5hmmIVqBr9GJXxiikr/giphy.gif" alt="A man kickstarting a motorcycle." class="small-img my-8"/>
 
 So I backed out and moved back to going back and forth between Zed and VSC for a week or so. Then I remembered I had seen [a video by TJ](https://www.youtube.com/watch?v=m8C0Cq9Uv9o) on [Kickstart](https://github.com/nvim-lua/kickstart.nvim), a more minimal **launch point** for your Neovim config. This resonated more with me and how I learn. 
 
@@ -76,6 +80,9 @@ Some frustration, mild panic, and a few minutes (hours) of frantic googling late
 I fixed my issue, and was able to finish my workday without more hiccups, but at this point I was beginning to question everything. Why was I bothering to learn Vim. I had learned the motions, but I was also *very* competent with VS Code's keybindings and was still very fast ... just not as efficient. Did it matter? Did I ever even stop to ask myself _why_ I was doing this? Did I really want to move to a tool that was going to end up requiring this level of frustration?
 
 ### Difficulty Is Fun
+
+
+<img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExYm5lOG10d3loMzV5eDh5a2ppNDd5dGtmMGlqamtsMDgwcTZzeTI4aiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l49JKCSoloVTGjmWQ/giphy.gif" alt="A knight warming his hands by the famous infamous bon fire made famous by the video game series Dark Souls" class="small-img my-8"/>
 
 This is it. This was the thing that Neovim *really* taught me about myself. Yeah, it taught me that learning you tools is important. It taught me that stopping to question whether or not you really need all those extensions or whether all those different buttons, icons, and notifications in my editor were even important. 
 
