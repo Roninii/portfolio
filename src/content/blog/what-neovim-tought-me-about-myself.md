@@ -2,7 +2,7 @@
 title: "What Neovim taught me about myself"
 description: "A reflection on my experience learning Neovim and what I learned about myself in the process."
 pubDate: "2024-04-06"
-heroImage: /neovim.png
+heroImage: /nvim.png
 ---
 
 > Before we get started, I'm going to say "Vim" a lot in this article. My experience has actually been with Neovim, but most, if not all, of what I have to say here will be applicable to either.
