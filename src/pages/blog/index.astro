@@ -35,10 +35,10 @@ const showNewBadge = (date: Date) => {
             <li class="mt-2 transition-transform duration-300 ease-out transform hover:translate-x-1 focus-within:translate-x-1">
               <a
                 href={`/blog/${post.slug}/`}
-                class="flex gap-2 items-baseline group"
+                class="flex gap-2 items-center group"
               >
                 {showNewBadge(post.data.pubDate) && (
-                  <span class="text-xs bg-ronini-purple-700 dark:bg-turquoise-500 text-gray-100 px-2 py-1 rounded">
+                  <span class="text-xs bg-ronini-purple-700 border border-ronini-purple-700 dark:bg-rosePine-surface dark:border-turquoise-500 text-gray-100 px-2 py-1 rounded">
                     New
                   </span>
                 )}
