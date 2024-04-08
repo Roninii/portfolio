@@ -1,7 +1,7 @@
 ---
 title: "What Neovim taught me about myself"
 description: "A reflection on my experience learning Neovim and what I learned about myself in the process."
-pubDate: "2024-04-06"
+pubDate: "2024-04-08"
 heroImage: /nvim.png
 ---
 
