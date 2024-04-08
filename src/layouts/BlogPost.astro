@@ -7,14 +7,19 @@ import FormattedDate from "../components/FormattedDate.astro";
 import ContactLinks from "../components/ContactLinks.astro";
 import { Image } from "astro:assets";
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = Pick<CollectionEntry<"blog">, "slug" | "data">;
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { slug, data } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage } = data ?? {};
 ---
 
 <html lang="en">
   <head>
-    <BaseHead title={title} description={description} />
+    <BaseHead
+      title={title}
+      description={description}
+      image={`/og/${slug}.png`}
+    />
     <style is:global>
       .post-content {
         @apply leading-6;
